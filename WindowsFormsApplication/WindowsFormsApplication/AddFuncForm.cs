@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApplication
 {
-    public partial class NewUserLevelForm : Form
+    public partial class AddFuncForm : Form
     {
-        public NewUserLevelForm()
+        public AddFuncForm()
         {
             InitializeComponent();
         }

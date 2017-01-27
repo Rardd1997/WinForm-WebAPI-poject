@@ -3,14 +3,14 @@
     partial class MainForm
     {
         /// <summary>
-        /// Обязательная переменная конструктора.
+        /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        /// Освободить все используемые ресурсы.
+        /// Clean up any resources being used.
         /// </summary>
-        /// <param name="disposing">истинно, если управляемый ресурс должен быть удален; иначе ложно.</param>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -20,399 +20,361 @@
             base.Dispose(disposing);
         }
 
-        #region Код, автоматически созданный конструктором форм Windows
+        #region Windows Form Designer generated code
 
         /// <summary>
-        /// Требуемый метод для поддержки конструктора — не изменяйте 
-        /// содержимое этого метода с помощью редактора кода.
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
-            this.MainTabControl = new System.Windows.Forms.TabControl();
-            this.OverviewTabPage = new System.Windows.Forms.TabPage();
-            this.AddNewUserTabPage = new System.Windows.Forms.TabPage();
-            this.dataGridViewUserList = new System.Windows.Forms.DataGridView();
+            this.tabControlMain = new System.Windows.Forms.TabControl();
+            this.tabPageUser = new System.Windows.Forms.TabPage();
             this.buttonAddUser = new System.Windows.Forms.Button();
-            this.buttonAddUserLevel = new System.Windows.Forms.Button();
-            this.buttonFind = new System.Windows.Forms.Button();
-            this.textBoxFind = new System.Windows.Forms.TextBox();
+            this.buttonViewUser = new System.Windows.Forms.Button();
+            this.textBoxSearch = new System.Windows.Forms.TextBox();
+            this.buttonSearch = new System.Windows.Forms.Button();
+            this.dataGridViewUserList = new System.Windows.Forms.DataGridView();
+            this.tabPageUserLevel = new System.Windows.Forms.TabPage();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.labelFirstName = new System.Windows.Forms.Label();
-            this.labelSecondName = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
+            this.buttonAddUserLevelList = new System.Windows.Forms.Button();
+            this.buttonView = new System.Windows.Forms.Button();
+            this.dataGridViewUserLevel = new System.Windows.Forms.DataGridView();
+            this.tabPageUserLevelFunc = new System.Windows.Forms.TabPage();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.labelSurname = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.labelUserLevel = new System.Windows.Forms.Label();
-            this.comboBoxUserLevel = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBoxLogin = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBoxPassword = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBoxEmail = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.firstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.secondName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.surname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.userLevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.buttonSave = new System.Windows.Forms.Button();
-            this.buttonRestore = new System.Windows.Forms.Button();
-            this.MainTabControl.SuspendLayout();
-            this.OverviewTabPage.SuspendLayout();
-            this.AddNewUserTabPage.SuspendLayout();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.RecordRef = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FuncCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FuncName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UserLevelName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UserLevelDesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UserLevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LastUpdated = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LastAccessed = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabControlMain.SuspendLayout();
+            this.tabPageUser.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUserList)).BeginInit();
+            this.tabPageUserLevel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUserLevel)).BeginInit();
+            this.tabPageUserLevelFunc.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // MainTabControl
+            // tabControlMain
             // 
-            this.MainTabControl.Controls.Add(this.OverviewTabPage);
-            this.MainTabControl.Controls.Add(this.AddNewUserTabPage);
-            this.MainTabControl.Location = new System.Drawing.Point(0, -2);
-            this.MainTabControl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.MainTabControl.Name = "MainTabControl";
-            this.MainTabControl.SelectedIndex = 0;
-            this.MainTabControl.Size = new System.Drawing.Size(731, 421);
-            this.MainTabControl.TabIndex = 0;
+            this.tabControlMain.Controls.Add(this.tabPageUser);
+            this.tabControlMain.Controls.Add(this.tabPageUserLevel);
+            this.tabControlMain.Controls.Add(this.tabPageUserLevelFunc);
+            this.tabControlMain.Location = new System.Drawing.Point(-2, -4);
+            this.tabControlMain.Name = "tabControlMain";
+            this.tabControlMain.SelectedIndex = 0;
+            this.tabControlMain.Size = new System.Drawing.Size(617, 307);
+            this.tabControlMain.TabIndex = 0;
             // 
-            // OverviewTabPage
+            // tabPageUser
             // 
-            this.OverviewTabPage.Controls.Add(this.textBoxFind);
-            this.OverviewTabPage.Controls.Add(this.buttonFind);
-            this.OverviewTabPage.Controls.Add(this.buttonAddUserLevel);
-            this.OverviewTabPage.Controls.Add(this.buttonAddUser);
-            this.OverviewTabPage.Controls.Add(this.dataGridViewUserList);
-            this.OverviewTabPage.Location = new System.Drawing.Point(4, 25);
-            this.OverviewTabPage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.OverviewTabPage.Name = "OverviewTabPage";
-            this.OverviewTabPage.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.OverviewTabPage.Size = new System.Drawing.Size(723, 392);
-            this.OverviewTabPage.TabIndex = 0;
-            this.OverviewTabPage.Text = "Overview";
-            this.OverviewTabPage.UseVisualStyleBackColor = true;
+            this.tabPageUser.Controls.Add(this.buttonAddUser);
+            this.tabPageUser.Controls.Add(this.buttonViewUser);
+            this.tabPageUser.Controls.Add(this.textBoxSearch);
+            this.tabPageUser.Controls.Add(this.buttonSearch);
+            this.tabPageUser.Controls.Add(this.dataGridViewUserList);
+            this.tabPageUser.Location = new System.Drawing.Point(4, 24);
+            this.tabPageUser.Name = "tabPageUser";
+            this.tabPageUser.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageUser.Size = new System.Drawing.Size(609, 279);
+            this.tabPageUser.TabIndex = 0;
+            this.tabPageUser.Text = "User";
+            this.tabPageUser.UseVisualStyleBackColor = true;
             // 
-            // AddNewUserTabPage
+            // buttonAddUser
             // 
-            this.AddNewUserTabPage.Controls.Add(this.buttonRestore);
-            this.AddNewUserTabPage.Controls.Add(this.buttonSave);
-            this.AddNewUserTabPage.Controls.Add(this.label5);
-            this.AddNewUserTabPage.Controls.Add(this.label3);
-            this.AddNewUserTabPage.Controls.Add(this.textBoxEmail);
-            this.AddNewUserTabPage.Controls.Add(this.label2);
-            this.AddNewUserTabPage.Controls.Add(this.textBoxPassword);
-            this.AddNewUserTabPage.Controls.Add(this.label1);
-            this.AddNewUserTabPage.Controls.Add(this.textBoxLogin);
-            this.AddNewUserTabPage.Controls.Add(this.comboBoxUserLevel);
-            this.AddNewUserTabPage.Controls.Add(this.labelUserLevel);
-            this.AddNewUserTabPage.Controls.Add(this.labelSurname);
-            this.AddNewUserTabPage.Controls.Add(this.textBox3);
-            this.AddNewUserTabPage.Controls.Add(this.labelSecondName);
-            this.AddNewUserTabPage.Controls.Add(this.textBox2);
-            this.AddNewUserTabPage.Controls.Add(this.labelFirstName);
-            this.AddNewUserTabPage.Controls.Add(this.textBox1);
-            this.AddNewUserTabPage.Location = new System.Drawing.Point(4, 25);
-            this.AddNewUserTabPage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.AddNewUserTabPage.Name = "AddNewUserTabPage";
-            this.AddNewUserTabPage.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.AddNewUserTabPage.Size = new System.Drawing.Size(723, 392);
-            this.AddNewUserTabPage.TabIndex = 1;
-            this.AddNewUserTabPage.Text = "Manage";
-            this.AddNewUserTabPage.UseVisualStyleBackColor = true;
+            this.buttonAddUser.Location = new System.Drawing.Point(102, 6);
+            this.buttonAddUser.Name = "buttonAddUser";
+            this.buttonAddUser.Size = new System.Drawing.Size(90, 30);
+            this.buttonAddUser.TabIndex = 4;
+            this.buttonAddUser.Text = "Add";
+            this.buttonAddUser.UseVisualStyleBackColor = true;
+            // 
+            // buttonViewUser
+            // 
+            this.buttonViewUser.Location = new System.Drawing.Point(6, 6);
+            this.buttonViewUser.Name = "buttonViewUser";
+            this.buttonViewUser.Size = new System.Drawing.Size(90, 30);
+            this.buttonViewUser.TabIndex = 3;
+            this.buttonViewUser.Text = "View";
+            this.buttonViewUser.UseVisualStyleBackColor = true;
+            // 
+            // textBoxSearch
+            // 
+            this.textBoxSearch.Location = new System.Drawing.Point(357, 6);
+            this.textBoxSearch.Multiline = true;
+            this.textBoxSearch.Name = "textBoxSearch";
+            this.textBoxSearch.Size = new System.Drawing.Size(150, 30);
+            this.textBoxSearch.TabIndex = 2;
+            // 
+            // buttonSearch
+            // 
+            this.buttonSearch.Location = new System.Drawing.Point(513, 6);
+            this.buttonSearch.Name = "buttonSearch";
+            this.buttonSearch.Size = new System.Drawing.Size(90, 30);
+            this.buttonSearch.TabIndex = 1;
+            this.buttonSearch.Text = "Find";
+            this.buttonSearch.UseVisualStyleBackColor = true;
             // 
             // dataGridViewUserList
             // 
             this.dataGridViewUserList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewUserList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.firstName,
-            this.secondName,
-            this.surname,
-            this.userLevel});
-            this.dataGridViewUserList.Location = new System.Drawing.Point(4, 62);
-            this.dataGridViewUserList.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.id,
+            this.FirstName,
+            this.LastName,
+            this.Status,
+            this.UserLevel,
+            this.LastUpdated,
+            this.LastAccessed});
+            this.dataGridViewUserList.Location = new System.Drawing.Point(6, 42);
             this.dataGridViewUserList.Name = "dataGridViewUserList";
-            this.dataGridViewUserList.Size = new System.Drawing.Size(716, 336);
+            this.dataGridViewUserList.Size = new System.Drawing.Size(597, 234);
             this.dataGridViewUserList.TabIndex = 0;
             // 
-            // buttonAddUser
+            // tabPageUserLevel
             // 
-            this.buttonAddUser.Location = new System.Drawing.Point(4, 7);
-            this.buttonAddUser.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.buttonAddUser.Name = "buttonAddUser";
-            this.buttonAddUser.Size = new System.Drawing.Size(137, 47);
-            this.buttonAddUser.TabIndex = 1;
-            this.buttonAddUser.Text = "Add new user";
-            this.buttonAddUser.UseVisualStyleBackColor = true;
-            // 
-            // buttonAddUserLevel
-            // 
-            this.buttonAddUserLevel.Location = new System.Drawing.Point(149, 7);
-            this.buttonAddUserLevel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.buttonAddUserLevel.Name = "buttonAddUserLevel";
-            this.buttonAddUserLevel.Size = new System.Drawing.Size(137, 47);
-            this.buttonAddUserLevel.TabIndex = 2;
-            this.buttonAddUserLevel.Text = "Add new user level";
-            this.buttonAddUserLevel.UseVisualStyleBackColor = true;
-            // 
-            // buttonFind
-            // 
-            this.buttonFind.Location = new System.Drawing.Point(583, 8);
-            this.buttonFind.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.buttonFind.Name = "buttonFind";
-            this.buttonFind.Size = new System.Drawing.Size(137, 47);
-            this.buttonFind.TabIndex = 3;
-            this.buttonFind.Text = "Find";
-            this.buttonFind.UseVisualStyleBackColor = true;
-            // 
-            // textBoxFind
-            // 
-            this.textBoxFind.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBoxFind.Location = new System.Drawing.Point(296, 8);
-            this.textBoxFind.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textBoxFind.Multiline = true;
-            this.textBoxFind.Name = "textBoxFind";
-            this.textBoxFind.Size = new System.Drawing.Size(277, 46);
-            this.textBoxFind.TabIndex = 5;
+            this.tabPageUserLevel.Controls.Add(this.textBox1);
+            this.tabPageUserLevel.Controls.Add(this.button3);
+            this.tabPageUserLevel.Controls.Add(this.buttonAddUserLevelList);
+            this.tabPageUserLevel.Controls.Add(this.buttonView);
+            this.tabPageUserLevel.Controls.Add(this.dataGridViewUserLevel);
+            this.tabPageUserLevel.Location = new System.Drawing.Point(4, 24);
+            this.tabPageUserLevel.Name = "tabPageUserLevel";
+            this.tabPageUserLevel.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageUserLevel.Size = new System.Drawing.Size(609, 279);
+            this.tabPageUserLevel.TabIndex = 1;
+            this.tabPageUserLevel.Text = "UserLevel";
+            this.tabPageUserLevel.UseVisualStyleBackColor = true;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(149, 25);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox1.Location = new System.Drawing.Point(357, 6);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(216, 43);
-            this.textBox1.TabIndex = 0;
+            this.textBox1.Size = new System.Drawing.Size(150, 30);
+            this.textBox1.TabIndex = 11;
             // 
-            // labelFirstName
+            // button3
             // 
-            this.labelFirstName.AutoSize = true;
-            this.labelFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelFirstName.Location = new System.Drawing.Point(32, 37);
-            this.labelFirstName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labelFirstName.Name = "labelFirstName";
-            this.labelFirstName.Size = new System.Drawing.Size(87, 17);
-            this.labelFirstName.TabIndex = 1;
-            this.labelFirstName.Text = "First name* :";
+            this.button3.Location = new System.Drawing.Point(513, 6);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(90, 30);
+            this.button3.TabIndex = 10;
+            this.button3.Text = "Find";
+            this.button3.UseVisualStyleBackColor = true;
             // 
-            // labelSecondName
+            // buttonAddUserLevelList
             // 
-            this.labelSecondName.AutoSize = true;
-            this.labelSecondName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelSecondName.Location = new System.Drawing.Point(16, 103);
-            this.labelSecondName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labelSecondName.Name = "labelSecondName";
-            this.labelSecondName.Size = new System.Drawing.Size(103, 17);
-            this.labelSecondName.TabIndex = 3;
-            this.labelSecondName.Text = "Second name :";
+            this.buttonAddUserLevelList.Location = new System.Drawing.Point(102, 6);
+            this.buttonAddUserLevelList.Name = "buttonAddUserLevelList";
+            this.buttonAddUserLevelList.Size = new System.Drawing.Size(90, 30);
+            this.buttonAddUserLevelList.TabIndex = 8;
+            this.buttonAddUserLevelList.Text = "Add";
+            this.buttonAddUserLevelList.UseVisualStyleBackColor = true;
+            // 
+            // buttonView
+            // 
+            this.buttonView.Location = new System.Drawing.Point(6, 6);
+            this.buttonView.Name = "buttonView";
+            this.buttonView.Size = new System.Drawing.Size(90, 30);
+            this.buttonView.TabIndex = 3;
+            this.buttonView.Text = "View";
+            this.buttonView.UseVisualStyleBackColor = true;
+            // 
+            // dataGridViewUserLevel
+            // 
+            this.dataGridViewUserLevel.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewUserLevel.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.UserLevelName,
+            this.UserLevelDesc});
+            this.dataGridViewUserLevel.Location = new System.Drawing.Point(6, 42);
+            this.dataGridViewUserLevel.Name = "dataGridViewUserLevel";
+            this.dataGridViewUserLevel.Size = new System.Drawing.Size(597, 234);
+            this.dataGridViewUserLevel.TabIndex = 2;
+            // 
+            // tabPageUserLevelFunc
+            // 
+            this.tabPageUserLevelFunc.Controls.Add(this.textBox2);
+            this.tabPageUserLevelFunc.Controls.Add(this.button4);
+            this.tabPageUserLevelFunc.Controls.Add(this.button2);
+            this.tabPageUserLevelFunc.Controls.Add(this.dataGridView1);
+            this.tabPageUserLevelFunc.Location = new System.Drawing.Point(4, 24);
+            this.tabPageUserLevelFunc.Name = "tabPageUserLevelFunc";
+            this.tabPageUserLevelFunc.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageUserLevelFunc.Size = new System.Drawing.Size(609, 279);
+            this.tabPageUserLevelFunc.TabIndex = 2;
+            this.tabPageUserLevelFunc.Text = "UserLevelAccess";
+            this.tabPageUserLevelFunc.UseVisualStyleBackColor = true;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(149, 95);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox2.Location = new System.Drawing.Point(357, 6);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(216, 43);
-            this.textBox2.TabIndex = 2;
+            this.textBox2.Size = new System.Drawing.Size(150, 30);
+            this.textBox2.TabIndex = 20;
             // 
-            // labelSurname
+            // button4
             // 
-            this.labelSurname.AutoSize = true;
-            this.labelSurname.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelSurname.Location = new System.Drawing.Point(46, 167);
-            this.labelSurname.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labelSurname.Name = "labelSurname";
-            this.labelSurname.Size = new System.Drawing.Size(73, 17);
-            this.labelSurname.TabIndex = 5;
-            this.labelSurname.Text = "Surname :";
+            this.button4.Location = new System.Drawing.Point(513, 6);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(90, 30);
+            this.button4.TabIndex = 19;
+            this.button4.Text = "Find";
+            this.button4.UseVisualStyleBackColor = true;
             // 
-            // textBox3
+            // button2
             // 
-            this.textBox3.Location = new System.Drawing.Point(149, 164);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(216, 43);
-            this.textBox3.TabIndex = 4;
+            this.button2.Location = new System.Drawing.Point(6, 6);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(90, 30);
+            this.button2.TabIndex = 17;
+            this.button2.Text = "Add";
+            this.button2.UseVisualStyleBackColor = true;
             // 
-            // labelUserLevel
+            // dataGridView1
             // 
-            this.labelUserLevel.AutoSize = true;
-            this.labelUserLevel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelUserLevel.Location = new System.Drawing.Point(35, 232);
-            this.labelUserLevel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labelUserLevel.Name = "labelUserLevel";
-            this.labelUserLevel.Size = new System.Drawing.Size(84, 17);
-            this.labelUserLevel.TabIndex = 7;
-            this.labelUserLevel.Text = "User level* :";
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.RecordRef,
+            this.FuncCode,
+            this.FuncName});
+            this.dataGridView1.Location = new System.Drawing.Point(6, 42);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(597, 234);
+            this.dataGridView1.TabIndex = 13;
             // 
-            // comboBoxUserLevel
+            // RecordRef
             // 
-            this.comboBoxUserLevel.FormattingEnabled = true;
-            this.comboBoxUserLevel.IntegralHeight = false;
-            this.comboBoxUserLevel.ItemHeight = 16;
-            this.comboBoxUserLevel.Location = new System.Drawing.Point(149, 232);
-            this.comboBoxUserLevel.Name = "comboBoxUserLevel";
-            this.comboBoxUserLevel.Size = new System.Drawing.Size(216, 24);
-            this.comboBoxUserLevel.TabIndex = 8;
+            this.RecordRef.HeaderText = "RecordRef";
+            this.RecordRef.Name = "RecordRef";
+            this.RecordRef.ReadOnly = true;
             // 
-            // label1
+            // FuncCode
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(533, 75);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(48, 17);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "Login*";
+            this.FuncCode.HeaderText = "Function code";
+            this.FuncCode.Name = "FuncCode";
+            this.FuncCode.ReadOnly = true;
             // 
-            // textBoxLogin
+            // FuncName
             // 
-            this.textBoxLogin.Location = new System.Drawing.Point(447, 96);
-            this.textBoxLogin.Margin = new System.Windows.Forms.Padding(4);
-            this.textBoxLogin.Multiline = true;
-            this.textBoxLogin.Name = "textBoxLogin";
-            this.textBoxLogin.Size = new System.Drawing.Size(216, 43);
-            this.textBoxLogin.TabIndex = 9;
+            this.FuncName.HeaderText = "FunctionName";
+            this.FuncName.Name = "FuncName";
+            this.FuncName.ReadOnly = true;
             // 
-            // label2
+            // UserLevelName
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(521, 164);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(74, 17);
-            this.label2.TabIndex = 12;
-            this.label2.Text = "Password*";
+            this.UserLevelName.HeaderText = "User level";
+            this.UserLevelName.Name = "UserLevelName";
             // 
-            // textBoxPassword
+            // UserLevelDesc
             // 
-            this.textBoxPassword.Location = new System.Drawing.Point(447, 185);
-            this.textBoxPassword.Margin = new System.Windows.Forms.Padding(4);
-            this.textBoxPassword.Multiline = true;
-            this.textBoxPassword.Name = "textBoxPassword";
-            this.textBoxPassword.Size = new System.Drawing.Size(216, 43);
-            this.textBoxPassword.TabIndex = 11;
+            this.UserLevelDesc.HeaderText = "Description";
+            this.UserLevelDesc.Name = "UserLevelDesc";
             // 
-            // label3
+            // id
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(64, 314);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(55, 17);
-            this.label3.TabIndex = 14;
-            this.label3.Text = "Email* :";
+            this.id.HeaderText = "ID";
+            this.id.Name = "id";
             // 
-            // textBoxEmail
+            // FirstName
             // 
-            this.textBoxEmail.Location = new System.Drawing.Point(149, 302);
-            this.textBoxEmail.Margin = new System.Windows.Forms.Padding(4);
-            this.textBoxEmail.Multiline = true;
-            this.textBoxEmail.Name = "textBoxEmail";
-            this.textBoxEmail.Size = new System.Drawing.Size(216, 43);
-            this.textBoxEmail.TabIndex = 13;
+            this.FirstName.HeaderText = "First name";
+            this.FirstName.Name = "FirstName";
             // 
-            // label5
+            // LastName
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(8, 371);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(130, 17);
-            this.label5.TabIndex = 16;
-            this.label5.Text = "* - mandatory fields";
+            this.LastName.HeaderText = "Last name";
+            this.LastName.Name = "LastName";
             // 
-            // firstName
+            // Status
             // 
-            this.firstName.HeaderText = "First name";
-            this.firstName.Name = "firstName";
+            this.Status.HeaderText = "Status";
+            this.Status.Name = "Status";
             // 
-            // secondName
+            // UserLevel
             // 
-            this.secondName.HeaderText = "Second name";
-            this.secondName.Name = "secondName";
+            this.UserLevel.HeaderText = "User level";
+            this.UserLevel.Name = "UserLevel";
             // 
-            // surname
+            // LastUpdated
             // 
-            this.surname.HeaderText = "Surname";
-            this.surname.Name = "surname";
+            this.LastUpdated.HeaderText = "Last updated";
+            this.LastUpdated.Name = "LastUpdated";
             // 
-            // userLevel
+            // LastAccessed
             // 
-            this.userLevel.HeaderText = "User Level";
-            this.userLevel.Name = "userLevel";
-            // 
-            // buttonSave
-            // 
-            this.buttonSave.Location = new System.Drawing.Point(574, 337);
-            this.buttonSave.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(137, 47);
-            this.buttonSave.TabIndex = 17;
-            this.buttonSave.Text = "Save";
-            this.buttonSave.UseVisualStyleBackColor = true;
-            // 
-            // buttonRestore
-            // 
-            this.buttonRestore.Location = new System.Drawing.Point(429, 337);
-            this.buttonRestore.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonRestore.Name = "buttonRestore";
-            this.buttonRestore.Size = new System.Drawing.Size(137, 47);
-            this.buttonRestore.TabIndex = 18;
-            this.buttonRestore.Text = "Restore";
-            this.buttonRestore.UseVisualStyleBackColor = true;
+            this.LastAccessed.HeaderText = "Last accessed";
+            this.LastAccessed.Name = "LastAccessed";
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(728, 423);
-            this.Controls.Add(this.MainTabControl);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ClientSize = new System.Drawing.Size(612, 301);
+            this.Controls.Add(this.tabControlMain);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Name = "MainForm";
-            this.Text = "WinFormProject";
-            this.MainTabControl.ResumeLayout(false);
-            this.OverviewTabPage.ResumeLayout(false);
-            this.OverviewTabPage.PerformLayout();
-            this.AddNewUserTabPage.ResumeLayout(false);
-            this.AddNewUserTabPage.PerformLayout();
+            this.Text = "MainForm";
+            this.tabControlMain.ResumeLayout(false);
+            this.tabPageUser.ResumeLayout(false);
+            this.tabPageUser.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUserList)).EndInit();
+            this.tabPageUserLevel.ResumeLayout(false);
+            this.tabPageUserLevel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUserLevel)).EndInit();
+            this.tabPageUserLevelFunc.ResumeLayout(false);
+            this.tabPageUserLevelFunc.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TabControl MainTabControl;
-        private System.Windows.Forms.TabPage OverviewTabPage;
-        private System.Windows.Forms.TabPage AddNewUserTabPage;
-        private System.Windows.Forms.TextBox textBoxFind;
-        private System.Windows.Forms.Button buttonFind;
-        private System.Windows.Forms.Button buttonAddUserLevel;
+        private System.Windows.Forms.TabControl tabControlMain;
+        private System.Windows.Forms.TabPage tabPageUser;
+        private System.Windows.Forms.TabPage tabPageUserLevel;
+        private System.Windows.Forms.TabPage tabPageUserLevelFunc;
         private System.Windows.Forms.Button buttonAddUser;
+        private System.Windows.Forms.Button buttonViewUser;
+        private System.Windows.Forms.TextBox textBoxSearch;
+        private System.Windows.Forms.Button buttonSearch;
         private System.Windows.Forms.DataGridView dataGridViewUserList;
-        private System.Windows.Forms.Label labelSurname;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label labelSecondName;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label labelFirstName;
+        private System.Windows.Forms.DataGridView dataGridViewUserLevel;
+        private System.Windows.Forms.Button buttonAddUserLevelList;
+        private System.Windows.Forms.Button buttonView;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBoxEmail;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBoxPassword;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBoxLogin;
-        private System.Windows.Forms.ComboBox comboBoxUserLevel;
-        private System.Windows.Forms.Label labelUserLevel;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn firstName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn secondName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn surname;
-        private System.Windows.Forms.DataGridViewTextBoxColumn userLevel;
-        private System.Windows.Forms.Button buttonRestore;
-        private System.Windows.Forms.Button buttonSave;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RecordRef;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FuncCode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FuncName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FirstName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LastName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UserLevel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LastUpdated;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LastAccessed;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UserLevelName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UserLevelDesc;
     }
 }
 
