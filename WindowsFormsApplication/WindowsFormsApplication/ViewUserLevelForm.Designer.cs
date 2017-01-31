@@ -64,6 +64,7 @@
             this.buttonCancel.TabIndex = 23;
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // buttonSave
             // 
@@ -73,6 +74,7 @@
             this.buttonSave.TabIndex = 22;
             this.buttonSave.Text = "Save";
             this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
             // labelUserLevel
             // 
@@ -116,8 +118,9 @@
             this.buttonDelete.TabIndex = 26;
             this.buttonDelete.Text = "Delete";
             this.buttonDelete.UseVisualStyleBackColor = true;
+            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
-            // Form1
+            // ViewUserLevelForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -131,8 +134,9 @@
             this.Controls.Add(this.textBoxUserLevel);
             this.Controls.Add(this.labelDescription);
             this.Controls.Add(this.textBoxDescription);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "ViewUserLevelForm";
+            this.Text = "View user level";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ViewUserLevelForm_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

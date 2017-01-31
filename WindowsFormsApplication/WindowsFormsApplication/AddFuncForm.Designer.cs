@@ -44,6 +44,7 @@
             this.buttonCancel.TabIndex = 33;
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // buttonAdd
             // 
@@ -53,6 +54,7 @@
             this.buttonAdd.TabIndex = 32;
             this.buttonAdd.Text = "Add";
             this.buttonAdd.UseVisualStyleBackColor = true;
+            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
             // labelFuncName
             // 
@@ -101,6 +103,7 @@
             this.Controls.Add(this.textBoxFuncCode);
             this.Name = "AddFuncForm";
             this.Text = "AddFuncForm";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AddFuncForm_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

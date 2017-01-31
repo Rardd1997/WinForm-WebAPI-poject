@@ -46,6 +46,7 @@
             this.buttonAddUserLevel.TabIndex = 13;
             this.buttonAddUserLevel.Text = "Add";
             this.buttonAddUserLevel.UseVisualStyleBackColor = true;
+            this.buttonAddUserLevel.Click += new System.EventHandler(this.buttonAddUserLevel_Click);
             // 
             // labelUserLevel
             // 
@@ -89,6 +90,7 @@
             this.buttonCancel.TabIndex = 14;
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // checkedListBoxUsrLvlAccessList
             // 
@@ -122,6 +124,7 @@
             this.Controls.Add(this.textBoxDescription);
             this.Name = "AddUserLevelForm";
             this.Text = "Add user level";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AddUserLevelForm_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

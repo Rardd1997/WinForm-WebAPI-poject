@@ -12,9 +12,32 @@ namespace WindowsFormsApplication
 {
     public partial class ViewUserForm : Form
     {
+        public event Action CloseForm;
         public ViewUserForm()
         {
             InitializeComponent();
+        }
+
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            CloseForm?.Invoke();
+            Close();
+        }
+
+        private void ViewUserForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            CloseForm?.Invoke();
+        }
+
+        private void buttonSave_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Save button is clicked!");
+        }
+
+        private void buttonDelete_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Delete button is clicked!");
+            Close();
         }
     }
 }

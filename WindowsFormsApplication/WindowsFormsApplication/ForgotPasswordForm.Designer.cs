@@ -58,6 +58,7 @@
             this.buttonSubmit.TabIndex = 34;
             this.buttonSubmit.Text = "Submit";
             this.buttonSubmit.UseVisualStyleBackColor = true;
+            this.buttonSubmit.Click += new System.EventHandler(this.buttonSubmit_Click);
             // 
             // ForgotPasswordForm
             // 
@@ -69,6 +70,7 @@
             this.Controls.Add(this.textBoxEmail);
             this.Name = "ForgotPasswordForm";
             this.Text = "ForgotPasswordForm";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ForgotPasswordForm_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 
