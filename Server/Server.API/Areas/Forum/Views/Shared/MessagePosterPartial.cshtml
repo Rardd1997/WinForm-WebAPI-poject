@@ -1,0 +1,27 @@
+﻿@model mvcForum.Web.ViewModels.MessageViewModel
+@using mvcForum.Web.Helpers;
+<!-- Views/Forum/MessagePosterPartial.cshtml -->
+<div class="postprofile" id="profile@(Model.Position)">
+	<div id="minimize@(Model.Position)" class="post-minimize">
+		<!--<a href="javascript:void(0);" onclick="ca_post_minimize_all(); return false;"><span>
+									&lt;&lt;</span></a>-->
+	</div>
+	<div class="profile-top">
+		<p class="profile-author">
+			@Html.RouteLink(Model.PrettyName, "ShowProfile", new RouteValueDictionary { { "id", Model.AuthorId }, { "name", Model.Author.ToSlug() } }, new Dictionary<String, object> { { "class", "profile-link" }, { "id" , "link" + Model.Position.ToString() }})
+		</p>
+		<!--<div id="popup0" class="profile-buttons">
+								<ul>
+									<li><a href="./memberlist.php?style=250&amp;mode=viewprofile&amp;u=1087">Profile</a></li>
+									<li class="pm-icon"><a href="./ucp.php?style=250&amp;i=pm&amp;mode=compose&amp;action=quotepost&amp;p=848"
+										title="Private message"><span>Private message</span></a></li>
+								</ul>
+							</div>-->
+	</div>
+	<div class="profile-details">
+		<!--							<p><strong>Posts:</strong> </p>-->
+		<p>
+			@ForumHelper.GetHtmlString("ViewMessage.PosterJoined", new { Timestamp = Model.Joined })
+		</p>
+	</div>
+</div>

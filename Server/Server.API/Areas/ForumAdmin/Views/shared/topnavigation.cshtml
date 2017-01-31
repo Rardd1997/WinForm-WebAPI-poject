@@ -1,0 +1,19 @@
+﻿    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand">MVC Forum Admin</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+@foreach (var page in Html.Navigation(Url, "AdminTopNavigation")) {
+				<li @if (page.Selected) {<text> class="active"</text>}>@Html.Link(page.Title, page.URL, page.AdditionalData)</li>
+}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>

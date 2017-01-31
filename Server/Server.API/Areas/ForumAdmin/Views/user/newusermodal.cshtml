@@ -1,0 +1,47 @@
+﻿@model mvcForum.Web.Areas.ForumAPI.ViewModels.ForumUser
+@{
+	String ns = "MVCForum.ForumAdmin.User.Index";
+}
+	<div class="modal hide" data-bind="css: { hide: AddHidden }">
+		<div class="modal-header">
+			<button type="button" class="close" data-bind="click: HideAdd">&times;</button>
+			<h3>@Html.LocalizedString("CreateUserHeading", ns)</h3>
+		</div>
+		<!-- ko with: CreateModal -->
+		<div class="modal-body">
+			@using (Html.BeginForm("create", "user", new { area = "forumadmin", id = Model.Id })) {
+				<fieldset>
+					<legend class="hide"></legend>
+					<div class="control-group" data-bind="css: { error: !Name.isValid() }">
+						@Html.LabelFor(x => x.Name, new { @class = "control-label" })
+						<div class="controls">
+							@Html.TextBoxFor(x => x.Name, new { @class = "input-large", data_bind = "value: Name" })
+						</div>
+					</div>
+					<div class="control-group" data-bind="css: { error: !EmailAddress.isValid() }">
+						@Html.LabelFor(x => x.EmailAddress, new { @class = "control-label" })
+						<div class="controls">
+							@Html.TextBoxFor(x => x.EmailAddress, new { @class = "input-large", data_bind = "value: EmailAddress" })
+						</div>
+					</div>
+					<div class="control-group" data-bind="css: { error: !Password.isValid() }">
+						@Html.LabelFor(x => x.Password, new { @class = "control-label" })
+						<div class="controls">
+							@Html.PasswordFor(x => x.Password, new { @class = "input-large", data_bind = "value: Password" })
+						</div>
+					</div>
+					<div class="control-group" data-bind="css: { error: !RepeatPassword.isValid() }">
+						@Html.LabelFor(x => x.RepeatPassword, new { @class = "control-label" })
+						<div class="controls">
+							@Html.PasswordFor(x => x.RepeatPassword, new { @class = "input-large", data_bind = "value: RepeatPassword" })
+						</div>
+					</div>
+				</fieldset>
+			}
+		</div>
+		<div class="modal-footer">
+			<a href="#" class="btn" data-bind="click: $parent.HideAdd">@Html.LocalizedString("AddUserClose", ns)</a>
+			<a href="#" class="btn btn-primary" data-bind="click: Create">@Html.LocalizedString("AddUserCreate", ns)</a>
+		</div>
+		<!-- /ko -->
+	</div>

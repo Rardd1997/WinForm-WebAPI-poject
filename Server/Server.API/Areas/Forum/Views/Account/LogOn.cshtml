@@ -1,0 +1,123 @@
+﻿@model mvcForum.Web.ViewModels.LogOnModel
+@using mvcForum.Web.Helpers;
+@using SimpleAuthentication.Core.Config;
+@{
+	ViewBag.Title = ForumHelper.GetString("LogOn.Title");
+	Layout = "~/areas/forum/views/shared/forumlayout.cshtml";
+}
+@if (Model.AllowOpenAuthUsers) {
+	<div class="panel" id="postingbox">
+		<div class="block-header">
+			<span><span></span></span>
+		</div>
+		<div class="block-content">
+			<div class="block-inner">
+				<h3>@ForumHelper.GetString("LogOn.Headline2")</h3>
+				<fieldset class="fields1">
+					<dl style="clear: left;">
+						<dt></dt>
+						<dd>
+@foreach (ProviderKey provider in ProviderConfigHelper.UseConfig().Providers) {
+						<a href="~/simpleauthentication/redirecttoprovider?providerName=@provider.Name.ToLowerInvariant()"><img src="@Url.Content("~/content/@(provider.Name).png")" alt="Login with your @provider.Name account."/></a>
+}
+						</dd>
+					</dl>
+				</fieldset>
+			</div>
+		</div>
+	</div>
+}
+@if (Model.AllowLocalUsers) {
+	using (Html.BeginForm()) {
+	<div class="panel" id="postingbox">
+		<div class="block-header">
+			<span><span></span></span>
+		</div>
+		<div class="block-content">
+			<div class="block-inner">
+				<h3>@ForumHelper.GetString("LogOn.Headline")</h3>
+				<fieldset class="fields1">
+@Html.Partial("ModelStateErrors", ViewData.ModelState)
+					<dl style="clear: left;">
+						<dt>@Html.LabelFor(t => t.EmailAddress)</dt>
+						<dd>@Html.TextBoxFor(t => t.EmailAddress, new { @class = "inputbox autowidth", size = 45 })</dd>
+					</dl>
+					<dl style="clear: left;">
+						<dt>@Html.LabelFor(t => t.Password)</dt>
+						<dd>@Html.PasswordFor(t => t.Password, new { @class = "inputbox autowidth", size = 45 })</dd>
+					</dl>
+					<dl style="clear: left;">
+						<dt></dt>
+						<dd><label>@Html.CheckBoxFor(t => t.RememberMe) @ForumHelper.GetString("LogOn.RememberMe")</label></dd>
+					</dl>
+@if (Model.AllowSignUp) {
+					<dl style="clear: left;">
+						<dt></dt>
+						<dd>@ForumHelper.GetHtmlString("LogOn.RegisterText")</dd>
+					</dl>
+}
+				</fieldset>
+			</div>
+		</div>
+	</div>
+
+	<div class="panel bg2">
+		<div class="block-header">
+			<span><span></span></span>
+		</div>
+		<div class="block-content">
+			<div class="block-inner">
+				<fieldset class="submit-buttons">
+					<input type="submit" accesskey="s" tabindex="6" name="post" value="@ForumHelper.GetString("LogOn.Submit")" class="button1 default-submit-action" />&nbsp;
+				</fieldset>
+				<div class="block-clear"></div>
+			</div>
+		</div>
+		<div class="block-footer">
+			<span><span></span></span>
+		</div>
+	</div>
+	}
+
+using (Html.BeginForm("forgottenpassword", "account")) {
+	<div class="panel">
+		<div class="block-header">
+			<span><span></span></span>
+		</div>
+		<div class="block-content">
+			<div class="block-inner">
+				<h3>@ForumHelper.GetString("Headline", null, "mvcForum.Web.ForgottenPassword")</h3>
+				<fieldset class="fields1">
+@if (TempData.ContainsKey("ForgottenStatus")) {
+					<dl style="clear: left;">
+						<dt></dt>
+						<dd>@TempData["ForgottenStatus"]</dd>
+					</dl>
+}
+					<dl style="clear: left;">
+						<dt>@Html.LabelFor(t => t.EmailAddress)</dt>
+						<dd>@Html.TextBoxFor(t => t.EmailAddress, new { @class = "inputbox autowidth", size = 45 })</dd>
+					</dl>
+				</fieldset>
+			</div>
+		</div>
+	</div>
+
+	<div class="panel bg2">
+		<div class="block-header">
+			<span><span></span></span>
+		</div>
+		<div class="block-content">
+			<div class="block-inner">
+				<fieldset class="submit-buttons">
+					<input type="submit" accesskey="s" tabindex="6" name="post" value="@ForumHelper.GetString("SubmitButton", null, "mvcForum.Web.ForgottenPassword")" class="button1 default-submit-action" />&nbsp;
+				</fieldset>
+				<div class="block-clear"></div>
+			</div>
+		</div>
+		<div class="block-footer">
+			<span><span></span></span>
+		</div>
+	</div>
+}
+}

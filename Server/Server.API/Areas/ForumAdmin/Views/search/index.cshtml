@@ -1,0 +1,38 @@
+﻿@model IEnumerable<mvcForum.Web.Interfaces.ISearchConfigurationController>
+@{
+	String ns = "MVCForum.ForumAdmin.Search.Index";
+	ViewBag.Title = Html.LocalizedString("PageTitle", ns);
+	Layout = "~/Areas/ForumAdmin/Views/Shared/adminlayout.cshtml";
+}
+<section id="stats">
+	<div class="row-fluid">
+		<div class="span12">
+			<h2>@Html.LocalizedString("SubHeading", ns)</h2>
+			<table class="table table-bordered table-striped">
+				<thead>
+					<tr>
+						<th>@Html.LocalizedString("ColumnHeadingName", ns)</th>
+						<th>@Html.LocalizedString("ColumnHeadingDescription", ns)</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+@foreach (var searcher in Model) {
+					<tr>
+						<td>@searcher.Name</td>
+						<td>@searcher.Description</td>
+						<td><a class="btn btn-primary" href="@Url.Action("index", searcher.GetType().Name.Substring(0, searcher.GetType().Name.Length - "Controller".Length), new { area = "forumadmin" })">@Html.LocalizedString("EditSearch", ns)</a></td>
+					</tr>
+}
+				</tbody>
+			</table>
+			@using (Html.BeginForm()) {
+				<div class="alert">
+					@Html.LocalizedString("ClearWarning", ns)
+				</div>
+					<input type="hidden" name="index" value="true" />
+				<button type="submit" class="btn btn-primary">@Html.LocalizedString("ResetAction", ns)</button>
+			}
+		</div>
+	</div>
+</section>

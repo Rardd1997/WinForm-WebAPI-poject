@@ -1,0 +1,23 @@
+﻿@using mvcForum.Web.Helpers;
+@{
+	TimeSpan ts = TimezoneHelper.GetTimeZoneInfo().BaseUtcOffset;
+	Double totalOffset = ts.TotalMinutes;
+	Int32 hours = ts.Hours;
+	Int32 minutes = ts.Minutes;
+}
+							<div id="page-footer">
+								<div class="navbar">
+									<div class="block-border block-block">
+										<div class="block-content">
+											<ul class="linklist navlinks">
+												<li class="leftside">@Html.ActionLink("Board index", "Index", "Home", new { area = "Forum" }, null)</li>
+												<li class="rightside">
+											<!--<a href="./memberlist.php?style=39&amp;mode=leaders">The team</a>
+																		| <a href="./ucp.php?style=39&amp;mode=delete_cookies">Delete all board cookies</a>
+																		| -->
+													<span class="timezone">@ForumHelper.GetHtmlString("TimeOffset", new { TotalOffset = totalOffset, OffsetHours = hours, OffsetMinutes = minutes })</span></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>

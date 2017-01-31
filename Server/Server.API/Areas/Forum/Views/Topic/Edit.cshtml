@@ -1,0 +1,61 @@
+﻿@model mvcForum.Web.ViewModels.Update.UpdateTopicViewModel
+@using mvcForum.Web.Helpers;
+@{
+	ViewBag.Title = ForumHelper.GetString("Title", new { Title = Model.Title }, "mvcForum.Web.EditTopic");
+	Layout = "~/areas/forum/views/shared/forumlayout.cshtml";
+}
+@Html.Partial("Breadcrumb", Model.Path)
+<a name="start_here"></a>
+<div id="page-body">
+	<div id="content-start"></div>
+	<h2>@Html.RouteLink(Model.Title, "ShowTopic", new RouteValueDictionary { { "id", Model.Id }, { "title", Model.Title.ToSlug() } })</h2>
+	@using (Html.BeginForm()) {
+		@Html.HiddenFor(x => x.Id)
+	<div class="panel" id="postingbox">
+		<div class="block-border block-block">
+			<div class="block-content">
+				<h3>@ForumHelper.GetString("EditTopic", null, "mvcForum.Web.EditTopic")</h3>
+				<fieldset class="fields1">
+					<dl style="clear: left;">
+						<dt>@Html.LabelFor(x => x.Title)</dt>
+						<dd>@Html.TextBoxFor(x => x.Title, new { @class = "inputbox autowidth", size = "45" })</dd>
+					</dl>
+@*if (Model.IsModerator) {
+					<dl style="clear: left;">
+						<dt>@Html.LabelFor(x => x.Type)</dt>
+						<dd>@Html.DropDownListFor(x => x.Type, ForumHelper.GetTopicTypes(Model.Type), new { @class = "inputbox autowidth" })</dd>
+					</dl>
+					<dl style="clear: left;">
+						<dt>@Html.LabelFor(x => x.Flag)</dt>
+						<dd>@Html.DropDownListFor(x => x.Flag, ForumHelper.GetTopicFlags(Model.Flag), new { @class = "inputbox autowidth"})</dd>
+					</dl>
+					<dl>
+						<dt>@Html.LabelFor(x => x.Reason)</dt>
+						<dd>@Html.TextAreaFor(x => x.Reason, new { @class = "inputbox", rows = 5, cols = 76 })</dd>
+					</dl>
+}*@
+					<dl>
+						<dt>@Html.LabelFor(x => x.Body)</dt>
+						<dd>@Html.Partial(ForumHelper.GetEditorString() + "Editor", String.IsNullOrEmpty(Model.Body) ? "" : Model.Body)</dd>
+					</dl>
+				</fieldset>
+				<div class="block-footer"></div>
+			</div>
+		</div>
+	</div>
+	<div class="panel bg2">
+		<div class="block-border block-block">
+			<div class="block-content">
+				<fieldset class="submit-buttons">
+					<input type="submit" value="@ForumHelper.GetString("Submit", null, "mvcForum.Web.EditTopic")" class="button2" />
+				</fieldset>
+				<div class="block-footer"></div>
+			</div>
+		</div>
+	</div>
+	}
+</div>
+@if (ForumHelper.Debug) {
+<!-- For Selenium Test -->
+<div id="forum_topic_edit" style="display: none;"></div>
+}

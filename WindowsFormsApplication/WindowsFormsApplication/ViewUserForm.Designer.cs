@@ -57,6 +57,7 @@
             this.buttonSave.TabIndex = 44;
             this.buttonSave.Text = "Save";
             this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
             // buttonCancel
             // 
@@ -66,6 +67,7 @@
             this.buttonCancel.TabIndex = 43;
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // labelUserLevel
             // 
@@ -212,6 +214,7 @@
             this.buttonDelete.TabIndex = 47;
             this.buttonDelete.Text = "Delete";
             this.buttonDelete.UseVisualStyleBackColor = true;
+            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
             // ViewUserForm
             // 
@@ -239,6 +242,7 @@
             this.Controls.Add(this.textBoxLastName);
             this.Name = "ViewUserForm";
             this.Text = "ViewUserForm";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ViewUserForm_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

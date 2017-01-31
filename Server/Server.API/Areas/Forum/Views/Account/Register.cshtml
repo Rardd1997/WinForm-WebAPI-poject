@@ -1,0 +1,66 @@
+﻿@model mvcForum.Web.ViewModels.RegisterModel
+@using mvcForum.Web.Helpers;
+@{
+	ViewBag.Title = ForumHelper.GetString("Register.Title");
+	Layout = "~/areas/forum/views/shared/forumlayout.cshtml";
+}
+@using (Html.BeginForm()) {
+	<div class="panel" id="postingbox">
+		<div class="block-header">
+			<span><span></span></span>
+		</div>
+		<div class="block-content">
+			<div class="block-inner">
+				<h3>@ForumHelper.GetString("Register.Headline")</h3>
+				<fieldset class="fields1">
+@if (Model.RequireRulesAccept) {
+					<dl style="clear: left;">
+						<dt></dt>
+						<dd>@Html.Raw(Model.SignUpRules)</dd>
+						<dt></dt>
+						<dd><label>@Html.CheckBoxFor(t => t.RulesAccepted) @ForumHelper.GetString("Register.Accept")</label></dd>
+					</dl>
+}
+@Html.Partial("ModelStateErrors", ViewData.ModelState)
+					<dl style="clear: left;">
+						<dt>@Html.LabelFor(t => t.Username)</dt>
+						<dd>@Html.TextBoxFor(t => t.Username, new { @class = "inputbox autowidth", size = 45 })
+						</dd>
+					</dl>
+					<dl style="clear: left;">
+						<dt>@Html.LabelFor(t => t.EmailAddress)</dt>
+						<dd>@Html.TextBoxFor(t => t.EmailAddress, new { @class = "inputbox autowidth", size = 45 })
+						</dd>
+					</dl>
+					<dl style="clear: left;">
+						<dt>@Html.LabelFor(t => t.Password)</dt>
+						<dd>@Html.PasswordFor(t => t.Password, new { @class = "inputbox autowidth", size = 45 })
+						</dd>
+					</dl>
+					<dl style="clear: left;">
+						<dt>@Html.LabelFor(t => t.ConfirmPassword)</dt>
+						<dd>@Html.PasswordFor(t => t.ConfirmPassword, new { @class = "inputbox autowidth", size = 45 })
+						</dd>
+					</dl>
+				</fieldset>
+			</div>
+		</div>
+	</div>
+
+	<div class="panel bg2">
+		<div class="block-header">
+			<span><span></span></span>
+		</div>
+		<div class="block-content">
+			<div class="block-inner">
+				<fieldset class="submit-buttons">
+					<input type="submit" accesskey="s" tabindex="6" name="post" value="@ForumHelper.GetString("Register.Submit")" class="button1 default-submit-action" />&nbsp;
+				</fieldset>
+				<div class="block-clear"></div>
+			</div>
+		</div>
+		<div class="block-footer">
+			<span><span></span></span>
+		</div>
+	</div>
+}

@@ -1,0 +1,2466 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Localizations>
+
+	<Namespace Name="Navigation.AdminTopNavigation">
+		<Text Key="forumadmin.Home.Index">
+			<Translation Language="en-GB"><![CDATA[Home]]></Translation>
+		</Text>
+		<Text Key="forumadmin.AntiSpam.Index">
+			<Translation Language="en-GB"><![CDATA[Anti-Spam Settings]]></Translation>
+		</Text>
+		<Text Key="forumadmin.User.Index">
+			<Translation Language="en-GB"><![CDATA[Users]]></Translation>
+		</Text>
+		<Text Key="forumadmin.Group.Index">
+			<Translation Language="en-GB"><![CDATA[Groups]]></Translation>
+		</Text>
+		<Text Key="forumadmin.Search.Index">
+			<Translation Language="en-GB"><![CDATA[Search Settings]]></Translation>
+		</Text>
+		<Text Key="forumadmin.Settings.Index">
+			<Translation Language="en-GB"><![CDATA[Solution Settings]]></Translation>
+		</Text>
+	</Namespace>
+
+	<Namespace Name="mvcForum.Web.Events.ModerationEventListener">
+		<Text Key="PostSubject">
+			<Translation Language="en-GB"><![CDATA[A post has been put in quarantine]]></Translation>
+		</Text>
+		<Text Key="PostBody">
+			<Translation Language="en-GB">
+				<![CDATA[The reply to the topic '{Title}' with the subject '{Subject}' was put in quarantine.
+
+Go take a look: {Url}.
+
+The reason given for putting it in quarantine is: {Reason}
+]]></Translation>
+		</Text>
+		<Text Key="TopicSubject">
+			<Translation Language="en-GB"><![CDATA[A topic has been put in quarantine]]></Translation>
+		</Text>
+		<Text Key="TopicBody">
+			<Translation Language="en-GB">
+				<![CDATA[The topic '{Title}' was put in quarantine.
+
+Go take a look: {Url}.
+
+The reason given for putting it in quarantine is: {Reason}
+]]></Translation>
+		</Text>
+	</Namespace>
+
+	<Namespace Name="mvcForum.Web.QuickReply">
+		<Text Key="Message">
+			<Translation Language="en-GB"><![CDATA[Message]]></Translation>
+		</Text>
+	</Namespace>
+
+	<Namespace Name="mvcForum.Web.AttachmentErrors">
+		<Text Key="PermissionsDenied">
+			<Translation Language="en-GB"><![CDATA[You are not allowed to attach files to a post.]]></Translation>
+		</Text>
+		<Text Key="FileTooBig">
+			<Translation Language="en-GB"><![CDATA[The file is too big, the max allowed file size is {MaxFileSize} bytes.]]></Translation>
+		</Text>
+		<Text Key="NotEnoughSpace">
+			<Translation Language="en-GB"><![CDATA[You are only allowed to have attachments for {MaxAttachmentsSize} bytes. With this attachment you exceed that. The file was not attached.]]></Translation>
+		</Text>
+		<Text Key="NotAllowedExtension">
+			<Translation Language="en-GB"><![CDATA[The file type is not allowed.]]></Translation>
+		</Text>
+		<Text Key="Unknown">
+			<Translation Language="en-GB"><![CDATA[Unknown error, files was not attached.]]></Translation>
+		</Text>
+	</Namespace>
+
+	<Namespace Name="mvcForum.Web.ForgottenPassword">
+		<Text Key="PasswordChanged">
+			<Translation Language="en-GB"><![CDATA[Your password has been changed and you will receive an e-mail with your new password shortly.]]></Translation>
+		</Text>
+		<Text Key="Headline">
+			<Translation Language="en-GB"><![CDATA[Forgotten Password]]></Translation>
+		</Text>
+		<Text Key="SubmitButton">
+			<Translation Language="en-GB"><![CDATA[Request new password]]></Translation>
+		</Text>
+	</Namespace>
+	
+	<Namespace Name="mvcForum.WebUI.MembershipErrors">
+		<Text Key="UserRejected">
+			<Translation Language="en-GB"><![CDATA[The user creation request has been canceled. Please verify your entry and try again. If the problem persists, please contact your system administrator.]]></Translation>
+		</Text>
+		<Text Key="ProviderError">
+			<Translation Language="en-GB"><![CDATA[The authentication provider returned an error. Please verify your entry and try again. If the problem persists, please contact your system administrator.]]></Translation>
+		</Text>
+		<Text Key="InvalidUserName">
+			<Translation Language="en-GB"><![CDATA[The user name provided is invalid. Please check the value and try again.]]></Translation>
+		</Text>
+		<Text Key="InvalidQuestion">
+			<Translation Language="en-GB"><![CDATA[The password retrieval question provided is invalid. Please check the value and try again.]]></Translation>
+		</Text>
+		<Text Key="InvalidAnswer">
+			<Translation Language="en-GB"><![CDATA[The password retrieval answer provided is invalid. Please check the value and try again.]]></Translation>
+		</Text>
+		<Text Key="InvalidEmail">
+			<Translation Language="en-GB"><![CDATA[The e-mail address provided is invalid. Please check the value and try again.]]></Translation>
+		</Text>
+		<Text Key="InvalidPassword">
+			<Translation Language="en-GB"><![CDATA[The password provided is invalid. Please enter a valid password value.]]></Translation>
+		</Text>
+		<Text Key="DuplicateEmail">
+			<Translation Language="en-GB"><![CDATA[A user name for that e-mail address already exists. Please enter a different e-mail address.]]></Translation>
+		</Text>
+		<Text Key="DuplicateUserName">
+			<Translation Language="en-GB"><![CDATA[User name already exists. Please enter a different user name.]]></Translation>
+		</Text>
+		<Text Key="Default">
+			<Translation Language="en-GB"><![CDATA[An unknown error occurred. Please verify your entry and try again. If the problem persists, please contact your system administrator.]]></Translation>
+		</Text>
+	</Namespace>
+
+	<Namespace Name="mvcForum.Web.Profile.Update">
+		<Text Key="ExternalUserFirstVisit">
+			<Translation Language="en-GB"><![CDATA[You are using an external account, and this is your first visit. If you're not interested in using the username the external provider has given us, this is your chance to change it.]]></Translation>
+		</Text>
+		<Text Key="MissingUsernameExternalUser">
+			<Translation Language="en-GB"><![CDATA[The name is required]]></Translation>
+		</Text>
+		<Text Key="NameInUseExternalUser">
+			<Translation Language="en-GB"><![CDATA[The name is already in use, please choose another one.]]></Translation>
+		</Text>
+		<Text Key="MissingEmailExternalUser">
+			<Translation Language="en-GB"><![CDATA[The e-mail address is required]]></Translation>
+		</Text>
+		<Text Key="InvalidEmailExternalUser">
+			<Translation Language="en-GB"><![CDATA[The given e-mail address is not valid]]></Translation>
+		</Text>
+		<Text Key="ChangesSaved">
+			<Translation Language="en-GB"><![CDATA[Your profile was updated.]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Din profilen blev opdateret.]]></Translation>
+		</Text>
+		<Text Key="EmailInUse">
+			<Translation Language="en-GB"><![CDATA[The e-mail address is already in use on an existing account.]]></Translation>
+		</Text>
+		<Text Key="EmailChangeMissingPassword">
+			<Translation Language="en-GB"><![CDATA[Your password is required when changing e-mail address!]]></Translation>
+		</Text>
+		<Text Key="PasswordsDoesNotMatch">
+			<Translation Language="en-GB"><![CDATA[The new password does not match the repeated password!]]></Translation>
+		</Text>
+		<Text Key="OldPasswordsRequired">
+			<Translation Language="en-GB"><![CDATA[Your old password is required when changing password!]]></Translation>
+		</Text>
+	</Namespace>
+
+	<Namespace Name="MVCForum.ForumAdmin.Home.Index">
+		<Text Key="PageTitle">
+			<Translation Language="en-GB"><![CDATA[Solution Statistics]]></Translation>
+		</Text>
+		<Text Key="Heading">
+			<Translation Language="en-GB"><![CDATA[Solution]]></Translation>
+		</Text>
+		<Text Key="SubHeading">
+			<Translation Language="en-GB"><![CDATA[Statistics]]></Translation>
+		</Text>
+		<Text Key="NewsSubHeading">
+			<Translation Language="en-GB"><![CDATA[News from MVC Forum HQ]]></Translation>
+		</Text>
+		<Text Key="ReadMore">
+			<Translation Language="en-GB"><![CDATA[Read more...]]></Translation>
+		</Text>
+		<Text Key="By">
+			<Translation Language="en-GB"><![CDATA[by]]></Translation>
+		</Text>
+		<Text Key="PostsPD">
+			<Translation Language="en-GB"><![CDATA[Posts per day:]]></Translation>
+		</Text>
+		<Text Key="NOPosts">
+			<Translation Language="en-GB"><![CDATA[Number of posts:]]></Translation>
+		</Text>
+		<Text Key="TopicsPD">
+			<Translation Language="en-GB"><![CDATA[Topics per day:]]></Translation>
+		</Text>
+		<Text Key="NOTopics">
+			<Translation Language="en-GB"><![CDATA[Number of topics:]]></Translation>
+		</Text>
+		<Text Key="UsersPD">
+			<Translation Language="en-GB"><![CDATA[Users per day:]]></Translation>
+		</Text>
+		<Text Key="NOUsers">
+			<Translation Language="en-GB"><![CDATA[Number of users:]]></Translation>
+		</Text>
+		<Text Key="AttachmentsPD">
+			<Translation Language="en-GB"><![CDATA[Attachments per day:]]></Translation>
+		</Text>
+		<Text Key="NOAttachments">
+			<Translation Language="en-GB"><![CDATA[Number of attachments:]]></Translation>
+		</Text>
+		<Text Key="BoardStart">
+			<Translation Language="en-GB"><![CDATA[Board started:]]></Translation>
+		</Text>
+		<Text Key="AttachmentSize">
+			<Translation Language="en-GB"><![CDATA[Attachments size:]]></Translation>
+		</Text>
+		<Text Key="Version">
+			<Translation Language="en-GB"><![CDATA[Version:]]></Translation>
+		</Text>
+		<Text Key="BoardsSubHeading">
+			<Translation Language="en-GB"><![CDATA[Boards]]></Translation>
+		</Text>
+		<Text Key="ColumnHeadingBoardName">
+			<Translation Language="en-GB"><![CDATA[Board name]]></Translation>
+		</Text>
+		<Text Key="EditBoard">
+			<Translation Language="en-GB"><![CDATA[Edit]]></Translation>
+		</Text>
+		<Text Key="DeleteBoard">
+			<Translation Language="en-GB"><![CDATA[Delete]]></Translation>
+		</Text>
+		<Text Key="AddBoard">
+			<Translation Language="en-GB"><![CDATA[Add Board]]></Translation>
+		</Text>
+		<Text Key="ConfirmDeleteHeading">
+			<Translation Language="en-GB"><![CDATA[Delete board?]]></Translation>
+		</Text>
+		<Text Key="ConfirmDeleteBody">
+			<Translation Language="en-GB"><![CDATA[Are you sure you want to delete the '{0}' board, categories, forums, topics and posts?]]></Translation>
+		</Text>
+		<Text Key="DeleteFailureHeading">
+			<Translation Language="en-GB"><![CDATA[Delete failed]]></Translation>
+		</Text>
+		<Text Key="DeleteFailureBody">
+			<Translation Language="en-GB"><![CDATA[Deleting the board failed, the error(s) was: {0}]]></Translation>
+		</Text>
+		<Text Key="CreateBoardHeading">
+			<Translation Language="en-GB"><![CDATA[Create board]]></Translation>
+		</Text>
+		<Text Key="AddBoardClose">
+			<Translation Language="en-GB"><![CDATA[Close]]></Translation>
+		</Text>
+		<Text Key="AddBoardCreate">
+			<Translation Language="en-GB"><![CDATA[Create]]></Translation>
+		</Text>
+		<Text Key="CreateSuccessHeading">
+			<Translation Language="en-GB"><![CDATA[Board created]]></Translation>
+		</Text>
+		<Text Key="CreateSuccessBody">
+			<Translation Language="en-GB"><![CDATA[A new board was created successfully!]]></Translation>
+		</Text>
+		<Text Key="CreateFailureHeading">
+			<Translation Language="en-GB"><![CDATA[Create failed]]></Translation>
+		</Text>
+		<Text Key="CreateFailureBody">
+			<Translation Language="en-GB"><![CDATA[Creating a new board failed, the error(s) was: {0}]]></Translation>
+		</Text>
+	</Namespace>
+
+	<Namespace Name="MVCForum.ForumAdmin.Board.Index">
+		<Text Key="PageTitle">
+			<Translation Language="en-GB"><![CDATA[Update Board]]></Translation>
+		</Text>
+		<Text Key="CategoriesSubHeading">
+			<Translation Language="en-GB"><![CDATA[Categories]]></Translation>
+		</Text>
+		<Text Key="ColumnHeadingCategoryName">
+			<Translation Language="en-GB"><![CDATA[Category name]]></Translation>
+		</Text>
+		<Text Key="ColumnHeadingCategorySortOrder">
+			<Translation Language="en-GB"><![CDATA[Sort order]]></Translation>
+		</Text>
+		<Text Key="EditCategory">
+			<Translation Language="en-GB"><![CDATA[Edit]]></Translation>
+		</Text>
+		<Text Key="DeleteCategory">
+			<Translation Language="en-GB"><![CDATA[Delete]]></Translation>
+		</Text>
+		<Text Key="AddCategory">
+			<Translation Language="en-GB"><![CDATA[Add Category]]></Translation>
+		</Text>
+		<Text Key="UpdateBoardForm">
+			<Translation Language="en-GB"><![CDATA[Update Board]]></Translation>
+		</Text>
+		<Text Key="CreateMaskSuccessHeading">
+			<Translation Language="en-GB"><![CDATA[Access Mask Created]]></Translation>
+		</Text>
+		<Text Key="CreateMaskSuccessBody">
+			<Translation Language="en-GB"><![CDATA[The new access mask was created successfully]]></Translation>
+		</Text>
+		<Text Key="SaveBoard">
+			<Translation Language="en-GB"><![CDATA[Update]]></Translation>
+		</Text>
+		<Text Key="SuccessHeading">
+			<Translation Language="en-GB"><![CDATA[Update successful]]></Translation>
+		</Text>
+		<Text Key="SuccessBody">
+			<Translation Language="en-GB"><![CDATA[The board was updated successfully!]]></Translation>
+		</Text>
+		<Text Key="FailureHeading">
+			<Translation Language="en-GB"><![CDATA[Update failed]]></Translation>
+		</Text>
+		<Text Key="FailureBody">
+			<Translation Language="en-GB"><![CDATA[Updating the board failed, the error(s) was: {0}]]></Translation>
+		</Text>
+		<Text Key="ConfirmDeleteHeading">
+			<Translation Language="en-GB"><![CDATA[Delete category?]]></Translation>
+		</Text>
+		<Text Key="ConfirmDeleteBody">
+			<Translation Language="en-GB"><![CDATA[Are you sure you want to delete the '{0}' category along with all forums, topics and posts?]]></Translation>
+		</Text>
+		<Text Key="DeleteFailureHeading">
+			<Translation Language="en-GB"><![CDATA[Delete failed]]></Translation>
+		</Text>
+		<Text Key="DeleteFailureBody">
+			<Translation Language="en-GB"><![CDATA[Deleting the category failed, the error(s) was: {0}]]></Translation>
+		</Text>
+		<Text Key="AddCategoryHeading">
+			<Translation Language="en-GB"><![CDATA[Create category]]></Translation>
+		</Text>
+		<Text Key="AddCategoryClose">
+			<Translation Language="en-GB"><![CDATA[Close]]></Translation>
+		</Text>
+		<Text Key="AddCategoryCreate">
+			<Translation Language="en-GB"><![CDATA[Create]]></Translation>
+		</Text>
+		<Text Key="CreateSuccessHeading">
+			<Translation Language="en-GB"><![CDATA[Category created]]></Translation>
+		</Text>
+		<Text Key="CreateSuccessBody">
+			<Translation Language="en-GB"><![CDATA[A new category was created successfully!]]></Translation>
+		</Text>
+		<Text Key="CategoryFailureHeading">
+			<Translation Language="en-GB"><![CDATA[Create failed]]></Translation>
+		</Text>
+		<Text Key="CategoryFailureBody">
+			<Translation Language="en-GB"><![CDATA[Creating a new category failed, the error(s) was: {0}]]></Translation>
+		</Text>
+		<Text Key="MasksSubHeading">
+			<Translation Language="en-GB"><![CDATA[Access Masks]]></Translation>
+		</Text>
+		<Text Key="ColumnHeadingMaskName">
+			<Translation Language="en-GB"><![CDATA[Access mask name]]></Translation>
+		</Text>
+		<Text Key="ColumnHeadingMaskFlag">
+			<Translation Language="en-GB"><![CDATA[Access flag(s)]]></Translation>
+		</Text>
+		<Text Key="AddAccessMask">
+			<Translation Language="en-GB"><![CDATA[Add Access Mask]]></Translation>
+		</Text>
+		<Text Key="DeleteAccessMask">
+			<Translation Language="en-GB"><![CDATA[Delete]]></Translation>
+		</Text>
+		<Text Key="EditAccessMask">
+			<Translation Language="en-GB"><![CDATA[Edit]]></Translation>
+		</Text>
+		<Text Key="ConfirmDeleteMaskHeading">
+			<Translation Language="en-GB"><![CDATA[Delete Access Mask?]]></Translation>
+		</Text>
+		<Text Key="ConfirmDeleteMaskBody">
+			<Translation Language="en-GB"><![CDATA[Are you sure you want to delete the '{0}' access mask?]]></Translation>
+		</Text>
+		<Text Key="DeleteMaskFailureHeading">
+			<Translation Language="en-GB"><![CDATA[Delete failed]]></Translation>
+		</Text>
+		<Text Key="DeleteMaskFailureBody">
+			<Translation Language="en-GB"><![CDATA[Deleting the access mask failed, the error(s) was: {0}]]></Translation>
+		</Text>
+		<Text Key="AddAccessMaskHeading">
+			<Translation Language="en-GB"><![CDATA[Create Access Mask]]></Translation>
+		</Text>
+		<Text Key="AddAccessMaskCreate">
+			<Translation Language="en-GB"><![CDATA[Create]]></Translation>
+		</Text>
+		<Text Key="AddAccessMaskClose">
+			<Translation Language="en-GB"><![CDATA[Close]]></Translation>
+		</Text>
+	</Namespace>
+
+	<Namespace Name="MVCForum.Web.ViewModels.LogOnModel">
+		<Text Key="EmailAddress">
+			<Translation Language="en-GB"><![CDATA[E-mail Address]]></Translation>
+			<Translation Language="da-DK"><![CDATA[E-mail adresse]]></Translation>
+		</Text>
+		<Text Key="Password">
+			<Translation Language="en-GB"><![CDATA[Password]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Kodeord]]></Translation>
+		</Text>
+	</Namespace>
+
+	<Namespace Name="mvcForum.Web.ViewModels.BasicInstallViewModel">
+		<Text Key="SubmitInstallationText">
+			<Translation Language="en-GB"><![CDATA[Data is submitted to our main site. We only register the version and time of the installation. No other data will be kept. The data is used for statistics on how many installations are running and on which versions.]]></Translation>
+		</Text>
+		<Text Key="SubmitInstallation">
+			<Translation Language="en-GB"><![CDATA[Submit installation]]></Translation>
+		</Text>
+		<Text Key="CreateAdmin">
+			<Translation Language="en-GB"><![CDATA[Create administrator account]]></Translation>
+		</Text>
+		<Text Key="AdminUsername">
+			<Translation Language="en-GB"><![CDATA[Admin username]]></Translation>
+		</Text>
+		<Text Key="AdminEmail">
+			<Translation Language="en-GB"><![CDATA[Admin e-mail address]]></Translation>
+		</Text>
+		<Text Key="AdminPassword">
+			<Translation Language="en-GB"><![CDATA[Admin password]]></Translation>
+		</Text>
+		<Text Key="CreateGroups">
+			<Translation Language="en-GB"><![CDATA[Create basic groups]]></Translation>
+		</Text>
+		<Text Key="CreateSimpleForum">
+			<Translation Language="en-GB"><![CDATA[Create simple forum structure]]></Translation>
+		</Text>
+		<Text Key="SiteURL">
+			<Translation Language="en-GB"><![CDATA[Site Url]]></Translation>
+		</Text>
+		<Text Key="ExistingUserEmail">
+			<Translation Language="en-GB"><![CDATA[E-mail address of administrator]]></Translation>
+		</Text>
+		<Text Key="ImportMembershipUsers">
+			<Translation Language="en-GB"><![CDATA[Import existing users]]></Translation>
+		</Text>
+	</Namespace>
+
+	<Namespace Name="MVCForum.ForumAdmin.AccessMask.Index">
+		<Text Key="PageTitle">
+			<Translation Language="en-GB"><![CDATA[Update Access Mask]]></Translation>
+		</Text>
+		<Text Key="UpdateAceesMaskForm">
+			<Translation Language="en-GB"><![CDATA[Update Access Mask]]></Translation>
+		</Text>
+		<Text Key="SaveAccessMask">
+			<Translation Language="en-GB"><![CDATA[Update]]></Translation>
+		</Text>
+		<Text Key="SuccessHeading">
+			<Translation Language="en-GB"><![CDATA[Update successful]]></Translation>
+		</Text>
+		<Text Key="SuccessBody">
+			<Translation Language="en-GB"><![CDATA[The access mask was updated successfully!]]></Translation>
+		</Text>
+		<Text Key="FailureHeading">
+			<Translation Language="en-GB"><![CDATA[Update failed]]></Translation>
+		</Text>
+		<Text Key="FailureBody">
+			<Translation Language="en-GB"><![CDATA[Updating the access mask failed, the error(s) was: {0}]]></Translation>
+		</Text>
+	</Namespace>
+
+	<Namespace Name="MVCForum.ForumAdmin.Category.Index">
+		<Text Key="PageTitle">
+			<Translation Language="en-GB"><![CDATA[Update Category]]></Translation>
+		</Text>
+		<Text Key="ForumsSubHeading">
+			<Translation Language="en-GB"><![CDATA[Forums]]></Translation>
+		</Text>
+		<Text Key="ColumnHeadingForumName">
+			<Translation Language="en-GB"><![CDATA[Forum name]]></Translation>
+		</Text>
+		<Text Key="EditForum">
+			<Translation Language="en-GB"><![CDATA[Edit]]></Translation>
+		</Text>
+		<Text Key="DeleteForum">
+			<Translation Language="en-GB"><![CDATA[Delete]]></Translation>
+		</Text>
+		<Text Key="AddForum">
+			<Translation Language="en-GB"><![CDATA[Add Forum]]></Translation>
+		</Text>
+		<Text Key="UpdateCategoryForm">
+			<Translation Language="en-GB"><![CDATA[Update Category]]></Translation>
+		</Text>
+		<Text Key="SaveCategory">
+			<Translation Language="en-GB"><![CDATA[Update]]></Translation>
+		</Text>
+		<Text Key="ConfirmDeleteHeading">
+			<Translation Language="en-GB"><![CDATA[Delete forum?]]></Translation>
+		</Text>
+		<Text Key="ConfirmDeleteBody">
+			<Translation Language="en-GB"><![CDATA[Are you sure you want to delete the '{0}' forum along with all sub-forums, topics and posts?]]></Translation>
+		</Text>
+		<Text Key="DeleteFailureHeading">
+			<Translation Language="en-GB"><![CDATA[Delete failed]]></Translation>
+		</Text>
+		<Text Key="DeleteFailureBody">
+			<Translation Language="en-GB"><![CDATA[Deleting the forum failed, the error(s) was: {0}]]></Translation>
+		</Text>
+		<Text Key="CreateSuccessHeading">
+			<Translation Language="en-GB"><![CDATA[Forum created]]></Translation>
+		</Text>
+		<Text Key="CreateSuccessBody">
+			<Translation Language="en-GB"><![CDATA[A new forum was created successfully!]]></Translation>
+		</Text>
+		<Text Key="CreateFailureHeading">
+			<Translation Language="en-GB"><![CDATA[Create failed]]></Translation>
+		</Text>
+		<Text Key="CreateFailureBody">
+			<Translation Language="en-GB"><![CDATA[Creating a new forum failed, the error(s) was: {0}]]></Translation>
+		</Text>
+		<Text Key="AddHeading">
+			<Translation Language="en-GB"><![CDATA[Create forum]]></Translation>
+		</Text>
+		<Text Key="AddClose">
+			<Translation Language="en-GB"><![CDATA[Close]]></Translation>
+		</Text>
+		<Text Key="AddCreate">
+			<Translation Language="en-GB"><![CDATA[Create]]></Translation>
+		</Text>
+		<Text Key="SuccessHeading">
+			<Translation Language="en-GB"><![CDATA[Update successful]]></Translation>
+		</Text>
+		<Text Key="SuccessBody">
+			<Translation Language="en-GB"><![CDATA[The category was updated successfully!]]></Translation>
+		</Text>
+	</Namespace>
+
+	<Namespace Name="MVCForum.ForumAdmin.Forum.Index">
+		<Text Key="PageTitle">
+			<Translation Language="en-GB"><![CDATA[Update Forum]]></Translation>
+		</Text>
+		<Text Key="UpdateForumForm">
+			<Translation Language="en-GB"><![CDATA[Update Forum]]></Translation>
+		</Text>
+		<Text Key="Updating">
+			<Translation Language="en-GB"><![CDATA[Updating...]]></Translation>
+		</Text>
+		<Text Key="SaveForum">
+			<Translation Language="en-GB"><![CDATA[Update]]></Translation>
+		</Text>
+		<Text Key="ForumsSubHeading">
+			<Translation Language="en-GB"><![CDATA[Sub-forums]]></Translation>
+		</Text>
+		<Text Key="ColumnHeadingForumName">
+			<Translation Language="en-GB"><![CDATA[Forum name]]></Translation>
+		</Text>
+		<Text Key="EditForum">
+			<Translation Language="en-GB"><![CDATA[Edit]]></Translation>
+		</Text>
+		<Text Key="DeleteForum">
+			<Translation Language="en-GB"><![CDATA[Delete]]></Translation>
+		</Text>
+		<Text Key="AddForum">
+			<Translation Language="en-GB"><![CDATA[Add Forum]]></Translation>
+		</Text>
+		<Text Key="SuccessHeading">
+			<Translation Language="en-GB"><![CDATA[Update successful]]></Translation>
+		</Text>
+		<Text Key="SuccessBody">
+			<Translation Language="en-GB"><![CDATA[The forum was updated successfully!]]></Translation>
+		</Text>
+		<Text Key="CreateSuccessHeading">
+			<Translation Language="en-GB"><![CDATA[Sub-forum created]]></Translation>
+		</Text>
+		<Text Key="CreateSuccessBody">
+			<Translation Language="en-GB"><![CDATA[The sub.forum was created successfully!]]></Translation>
+		</Text>
+		<Text Key="FailureHeading">
+			<Translation Language="en-GB"><![CDATA[Update failed]]></Translation>
+		</Text>
+		<Text Key="FailureBody">
+			<Translation Language="en-GB"><![CDATA[Updating the forum failed, the error(s) was: {0}]]></Translation>
+		</Text>
+		<Text Key="CreateSubForumForm">
+			<Translation Language="en-GB"><![CDATA[Sub-forum Settings]]></Translation>
+		</Text>
+		<Text Key="SubSuccessHeading">
+			<Translation Language="en-GB"><![CDATA[Sub-forum created]]></Translation>
+		</Text>
+		<Text Key="SubSuccessBody">
+			<Translation Language="en-GB"><![CDATA[A new sub-forum was created successfully!]]></Translation>
+		</Text>
+		<Text Key="SubFailureHeading">
+			<Translation Language="en-GB"><![CDATA[Create failed]]></Translation>
+		</Text>
+		<Text Key="SubFailureBody">
+			<Translation Language="en-GB"><![CDATA[Creating a new sub-forum failed, the error(s) was: {0}]]></Translation>
+		</Text>
+		<Text Key="ConfirmDeleteHeading">
+			<Translation Language="en-GB"><![CDATA[Delete forum?]]></Translation>
+		</Text>
+		<Text Key="ConfirmDeleteBody">
+			<Translation Language="en-GB"><![CDATA[Are you sure you want to delete the '{0}' forum along with all sub-forums, topics and posts?]]></Translation>
+		</Text>
+		<Text Key="DeleteFailureHeading">
+			<Translation Language="en-GB"><![CDATA[Delete failed]]></Translation>
+		</Text>
+		<Text Key="DeleteFailureBody">
+			<Translation Language="en-GB"><![CDATA[Deleting the forum failed, the error(s) was: {0}]]></Translation>
+		</Text>
+		<Text Key="AddSubClose">
+			<Translation Language="en-GB"><![CDATA[Close]]></Translation>
+		</Text>
+		<Text Key="AddSubCreate">
+			<Translation Language="en-GB"><![CDATA[Create]]></Translation>
+		</Text>
+		<Text Key="AccessMaskHeading">
+			<Translation Language="en-GB"><![CDATA[Permissions]]></Translation>
+		</Text>
+		<Text Key="ColumnHeadingAccessMaskName">
+			<Translation Language="en-GB"><![CDATA[Access]]></Translation>
+		</Text>
+		<Text Key="ColumnHeadingGroupName">
+			<Translation Language="en-GB"><![CDATA[Group]]></Translation>
+		</Text>
+		<Text Key="UpdateMasks">
+			<Translation Language="en-GB"><![CDATA[Update]]></Translation>
+		</Text>
+	</Namespace>
+
+	<Namespace Name="MVCForum.ForumAdmin.User.Index">
+		<Text Key="PageTitle">
+			<Translation Language="en-GB"><![CDATA[Users]]></Translation>
+		</Text>
+		<Text Key="UsersSubHeading">
+			<Translation Language="en-GB"><![CDATA[Users]]></Translation>
+		</Text>
+		<Text Key="ColumnHeadingUserName">
+			<Translation Language="en-GB"><![CDATA[User name]]></Translation>
+		</Text>
+		<Text Key="ColumnHeadingEmailAddress">
+			<Translation Language="en-GB"><![CDATA[E-mail address]]></Translation>
+		</Text>
+		<Text Key="ColumnHeadingDeleted">
+			<Translation Language="en-GB"><![CDATA[Deleted]]></Translation>
+		</Text>
+		<Text Key="ColumnHeadingActive">
+			<Translation Language="en-GB"><![CDATA[Active]]></Translation>
+		</Text>
+		<Text Key="EditUser">
+			<Translation Language="en-GB"><![CDATA[Edit]]></Translation>
+		</Text>
+		<Text Key="DeleteUser">
+			<Translation Language="en-GB"><![CDATA[Delete]]></Translation>
+		</Text>
+		<Text Key="AddUser">
+			<Translation Language="en-GB"><![CDATA[Add user]]></Translation>
+		</Text>
+		<Text Key="ConfirmDeleteHeading">
+			<Translation Language="en-GB"><![CDATA[Delete user?]]></Translation>
+		</Text>
+		<Text Key="ConfirmDeleteBody">
+			<Translation Language="en-GB"><![CDATA[Are you sure you want to delete the '{0}' user?]]></Translation>
+		</Text>
+		<Text Key="DeleteFailureHeading">
+			<Translation Language="en-GB"><![CDATA[Delete failed]]></Translation>
+		</Text>
+		<Text Key="DeleteFailureBody">
+			<Translation Language="en-GB"><![CDATA[Deleting the user failed, the error(s) was: {0}]]></Translation>
+		</Text>
+		<Text Key="CreateUserHeading">
+			<Translation Language="en-GB"><![CDATA[Create user]]></Translation>
+		</Text>
+		<Text Key="AddUserClose">
+			<Translation Language="en-GB"><![CDATA[Close]]></Translation>
+		</Text>
+		<Text Key="AddUserCreate">
+			<Translation Language="en-GB"><![CDATA[Create]]></Translation>
+		</Text>
+		<Text Key="CreateSuccessHeading">
+			<Translation Language="en-GB"><![CDATA[User created]]></Translation>
+		</Text>
+		<Text Key="CreateSuccessBody">
+			<Translation Language="en-GB"><![CDATA[A new user was created successfully!]]></Translation>
+		</Text>
+		<Text Key="CreateFailureHeading">
+			<Translation Language="en-GB"><![CDATA[Create failed]]></Translation>
+		</Text>
+		<Text Key="CreateFailureBody">
+			<Translation Language="en-GB"><![CDATA[Creating a new user failed, the error(s) was: {0}]]></Translation>
+		</Text>
+	</Namespace>
+
+	<Namespace Name="MVCForum.ForumAdmin.User.Update">
+		<Text Key="PageTitle">
+			<Translation Language="en-GB"><![CDATA[Update user]]></Translation>
+		</Text>
+		<Text Key="UpdateUserForm">
+			<Translation Language="en-GB"><![CDATA[Update user]]></Translation>
+		</Text>
+		<Text Key="SaveUser">
+			<Translation Language="en-GB"><![CDATA[Update]]></Translation>
+		</Text>
+		<Text Key="SuccessHeading">
+			<Translation Language="en-GB"><![CDATA[Update successful]]></Translation>
+		</Text>
+		<Text Key="SuccessBody">
+			<Translation Language="en-GB"><![CDATA[The user was updated successfully!]]></Translation>
+		</Text>
+		<Text Key="FailureHeading">
+			<Translation Language="en-GB"><![CDATA[Update failed]]></Translation>
+		</Text>
+		<Text Key="FailureBody">
+			<Translation Language="en-GB"><![CDATA[Updating the user failed, the error(s) was: {0}]]></Translation>
+		</Text>
+		<Text Key="GroupsSubHeading">
+			<Translation Language="en-GB"><![CDATA[Group membership]]></Translation>
+		</Text>
+		<Text Key="ColumnHeadingGroupName">
+			<Translation Language="en-GB"><![CDATA[Group name]]></Translation>
+		</Text>
+		<Text Key="DeleteGroupMember">
+			<Translation Language="en-GB"><![CDATA[Delete]]></Translation>
+		</Text>
+		<Text Key="AddGroupMember">
+			<Translation Language="en-GB"><![CDATA[Add Group]]></Translation>
+		</Text>
+		<Text Key="ConfirmDeleteHeading">
+			<Translation Language="en-GB"><![CDATA[Delete membership?]]></Translation>
+		</Text>
+		<Text Key="ConfirmDeleteBody">
+			<Translation Language="en-GB"><![CDATA[Are you sure you want to remove the user from the '{0}' group?]]></Translation>
+		</Text>
+		<Text Key="DeleteFailureHeading">
+			<Translation Language="en-GB"><![CDATA[Delete failed]]></Translation>
+		</Text>
+		<Text Key="DeleteFailureBody">
+			<Translation Language="en-GB"><![CDATA[Deleting the membership failed, the error(s) was: {0}]]></Translation>
+		</Text>
+		<Text Key="CreateMembershipHeading">
+			<Translation Language="en-GB"><![CDATA[Join group]]></Translation>
+		</Text>
+		<Text Key="AddMembershipClose">
+			<Translation Language="en-GB"><![CDATA[Close]]></Translation>
+		</Text>
+		<Text Key="AddMembershipCreate">
+			<Translation Language="en-GB"><![CDATA[Create]]></Translation>
+		</Text>
+		<Text Key="CreateFailureHeading">
+			<Translation Language="en-GB"><![CDATA[Join failed]]></Translation>
+		</Text>
+		<Text Key="CreateFailureBody">
+			<Translation Language="en-GB"><![CDATA[Adding the user to the group failed, the error(s) was: {0}]]></Translation>
+		</Text>
+		<Text Key="CreateSuccessHeading">
+			<Translation Language="en-GB"><![CDATA[Group joined]]></Translation>
+		</Text>
+		<Text Key="CreateSuccessBody">
+			<Translation Language="en-GB"><![CDATA[The user has been added to the group!]]></Translation>
+		</Text>
+		<Text Key="UpdateRoleForm">
+			<Translation Language="en-GB"><![CDATA[User Roles]]></Translation>
+		</Text>
+		<Text Key="SaveRole">
+			<Translation Language="en-GB"><![CDATA[Update]]></Translation>
+		</Text>
+		<Text Key="LockStatusUnlocked">
+			<Translation Language="en-GB"><![CDATA[Account is unlocked]]></Translation>
+		</Text>
+		<Text Key="LockStatusLocked">
+			<Translation Language="en-GB"><![CDATA[Account is locked]]></Translation>
+		</Text>
+		<Text Key="LockButton">
+			<Translation Language="en-GB"><![CDATA[Unlock account]]></Translation>
+		</Text>
+	</Namespace>
+
+	<Namespace Name="MVCForum.ForumAdmin.Group.Index">
+		<Text Key="PageTitle">
+			<Translation Language="en-GB"><![CDATA[Groups]]></Translation>
+		</Text>
+		<Text Key="GroupsSubHeading">
+			<Translation Language="en-GB"><![CDATA[Groups]]></Translation>
+		</Text>
+		<Text Key="ColumnHeadingName">
+			<Translation Language="en-GB"><![CDATA[Name]]></Translation>
+		</Text>
+		<Text Key="EditGroup">
+			<Translation Language="en-GB"><![CDATA[Edit]]></Translation>
+		</Text>
+		<Text Key="DeleteGroup">
+			<Translation Language="en-GB"><![CDATA[Delete]]></Translation>
+		</Text>
+		<Text Key="AddGroup">
+			<Translation Language="en-GB"><![CDATA[Add Group]]></Translation>
+		</Text>
+		<Text Key="ConfirmDeleteHeading">
+			<Translation Language="en-GB"><![CDATA[Delete group?]]></Translation>
+		</Text>
+		<Text Key="ConfirmDeleteBody">
+			<Translation Language="en-GB"><![CDATA[Are you sure you want to delete the '{0}' group?]]></Translation>
+		</Text>
+		<Text Key="DeleteFailureHeading">
+			<Translation Language="en-GB"><![CDATA[Delete failed]]></Translation>
+		</Text>
+		<Text Key="DeleteFailureBody">
+			<Translation Language="en-GB"><![CDATA[Deleting the group failed, the error(s) was: {0}]]></Translation>
+		</Text>
+		<Text Key="CreateGroupHeading">
+			<Translation Language="en-GB"><![CDATA[Create group]]></Translation>
+		</Text>
+		<Text Key="AddGroupClose">
+			<Translation Language="en-GB"><![CDATA[Close]]></Translation>
+		</Text>
+		<Text Key="AddGroupCreate">
+			<Translation Language="en-GB"><![CDATA[Create]]></Translation>
+		</Text>
+		<Text Key="CreateFailureHeading">
+			<Translation Language="en-GB"><![CDATA[Create failed]]></Translation>
+		</Text>
+		<Text Key="CreateFailureBody">
+			<Translation Language="en-GB"><![CDATA[Creating a new group failed, the error(s) was: {0}]]></Translation>
+		</Text>
+		<Text Key="CreateSuccessHeading">
+			<Translation Language="en-GB"><![CDATA[Group created]]></Translation>
+		</Text>
+		<Text Key="CreateSuccessBody">
+			<Translation Language="en-GB"><![CDATA[A new group was created successfully!]]></Translation>
+		</Text>
+	</Namespace>
+
+	<Namespace Name="MVCForum.ForumAdmin.Group.Update">
+		<Text Key="PageTitle">
+			<Translation Language="en-GB"><![CDATA[Update group]]></Translation>
+		</Text>
+		<Text Key="UpdateGroupForm">
+			<Translation Language="en-GB"><![CDATA[Update group]]></Translation>
+		</Text>
+		<Text Key="SaveGroup">
+			<Translation Language="en-GB"><![CDATA[Update]]></Translation>
+		</Text>
+		<Text Key="SuccessHeading">
+			<Translation Language="en-GB"><![CDATA[Update successful]]></Translation>
+		</Text>
+		<Text Key="SuccessBody">
+			<Translation Language="en-GB"><![CDATA[The group was updated successfully!]]></Translation>
+		</Text>
+		<Text Key="FailureHeading">
+			<Translation Language="en-GB"><![CDATA[Update failed]]></Translation>
+		</Text>
+		<Text Key="FailureBody">
+			<Translation Language="en-GB"><![CDATA[Updating the group failed, the error(s) was: {0}]]></Translation>
+		</Text>
+	</Namespace>
+
+	<Namespace Name="MVCForum.ForumAdmin.Search.Index">
+		<Text Key="PageTitle">
+			<Translation Language="en-GB"><![CDATA[Search Settings]]></Translation>
+		</Text>
+		<Text Key="SubHeading">
+			<Translation Language="en-GB"><![CDATA[Search add-ons]]></Translation>
+		</Text>
+		<Text Key="ColumnHeadingName">
+			<Translation Language="en-GB"><![CDATA[Name]]></Translation>
+		</Text>
+		<Text Key="ColumnHeadingDescription">
+			<Translation Language="en-GB"><![CDATA[Description]]></Translation>
+		</Text>
+		<Text Key="ResetAction">
+			<Translation Language="en-GB"><![CDATA[Clear all indexes]]></Translation>
+		</Text>
+		<Text Key="ClearWarning">
+			<Translation Language="en-GB"><![CDATA[Clearing all indexes will delete all indexed data, and rebuild the indexes. Depending on the number of topics and posts, this may take anywhere from seconds to hours.]]></Translation>
+		</Text>
+		<Text Key="EditSearch">
+			<Translation Language="en-GB"><![CDATA[Edit]]></Translation>
+		</Text>
+	</Namespace>
+
+	<Namespace Name="MVCForum.ForumAdmin.AntiSpam.Index">
+		<Text Key="PageTitle">
+			<Translation Language="en-GB"><![CDATA[Anti-Spam Settings]]></Translation>
+		</Text>
+		<Text Key="SubHeading">
+			<Translation Language="en-GB"><![CDATA[Anti-spam add-ons]]></Translation>
+		</Text>
+		<Text Key="ColumnHeadingName">
+			<Translation Language="en-GB"><![CDATA[Name]]></Translation>
+		</Text>
+		<Text Key="ColumnHeadingDescription">
+			<Translation Language="en-GB"><![CDATA[Description]]></Translation>
+		</Text>
+		<Text Key="EditAntiSpam">
+			<Translation Language="en-GB"><![CDATA[Edit]]></Translation>
+		</Text>
+	</Namespace>
+
+	<Namespace Name="MVCForum.ForumAdmin.Settings.Index">
+		<Text Key="PageTitle">
+			<Translation Language="en-GB"><![CDATA[Solution Settings]]></Translation>
+		</Text>
+		<Text Key="Heading">
+			<Translation Language="en-GB"><![CDATA[Solution Settings]]></Translation>
+		</Text>
+		<Text Key="UpdateSettingsForm">
+			<Translation Language="en-GB"><![CDATA[General Settings]]></Translation>
+		</Text>
+		<Text Key="SaveSettings">
+			<Translation Language="en-GB"><![CDATA[Update]]></Translation>
+		</Text>
+		<Text Key="GeneralSettingsTabTitle">
+			<Translation Language="en-GB"><![CDATA[General]]></Translation>
+		</Text>
+		<Text Key="UserRegistrationTabTitle">
+			<Translation Language="en-GB"><![CDATA[Account]]></Translation>
+		</Text>
+		<Text Key="MailTabTitle">
+			<Translation Language="en-GB"><![CDATA[E-mail]]></Translation>
+		</Text>
+		<Text Key="SuccessHeading">
+			<Translation Language="en-GB"><![CDATA[Changes Saved]]></Translation>
+		</Text>
+		<Text Key="SuccessBody">
+			<Translation Language="en-GB"><![CDATA[The changes has been saved]]></Translation>
+		</Text>
+	</Namespace>
+
+	<Namespace Name="MVCForum.ForumAdmin.Settings.UserRegistration">
+		<Text Key="PageTitle">
+			<Translation Language="en-GB"><![CDATA[Solution Settings]]></Translation>
+		</Text>
+		<Text Key="Heading">
+			<Translation Language="en-GB"><![CDATA[Solution Settings]]></Translation>
+		</Text>
+		<Text Key="UserRegistrationForm">
+			<Translation Language="en-GB"><![CDATA[Account Settings]]></Translation>
+		</Text>
+		<Text Key="SaveSettings">
+			<Translation Language="en-GB"><![CDATA[Update]]></Translation>
+		</Text>
+		<Text Key="GeneralSettingsTabTitle">
+			<Translation Language="en-GB"><![CDATA[General]]></Translation>
+		</Text>
+		<Text Key="UserRegistrationTabTitle">
+			<Translation Language="en-GB"><![CDATA[Account]]></Translation>
+		</Text>
+		<Text Key="MailTabTitle">
+			<Translation Language="en-GB"><![CDATA[E-mail]]></Translation>
+		</Text>
+		<Text Key="ValidationBodyHelpText">
+			<Translation Language="en-GB"><![CDATA[Please remember to include the \{Url\} tag in the text, otherwise no activation link is included. Other tags available are: \{Email\} and \{Password\}]]></Translation>
+		</Text>
+		<Text Key="ForgottenPasswordBodyHelpText">
+			<Translation Language="en-GB"><![CDATA[Please remember to include the \{Password\} tag in the text. Other tags available are: \{Email\}.]]></Translation>
+		</Text>
+		<Text Key="AllowOpenAuthHelpText">
+			<Translation Language="en-GB"><![CDATA[The allowed OpenAuth providers are configured in the web.config file.]]></Translation>
+		</Text>
+		<Text Key="SuccessHeading">
+			<Translation Language="en-GB"><![CDATA[Changes Saved]]></Translation>
+		</Text>
+		<Text Key="SuccessBody">
+			<Translation Language="en-GB"><![CDATA[The changes has been saved]]></Translation>
+		</Text>
+	</Namespace>
+
+	<Namespace Name="MVCForum.ForumAdmin.Settings.Mail">
+		<Text Key="PageTitle">
+			<Translation Language="en-GB"><![CDATA[Solution Settings]]></Translation>
+		</Text>
+		<Text Key="Heading">
+			<Translation Language="en-GB"><![CDATA[Solution Settings]]></Translation>
+		</Text>
+		<Text Key="MailForm">
+			<Translation Language="en-GB"><![CDATA[E-mail Settings]]></Translation>
+		</Text>
+		<Text Key="SaveSettings">
+			<Translation Language="en-GB"><![CDATA[Update]]></Translation>
+		</Text>
+		<Text Key="GeneralSettingsTabTitle">
+			<Translation Language="en-GB"><![CDATA[General]]></Translation>
+		</Text>
+		<Text Key="UserRegistrationTabTitle">
+			<Translation Language="en-GB"><![CDATA[Account]]></Translation>
+		</Text>
+		<Text Key="MailTabTitle">
+			<Translation Language="en-GB"><![CDATA[E-mail]]></Translation>
+		</Text>
+		<Text Key="SuccessHeading">
+			<Translation Language="en-GB"><![CDATA[Changes Saved]]></Translation>
+		</Text>
+		<Text Key="SuccessBody">
+			<Translation Language="en-GB"><![CDATA[The changes has been saved]]></Translation>
+		</Text>
+		<Text Key="TestRecipient">
+			<Translation Language="en-GB"><![CDATA[Recipient]]></Translation>
+		</Text>
+		<Text Key="TestSend">
+			<Translation Language="en-GB"><![CDATA[Send Test E-mail]]></Translation>
+		</Text>
+		<Text Key="SendError">
+			<Translation Language="en-GB"><![CDATA[Sending e-mail failed, the error was: {ErrorMessage}]]></Translation>
+		</Text>
+	</Namespace>
+
+	<Namespace Name="MVCForum.Web.ViewModels.MailViewModel">
+		<Text Key="RobotEmailAddress">
+			<Translation Language="en-GB"><![CDATA[E-mail address to use when sending e-mails]]></Translation>
+		</Text>
+		<Text Key="RobotName">
+			<Translation Language="en-GB"><![CDATA[Name to use when sending e-mails]]></Translation>
+		</Text>
+		<Text Key="Success">
+			<Translation Language="en-GB"><![CDATA[The e-mail has been recieved by the configured mail-server, check your inbox.]]></Translation>
+		</Text>
+	</Namespace>
+
+	<Namespace Name="MVCForum.Web.ViewModels.UserRegistrationViewModel">
+		<Text Key="UseForumAccountController">
+			<Translation Language="en-GB"><![CDATA[Use MVC Forum's log-on and register pages]]></Translation>
+		</Text>
+		<Text Key="AllowLocalUsers">
+			<Translation Language="en-GB"><![CDATA[Allow local accounts]]></Translation>
+		</Text>
+		<Text Key="AllowSignUp">
+			<Translation Language="en-GB"><![CDATA[Allow new accounts]]></Translation>
+		</Text>
+		<Text Key="RequireEmailValidation">
+			<Translation Language="en-GB"><![CDATA[Require e-mail validation for new accounts]]></Translation>
+		</Text>
+		<Text Key="AllowOpenAuthUsers">
+			<Translation Language="en-GB"><![CDATA[Allow external accounts]]></Translation>
+		</Text>
+		<Text Key="ValidationSubject">
+			<Translation Language="en-GB"><![CDATA[Subject for validation e-mail]]></Translation>
+		</Text>
+		<Text Key="ValidationBody">
+			<Translation Language="en-GB"><![CDATA[Body for validation e-mail]]></Translation>
+		</Text>
+		<Text Key="ForgottenPasswordSubject">
+			<Translation Language="en-GB"><![CDATA[Subject for forgotten password e-mail]]></Translation>
+		</Text>
+		<Text Key="ForgottenPasswordBody">
+			<Translation Language="en-GB"><![CDATA[Body for forgotten password e-mail]]></Translation>
+		</Text>
+		<Text Key="RequireRulesAccept">
+			<Translation Language="en-GB"><![CDATA[Require new users to accept rules]]></Translation>
+		</Text>
+		<Text Key="SignUpRules">
+			<Translation Language="en-GB"><![CDATA[Rules for new users]]></Translation>
+		</Text>
+	</Namespace>
+
+	<Namespace Name="MVCForum.Web.ViewModels.ForumSettingsViewModel">
+		<Text Key="TopicsPerPage">
+			<Translation Language="en-GB"><![CDATA[Topics shown per page]]></Translation>
+		</Text>
+		<Text Key="AllowQuickReply">
+			<Translation Language="en-GB"><![CDATA[Allow quick reply]]></Translation>
+		</Text>
+		<Text Key="MessagesPerPage">
+			<Translation Language="en-GB"><![CDATA[Messages shown per page]]></Translation>
+		</Text>
+		<Text Key="ShowDeletedMessages">
+			<Translation Language="en-GB"><![CDATA[Show entries for deleted messages]]></Translation>
+		</Text>
+		<Text Key="DefaultCulture">
+			<Translation Language="en-GB"><![CDATA[Default language/region]]></Translation>
+		</Text>
+		<Text Key="DefaultTimezone">
+			<Translation Language="en-GB"><![CDATA[Default timezone]]></Translation>
+		</Text>
+		<Text Key="SiteURL">
+			<Translation Language="en-GB"><![CDATA[The site's Url]]></Translation>
+		</Text>
+		<Text Key="RobotEmailAddress">
+			<Translation Language="en-GB"><![CDATA[E-mail address to use when sending mail]]></Translation>
+		</Text>
+		<Text Key="NewUserGroups">
+			<Translation Language="en-GB"><![CDATA[Groups for new users]]></Translation>
+		</Text>
+		<Text Key="Editor">
+			<Translation Language="en-GB"><![CDATA[Text editor]]></Translation>
+		</Text>
+		<Text Key="AuthorName">
+			<Translation Language="en-GB"><![CDATA[Author Name]]></Translation>
+		</Text>
+		<Text Key="Theme">
+			<Translation Language="en-GB"><![CDATA[Theme]]></Translation>
+		</Text>
+		<Text Key="AllowUserDefinedTheme">
+			<Translation Language="en-GB"><![CDATA[Allow the users to select a theme]]></Translation>
+		</Text>
+		<Text Key="PostsOnReply">
+			<Translation Language="en-GB"><![CDATA[The number of old posts to show]]></Translation>
+		</Text>
+		<Text Key="ShowOldPostsOnReply">
+			<Translation Language="en-GB"><![CDATA[Show old posts when replying]]></Translation>
+		</Text>
+		<Text Key="MaxFileSize">
+			<Translation Language="en-GB"><![CDATA[Maximum size of a single attachment (megabyte, 0 for unlimited)]]></Translation>
+		</Text>
+		<Text Key="MaxAttachmentsSize">
+			<Translation Language="en-GB"><![CDATA[Maximum size of all the user's attachments (megabyte, 0 for unlimited)]]></Translation>
+		</Text>
+		<Text Key="AllowedExtensions">
+			<Translation Language="en-GB"><![CDATA[Allowed extensions on attachments (separate with ';')]]></Translation>
+		</Text>
+		<Text Key="AsynchronousAntiSpam">
+			<Translation Language="en-GB"><![CDATA[Allow anti-spam to run asynchronously]]></Translation>
+		</Text>
+		<Text Key="ShowOnlineUsers">
+			<Translation Language="en-GB"><![CDATA[Show online users (might not be supported by the membership provider)]]></Translation>
+		</Text>
+		<Text Key="InformOnQuarantine">
+			<Translation Language="en-GB"><![CDATA[E-mail to moderators when quarantined post]]></Translation>
+		</Text>
+		<Text Key="RedirectUrlLoggedIn">
+			<Translation Language="en-GB"><![CDATA[Login Redirect]]></Translation>
+		</Text>
+		<Text Key="RedirectUrlLoggedOut">
+			<Translation Language="en-GB"><![CDATA[Logout redirect]]></Translation>
+		</Text>
+		<Text Key="RedirectUrlRegistrered">
+			<Translation Language="en-GB"><![CDATA[Register Success Redirect]]></Translation>
+		</Text>
+	</Namespace>
+
+	<Namespace Name="MVCForum.Web.ViewModels.ForumUser">
+		<Text Key="RepeatPassword">
+			<Translation Language="en-GB"><![CDATA[Repeat the password]]></Translation>
+		</Text>
+		<Text Key="Password">
+			<Translation Language="en-GB"><![CDATA[Password]]></Translation>
+		</Text>
+		<Text Key="EmailAddress">
+			<Translation Language="en-GB"><![CDATA[E-mail address]]></Translation>
+		</Text>
+		<Text Key="Name">
+			<Translation Language="en-GB"><![CDATA[User name]]></Translation>
+		</Text>
+		<Text Key="Deleted">
+			<Translation Language="en-GB"><![CDATA[Deleted]]></Translation>
+		</Text>
+		<Text Key="Active">
+			<Translation Language="en-GB"><![CDATA[Activated]]></Translation>
+		</Text>
+		<Text Key="Locked">
+			<Translation Language="en-GB"><![CDATA[Locked]]></Translation>
+		</Text>
+		<Text Key="FirstVisit">
+			<Translation Language="en-GB"><![CDATA[First visit]]></Translation>
+		</Text>
+		<Text Key="LastVisit">
+			<Translation Language="en-GB"><![CDATA[Latest visit]]></Translation>
+		</Text>
+		<Text Key="LastIP">
+			<Translation Language="en-GB"><![CDATA[Last know IP address]]></Translation>
+		</Text>
+		<Text Key="RepeatPasswordRequired">
+			<Translation Language="en-GB"><![CDATA[You have to repeat the password.]]></Translation>
+		</Text>
+		<Text Key="PasswordRequired">
+			<Translation Language="en-GB"><![CDATA[A password is required!]]></Translation>
+		</Text>
+		<Text Key="EmailAddressRequired">
+			<Translation Language="en-GB"><![CDATA[The e-mail address is required!]]></Translation>
+		</Text>
+		<Text Key="NameRequired">
+			<Translation Language="en-GB"><![CDATA[An user name is required!]]></Translation>
+		</Text>
+		<Text Key="LastIP">
+			<Translation Language="en-GB"><![CDATA[Last known IP address]]></Translation>
+		</Text>
+		<Text Key="Deleted">
+			<Translation Language="en-GB"><![CDATA[Deleted]]></Translation>
+		</Text>
+		<Text Key="Active">
+			<Translation Language="en-GB"><![CDATA[Active]]></Translation>
+		</Text>
+		<Text Key="Ban">
+			<Translation Language="en-GB"><![CDATA[Ban IP]]></Translation>
+		</Text>
+		<Text Key="Unban">
+			<Translation Language="en-GB"><![CDATA[Unban IP]]></Translation>
+		</Text>
+		<Text Key="FirstVisit">
+			<Translation Language="en-GB"><![CDATA[First visit]]></Translation>
+		</Text>
+		<Text Key="LatestVisit">
+			<Translation Language="en-GB"><![CDATA[Latest visit]]></Translation>
+		</Text>
+	</Namespace>
+
+	<Namespace Name="MVCForum.Web.ViewModels.Group">
+		<Text Key="Name">
+			<Translation Language="en-GB"><![CDATA[Name]]></Translation>
+		</Text>
+		<Text Key="NameRequired">
+			<Translation Language="en-GB"><![CDATA[The group name is required!]]></Translation>
+		</Text>
+	</Namespace>
+
+	<Namespace Name="MVCForum.Web.ViewModels.Board">
+		<Text Key="Name">
+			<Translation Language="en-GB"><![CDATA[Name]]></Translation>
+		</Text>
+		<Text Key="NameRequired">
+			<Translation Language="en-GB"><![CDATA[The board name is required!]]></Translation>
+		</Text>
+		<Text Key="Description">
+			<Translation Language="en-GB"><![CDATA[Site description]]></Translation>
+		</Text>
+	</Namespace>
+
+	<Namespace Name="MVCForum.Web.ViewModels.AccessMask">
+		<Text Key="Name">
+			<Translation Language="en-GB"><![CDATA[Name]]></Translation>
+		</Text>
+		<Text Key="NameRequired">
+			<Translation Language="en-GB"><![CDATA[The access mask name is required!]]></Translation>
+		</Text>
+	</Namespace>
+
+	<Namespace Name="MVCForum.Web.ViewModels.Category">
+		<Text Key="Name">
+			<Translation Language="en-GB"><![CDATA[Name]]></Translation>
+		</Text>
+		<Text Key="NameRequired">
+			<Translation Language="en-GB"><![CDATA[The category name is required!]]></Translation>
+		</Text>
+		<Text Key="SortOrder">
+			<Translation Language="en-GB"><![CDATA[Sort order]]></Translation>
+		</Text>
+		<Text Key="SortOrderRequired">
+			<Translation Language="en-GB"><![CDATA[The sort order is required!]]></Translation>
+		</Text>
+		<Text Key="SortOrderInteger">
+			<Translation Language="en-GB"><![CDATA[The sort order must be an integer!]]></Translation>
+		</Text>
+	</Namespace>
+
+	<Namespace Name="MVCForum.Web.ViewModels.AccessMask">
+		<Text Key="Name">
+			<Translation Language="en-GB"><![CDATA[Name]]></Translation>
+		</Text>
+		<Text Key="NameRequired">
+			<Translation Language="en-GB"><![CDATA[The access mask name is required!]]></Translation>
+		</Text>
+		<Text Key="AccessFlag">
+			<Translation Language="en-GB"><![CDATA[Permissions]]></Translation>
+		</Text>
+	</Namespace>
+
+	<Namespace Name="MVCForum.Web.ViewModels.Forum">
+		<Text Key="Name">
+			<Translation Language="en-GB"><![CDATA[Name]]></Translation>
+		</Text>
+		<Text Key="NameRequired">
+			<Translation Language="en-GB"><![CDATA[The forum name is required!]]></Translation>
+		</Text>
+		<Text Key="SortOrder">
+			<Translation Language="en-GB"><![CDATA[Sort order]]></Translation>
+		</Text>
+		<Text Key="SortOrderRequired">
+			<Translation Language="en-GB"><![CDATA[The sort order is required!]]></Translation>
+		</Text>
+		<Text Key="SortOrderInteger">
+			<Translation Language="en-GB"><![CDATA[The sort order must be an integer!]]></Translation>
+		</Text>
+		<Text Key="Description">
+			<Translation Language="en-GB"><![CDATA[Description]]></Translation>
+		</Text>
+	</Namespace>
+
+	<Namespace Name="mvcForum.Web.ViewModels.Update.UpdateUserViewModel">
+		<Text Key="Culture">
+			<Translation Language="en-GB"><![CDATA[Language/Region]]></Translation>
+		</Text>
+		<Text Key="Timezone">
+			<Translation Language="en-GB"><![CDATA[Timezone]]></Translation>
+		</Text>
+		<Text Key="FullName">
+			<Translation Language="en-GB"><![CDATA[Full Name]]></Translation>
+		</Text>
+		<Text Key="Name">
+			<Translation Language="en-GB"><![CDATA[Name]]></Translation>
+		</Text>
+		<Text Key="Email">
+			<Translation Language="en-GB"><![CDATA[Email Address]]></Translation>
+		</Text>
+		<Text Key="Theme">
+			<Translation Language="en-GB"><![CDATA[Theme]]></Translation>
+		</Text>
+		<Text Key="OldPassword">
+			<Translation Language="en-GB"><![CDATA[Password]]></Translation>
+		</Text>
+		<Text Key="NewPassword">
+			<Translation Language="en-GB"><![CDATA[New Password]]></Translation>
+		</Text>
+		<Text Key="RepeatNewPassword">
+			<Translation Language="en-GB"><![CDATA[Repeat New Password]]></Translation>
+		</Text>
+	</Namespace>
+
+	<Namespace Name="mvcForum.Web.ViewModels.UserViewModel">
+		<Text Key="FullName">
+			<Translation Language="en-GB"><![CDATA[Full Name]]></Translation>
+		</Text>
+		<Text Key="Name">
+			<Translation Language="en-GB"><![CDATA[Name]]></Translation>
+		</Text>
+		<Text Key="Email">
+			<Translation Language="en-GB"><![CDATA[Email Address]]></Translation>
+		</Text>
+		<Text Key="FirstVisit">
+			<Translation Language="en-GB"><![CDATA[First Visit]]></Translation>
+		</Text>
+		<Text Key="LastVisit">
+			<Translation Language="en-GB"><![CDATA[Last Visit]]></Translation>
+		</Text>
+	</Namespace>
+
+	<Namespace Name="MVCForum.Web.ViewModels.RegisterModel">
+		<Text Key="Username">
+			<Translation Language="en-GB"><![CDATA[Username]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Brugernavn]]></Translation>
+		</Text>
+		<Text Key="EmailAddress">
+			<Translation Language="en-GB"><![CDATA[E-mail address]]></Translation>
+			<Translation Language="da-DK"><![CDATA[E-mail adresse]]></Translation>
+		</Text>
+		<Text Key="Password">
+			<Translation Language="en-GB"><![CDATA[Password]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Kodeord]]></Translation>
+		</Text>
+		<Text Key="ConfirmPassword">
+			<Translation Language="en-GB"><![CDATA[Confirm password]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Gentag kodeord]]></Translation>
+		</Text>
+	</Namespace>
+
+	<Namespace Name="mvcForum.Web.DeleteMessage">
+		<Text Key="Delete">
+			<Translation Language="en-GB"><![CDATA[Delete message]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Slet besked]]></Translation>
+		</Text>
+		<Text Key="DeleteMessage">
+			<Translation Language="en-GB"><![CDATA[Delete message]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Slet besked]]></Translation>
+		</Text>
+		<Text Key="Submit">
+			<Translation Language="en-GB"><![CDATA[Delete]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Slet]]></Translation>
+		</Text>
+		<Text Key="Reason">
+			<Translation Language="en-GB"><![CDATA[Delete reason]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Begrundelse for sletning]]></Translation>
+		</Text>
+		<Text Key="Title">
+			<Translation Language="en-GB"><![CDATA[Delete post: {Subject}]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Slet besked: {Subject}]]></Translation>
+		</Text>
+	</Namespace>
+
+	<Namespace Name="mvcForum.Web.CreateTopic">
+		<Text Key="Subject">
+			<Translation Language="en-GB"><![CDATA[Subject]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Emne]]></Translation>
+		</Text>
+		<Text Key="Type">
+			<Translation Language="en-GB"><![CDATA[Type]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Type]]></Translation>
+		</Text>
+		<Text Key="Message">
+			<Translation Language="en-GB"><![CDATA[Message]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Besked]]></Translation>
+		</Text>
+		<Text Key="AttachFile">
+			<Translation Language="en-GB"><![CDATA[Attach file]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Vedhæft fil]]></Translation>
+		</Text>
+	</Namespace>
+
+	<Namespace Name="mvcForum.Web.CreateMessage">
+		<Text Key="Subject">
+			<Translation Language="en-GB"><![CDATA[Subject]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Emne]]></Translation>
+		</Text>
+		<Text Key="Message">
+			<Translation Language="en-GB"><![CDATA[Message]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Besked]]></Translation>
+		</Text>
+		<Text Key="AttachFile">
+			<Translation Language="en-GB"><![CDATA[Attach file]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Vedhæft fil]]></Translation>
+		</Text>
+	</Namespace>
+
+	<Namespace Name="mvcForum.Web.UpdateMessage">
+		<Text Key="Message">
+			<Translation Language="en-GB"><![CDATA[Content]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Indhold]]></Translation>
+		</Text>
+		<Text Key="Subject">
+			<Translation Language="en-GB"><![CDATA[Title]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Titel]]></Translation>
+		</Text>
+		<Text Key="Flag">
+			<Translation Language="en-GB"><![CDATA[Flag]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Flag]]></Translation>
+		</Text>
+		<Text Key="AttachFile">
+			<Translation Language="en-GB"><![CDATA[Attach file]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Vedhæft fil]]></Translation>
+		</Text>
+		<Text Key="Reason">
+			<Translation Language="en-GB"><![CDATA[Edit/Delete Reason]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Grund for sletning/redigering]]></Translation>
+		</Text>
+	</Namespace>
+
+	<Namespace Name="mvcForum.Web.EditTopic">
+		<Text Key="Title">
+			<Translation Language="en-GB"><![CDATA[Edit topic: {Title}]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Redigér emne: {Title}]]></Translation>
+		</Text>
+		<Text Key="EditTopic">
+			<Translation Language="en-GB"><![CDATA[Edit Topic]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Redigér Emne]]></Translation>
+		</Text>
+		<Text Key="Submit">
+			<Translation Language="en-GB"><![CDATA[Save]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Gem]]></Translation>
+		</Text>
+		<Text Key="Message">
+			<Translation Language="en-GB"><![CDATA[Content]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Indhold]]></Translation>
+		</Text>
+		<Text Key="TopicTitle">
+			<Translation Language="en-GB"><![CDATA[Title]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Titel]]></Translation>
+		</Text>
+		<Text Key="Reason">
+			<Translation Language="en-GB"><![CDATA[Edit/Delete Reason]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Grund for sletning/redigering]]></Translation>
+		</Text>
+		<Text Key="Type">
+			<Translation Language="en-GB"><![CDATA[Type]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Type]]></Translation>
+		</Text>
+		<Text Key="Flag">
+			<Translation Language="en-GB"><![CDATA[Flag]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Flag]]></Translation>
+		</Text>
+	</Namespace>
+
+	<Namespace Name="mvcForum.Web.Search">
+		<Text Key="Title">
+			<Translation Language="en-GB"><![CDATA[Search]]></Translation>
+		</Text>
+		<Text Key="Headline">
+			<Translation Language="en-GB"><![CDATA[Search]]></Translation>
+		</Text>
+		<Text Key="QuerySubHeading">
+			<Translation Language="en-GB"><![CDATA[Search Query]]></Translation>
+		</Text>
+		<Text Key="OptionsSubHeading">
+			<Translation Language="en-GB"><![CDATA[Search Options]]></Translation>
+		</Text>
+		<Text Key="ResetButton">
+			<Translation Language="en-GB"><![CDATA[Reset]]></Translation>
+		</Text>
+		<Text Key="NoResults">
+			<Translation Language="en-GB"><![CDATA[Your search for '{Query}' did not return any results.]]></Translation>
+		</Text>
+		<Text Key="SearchButton">
+			<Translation Language="en-GB"><![CDATA[Search]]></Translation>
+		</Text>
+		<Text Key="Query">
+			<Translation Language="en-GB"><![CDATA[Search for keywords:]]></Translation>
+		</Text>
+		<Text Key="Forums">
+			<Translation Language="en-GB"><![CDATA[Search in forums:]]></Translation>
+		</Text>
+		<Text Key="BackToAdvancedTitle">
+			<Translation Language="en-GB"><![CDATA[Advanced search]]></Translation>
+		</Text>
+		<Text Key="BackToAdvanced">
+			<Translation Language="en-GB"><![CDATA[Return to advanced search]]></Translation>
+		</Text>
+		<Text Key="FoundTitle">
+			<Translation Language="en-GB"><![CDATA[Search found {Results} #Results:{1:match|matches}: {Query}]]></Translation>
+		</Text>
+	</Namespace>
+
+	<Namespace Name="mvcForum.Web">
+		<Text Key="Register.Title">
+			<Translation Language="en-GB"><![CDATA[Register New Account]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Opret ny konto]]></Translation>
+		</Text>
+		<Text Key="Register.Headline">
+			<Translation Language="en-GB"><![CDATA[Register New Account]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Opret ny konto]]></Translation>
+		</Text>
+		<Text Key="Register.Accept">
+			<Translation Language="en-GB"><![CDATA[I accept]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Jeg accepterer]]></Translation>
+		</Text>
+		<Text Key="Register.Submit">
+			<Translation Language="en-GB"><![CDATA[Register]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Opret]]></Translation>
+		</Text>
+		<Text Key="Register.RulesMustBeAccepted">
+			<Translation Language="en-GB"><![CDATA[The forum rules has to be accepted!]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Forum regler skal accepteres!]]></Translation>
+		</Text>
+		<Text Key="Register.EmailActivation">
+			<Translation Language="en-GB"><![CDATA[Your new account has been created and you will receive an e-mail with details on how to activate the account shortly.]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Din nye konto er oprettet og du vil om kort tid, modtage en e-mail med en beskrivelse af hvad du skal gøre for at aktivere din konto.]]></Translation>
+		</Text>
+		<Text Key="Register.AccountReady">
+			<Translation Language="en-GB"><![CDATA[Your new account has been created and is ready to use.]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Din nye konto er oprettet og klar til brug.]]></Translation>
+		</Text>
+
+		<Text Key="Success.Title">
+			<Translation Language="en-GB"><![CDATA[New account created.]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Ny konto oprettet.]]></Translation>
+		</Text>
+		<Text Key="Success.Headline">
+			<Translation Language="en-GB"><![CDATA[New account created.]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Ny konto oprettet.]]></Translation>
+		</Text>
+
+		<Text Key="External.Title">
+			<Translation Language="en-GB"><![CDATA[External Account Sign In.]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Ekstern konto validering.]]></Translation>
+		</Text>
+		<Text Key="External.Headline">
+			<Translation Language="en-GB"><![CDATA[Username already in use.]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Brugernavn allerede i brug.]]></Translation>
+		</Text>
+		<Text Key="External.Body">
+			<Translation Language="en-GB"><![CDATA[The username of your external account is already in use on this site. You'll have to use another external account, or register for a local account.]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Brugernavnet fra din eksterne konto er allerede brugt på dette site. Du bliver nødt til at benytte en anden ekstern konto, eller registrere en lokalt konto.]]></Translation>
+		</Text>
+
+		<Text Key="Activate.Title">
+			<Translation Language="en-GB"><![CDATA[Activate account]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Aktivér konto]]></Translation>
+		</Text>
+		<Text Key="Activate.Headline">
+			<Translation Language="en-GB"><![CDATA[New Account]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Ny konto]]></Translation>
+		</Text>
+		<Text Key="Activate.Success">
+			<Translation Language="en-GB"><![CDATA[Your new account has now been activated and is ready to use!]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Din nye konto er nu aktiveret og er klar til brug!]]></Translation>
+		</Text>
+		<Text Key="Activate.Failure">
+			<Translation Language="en-GB"><![CDATA[We could not activate your new account!]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Din nye konto kunne ikke aktiveres!]]></Translation>
+		</Text>
+
+		<Text Key="LogOn.Title">
+			<Translation Language="en-GB"><![CDATA[Log On]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Log på]]></Translation>
+		</Text>
+		<Text Key="LogOn.Headline">
+			<Translation Language="en-GB"><![CDATA[Local Log On]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Lokalt log på]]></Translation>
+		</Text>
+		<Text Key="LogOn.Headline2">
+			<Translation Language="en-GB"><![CDATA[External Log On]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Eksternt log på]]></Translation>
+		</Text>
+		<Text Key="LogOn.RememberMe">
+			<Translation Language="en-GB"><![CDATA[Remember me]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Husk mig]]></Translation>
+		</Text>
+		<Text Key="LogOn.RegisterText">
+			<Translation Language="en-GB"><![CDATA[Or you can \<a href="register"\>register a new account\</a\>]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Eller du kan \<a href="register"\>registrere en ny konto\</a\>]]></Translation>
+		</Text>
+		<Text Key="LogOn.Submit">
+			<Translation Language="en-GB"><![CDATA[Log On]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Log på]]></Translation>
+		</Text>
+
+		<Text Key="ValidationErrorHeading">
+			<Translation Language="en-GB"><![CDATA[Validation errors]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Valideringsfejl]]></Translation>
+		</Text>
+
+		<Text Key="PoweredBy">
+			<Translation Language="en-GB"><![CDATA[Powered by {Product} v{ShortVersion} &copy; 2011-{EndYear} {CopyrightOwner}.]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Kører på {Product} v{ShortVersion} &copy; 2011-{EndYear} {CopyrightOwner}.]]></Translation>
+		</Text>
+		<Text Key="TimeOffset">
+			<Translation Language="en-GB"><![CDATA[All times are #TotalOffset:{0:UTC|UTC+{OffsetHours}:{OffsetMinutes:d2}}]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Tiden angivet som {0:hh:mm}]]></Translation>
+		</Text>
+		<Text Key="CurrentTime">
+			<Translation Language="en-GB"><![CDATA[It is currently {0:f}]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Det er {0:f}]]></Translation>
+		</Text>
+		<Text Key="Forum">
+			<Translation Language="en-GB"><![CDATA[Forum]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Forum]]></Translation>
+		</Text>
+		<Text Key="Moderate">
+			<Translation Language="en-GB"><![CDATA[Moderate]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Moderer]]></Translation>
+		</Text>
+		<Text Key="NoAccess">
+			<Translation Language="en-GB"><![CDATA[ (no access)]]></Translation>
+			<Translation Language="da-DK"><![CDATA[ (ingen adgang)]]></Translation>
+		</Text>
+		<Text Key="TopicCount">
+			<Translation Language="en-GB"><![CDATA[{0} \<dfn\>Topics\</dfn\>]]></Translation>
+			<Translation Language="da-DK"><![CDATA[{0} \<dfn\>Emner\</dfn\>]]></Translation>
+		</Text>
+		<Text Key="PostCount">
+			<Translation Language="en-GB"><![CDATA[{0} \<dfn\>Posts\</dfn\>]]></Translation>
+			<Translation Language="da-DK"><![CDATA[{0} \<dfn\>Beskeder\</dfn\>]]></Translation>
+		</Text>
+		<Text Key="ModeratorCP">
+			<Translation Language="en-GB"><![CDATA[Moderate]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Moderer]]></Translation>
+		</Text>
+
+		<Text Key="Labels.Topics">
+			<Translation Language="en-GB"><![CDATA[Topics]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Emner]]></Translation>
+		</Text>
+		<Text Key="Labels.Posts">
+			<Translation Language="en-GB"><![CDATA[Posts]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Beskeder]]></Translation>
+		</Text>
+		<Text Key="Labels.LastPost">
+			<Translation Language="en-GB"><![CDATA[Last post]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Seneste besked]]></Translation>
+		</Text>
+		<Text Key="Labels.Forum">
+			<Translation Language="en-GB"><![CDATA[Forums]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Fora]]></Translation>
+		</Text>
+		<Text Key="Labels.Reporter">
+			<Translation Language="en-GB"><![CDATA[Reported by]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Rapporteret af]]></Translation>
+		</Text>
+		<Text Key="Labels.Replies">
+			<Translation Language="en-GB"><![CDATA[Replies]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Svar]]></Translation>
+		</Text>
+		<Text Key="Labels.Views">
+			<Translation Language="en-GB"><![CDATA[Views]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Visninger]]></Translation>
+		</Text>
+		<Text Key="Labels.Author">
+			<Translation Language="en-GB"><![CDATA[Author]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Forfatter]]></Translation>
+		</Text>
+		<Text Key="Labels.Reported">
+			<Translation Language="en-GB"><![CDATA[Reported]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Rapporteret]]></Translation>
+		</Text>
+
+		<Text Key="LastPost.LastPost">
+			<Translation Language="en-GB"><![CDATA[Last post ]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Seneste besked ]]></Translation>
+		</Text>
+		<Text Key="LastPost.By">
+			<Translation Language="en-GB">
+				<![CDATA[by {0} on {1:f}]]>
+			</Translation>
+			<Translation Language="da-DK">
+				<![CDATA[af {0} den {1:f}]]>
+			</Translation>
+		</Text>
+		<Text Key="LastTopic.By">
+			<Translation Language="en-GB">
+				<![CDATA[by {0} in {2} on {1:f}]]>
+			</Translation>
+			<Translation Language="da-DK">
+				<![CDATA[af {0} i {2} den {1:f}]]>
+			</Translation>
+		</Text>
+		<Text Key="LastPost.NoPost">
+			<Translation Language="en-GB"><![CDATA[No posts]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Ingen beskeder]]></Translation>
+		</Text>
+
+		<Text Key="Move.Submit">
+			<Translation Language="en-GB"><![CDATA[Move]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Flyt]]></Translation>
+		</Text>
+		<Text Key="Move.Heading">
+			<Translation Language="en-GB"><![CDATA[Move Topics]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Flyt emner]]></Translation>
+		</Text>
+		<Text Key="Move.Destination">
+			<Translation Language="en-GB"><![CDATA[Destination]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Destination]]></Translation>
+		</Text>
+		<Text Key="Move.LeaveTopics">
+			<Translation Language="en-GB"><![CDATA[Create "moved topic"]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Opret "flyttet emne"]]></Translation>
+		</Text>
+
+		<Text Key="Delete.Submit">
+			<Translation Language="en-GB"><![CDATA[Delete]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Slet]]></Translation>
+		</Text>
+		<Text Key="Delete.Confirm">
+			<Translation Language="en-GB"><![CDATA[Confirm delete]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Validér sletning]]></Translation>
+		</Text>
+		<Text Key="Delete.Heading">
+			<Translation Language="en-GB"><![CDATA[Delete Topics]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Slet emner]]></Translation>
+		</Text>
+		<Text Key="Delete.Reason">
+			<Translation Language="en-GB"><![CDATA[Reason]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Begrundelse]]></Translation>
+		</Text>
+
+		<Text Key="Split.Submit">
+			<Translation Language="en-GB"><![CDATA[Split]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Split]]></Translation>
+		</Text>
+		<Text Key="Split.OriginalTopicTitle">
+			<Translation Language="en-GB"><![CDATA[Existing topic's title]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Det originale emnes titel]]></Translation>
+		</Text>
+		<Text Key="Split.NewTopicTitle">
+			<Translation Language="en-GB"><![CDATA[New topic's title]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Titel på nyt emne]]></Translation>
+		</Text>
+		<Text Key="Split.Heading">
+			<Translation Language="en-GB"><![CDATA[Split topic]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Split emne]]></Translation>
+		</Text>
+		<Text Key="Split.Select">
+			<Translation Language="en-GB"><![CDATA[Select posts for new topic]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Vælg beskeder til nyt emne]]></Translation>
+		</Text>
+
+		<Text Key="Merge.Submit">
+			<Translation Language="en-GB"><![CDATA[Merge]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Flet]]></Translation>
+		</Text>
+		<Text Key="Merge.Confirm">
+			<Translation Language="en-GB"><![CDATA[Confirm merge]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Validér fletning]]></Translation>
+		</Text>
+		<Text Key="Merge.Heading">
+			<Translation Language="en-GB"><![CDATA[Merge Topics]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Flet emner]]></Translation>
+		</Text>
+		<Text Key="Merge.MissingTopics">
+			<Translation Language="en-GB"><![CDATA[Merge failed, 2 or more topics needed for a merge]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Fletning fejlede, der skal vælges 2 eller flere emner.]]></Translation>
+		</Text>
+
+		<Text Key="NoAccess.ModeratorForum">
+			<Translation Language="en-GB"><![CDATA[You do not have moderator access to the forum '{Name}']]></Translation>
+			<Translation Language="da-DK"><![CDATA[Du har ikke moderator adgang til forummet '{Name}']]></Translation>
+		</Text>
+
+		<Text Key="NoAccess.ModeratorForums">
+			<Translation Language="en-GB"><![CDATA[You do not have moderator access.]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Du har ikke moderator adgang.]]></Translation>
+		</Text>
+
+		<Text Key="NoAccess.MessageDelete">
+			<Translation Language="en-GB"><![CDATA[You can not delete the message '{Subject}']]></Translation>
+			<Translation Language="da-DK"><![CDATA[Du kan ikke slette beskeden '{Subject}']]></Translation>
+		</Text>
+		<Text Key="NoAccess.MessageUndelete">
+			<Translation Language="en-GB"><![CDATA[You can not undelete the message '{Subject}']]></Translation>
+			<Translation Language="da-DK"><![CDATA[Du kan ikke omgøre sletningen af beskeden '{Subject}']]></Translation>
+		</Text>
+		<Text Key="NoAccess.Forum">
+			<Translation Language="en-GB"><![CDATA[You do not have access to the '{0}' forum]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Du har ikke adgang til forummet '{0}']]></Translation>
+		</Text>
+		<Text Key="NoAccess.ForumPosting">
+			<Translation Language="en-GB"><![CDATA[You are not allowed to post in the '{0}' forum]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Du har ikke adgang til at skrive beskeder i forummet '{0}']]></Translation>
+		</Text>
+		<Text Key="NoAccess.NoUpload">
+			<Translation Language="en-GB"><![CDATA[You are not allowed to attach a file to a post]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Du har ikke adgang til at vedhæfte filer til en besked]]></Translation>
+		</Text>
+		<Text Key="NoAccess.EditPost">
+			<Translation Language="en-GB"><![CDATA[You are not allowed to edit this post]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Du har ikke adgang til at redigere denne besked]]></Translation>
+		</Text>
+		<Text Key="NoAccess.BannedIP">
+			<Translation Language="en-GB"><![CDATA[You're IP address ({IPAddress}) has been banned. Please contact us for further details.]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Din IP adresse ({IPAddress}) er sortlistet. Kontakt os for flere detaljer.]]></Translation>
+		</Text>
+
+		<Text Key="CreateTopic.Title">
+			<Translation Language="en-GB"><![CDATA[New topic in '{Title}']]></Translation>
+			<Translation Language="da-DK"><![CDATA[Nyt emne i '{Title}']]></Translation>
+		</Text>
+		<Text Key="CreateTopic.Subject">
+			<Translation Language="en-GB"><![CDATA[Subject]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Emne]]></Translation>
+		</Text>
+		<Text Key="CreateTopic.Type">
+			<Translation Language="en-GB"><![CDATA[Type]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Type]]></Translation>
+		</Text>
+		<Text Key="CreateTopic.PostNewTopic">
+			<Translation Language="en-GB"><![CDATA[Post a new topic]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Skriv en ny besked]]></Translation>
+		</Text>
+		<Text Key="CreateTopic.Message">
+			<Translation Language="en-GB"><![CDATA[Message]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Besked]]></Translation>
+		</Text>
+		<Text Key="CreateTopic.AttachFile">
+			<Translation Language="en-GB"><![CDATA[Attach file]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Vedhæft fil]]></Translation>
+		</Text>
+		<Text Key="CreateTopic.Submit">
+			<Translation Language="en-GB"><![CDATA[Create]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Opret]]></Translation>
+		</Text>
+
+		<Text Key="EditTopic.Submit">
+			<Translation Language="en-GB"><![CDATA[Save]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Gem]]></Translation>
+		</Text>
+		<Text Key="EditTopic.EditTopic">
+			<Translation Language="en-GB"><![CDATA[Edit topic]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Redigér emne]]></Translation>
+		</Text>
+
+		<Text Key="CreateMessage.QuickSubmit">
+			<Translation Language="en-GB"><![CDATA[Reply]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Svar]]></Translation>
+		</Text>
+		<Text Key="CreateMessage.QuickReply">
+			<Translation Language="en-GB"><![CDATA[Quick Reply]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Hurtigt svar]]></Translation>
+		</Text>
+		<Text Key="CreateMessage.Subject">
+			<Translation Language="en-GB"><![CDATA[Subject]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Emne]]></Translation>
+		</Text>
+		<Text Key="CreateMessage.PostNewMessage">
+			<Translation Language="en-GB"><![CDATA[Post a reply]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Skriv et nyt svar]]></Translation>
+		</Text>
+		<Text Key="CreateMessage.Message">
+			<Translation Language="en-GB"><![CDATA[Message]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Besked]]></Translation>
+		</Text>
+		<Text Key="CreateMessage.AttachFile">
+			<Translation Language="en-GB"><![CDATA[Attach file]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Vedhæft fil]]></Translation>
+		</Text>
+		<Text Key="CreateMessage.Submit">
+			<Translation Language="en-GB"><![CDATA[Create]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Opret]]></Translation>
+		</Text>
+		<Text Key="CreateMessage.OldPosted">
+			<Translation Language="en-GB"><![CDATA[By: {Author}, at: {Timestamp:F}]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Emne]]></Translation>
+		</Text>
+		<Text Key="EditMessage.Flag">
+			<Translation Language="en-GB"><![CDATA[Flag]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Flag]]></Translation>
+		</Text>
+		<Text Key="EditMessage.Message">
+			<Translation Language="en-GB"><![CDATA[Message]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Besked]]></Translation>
+		</Text>
+		<Text Key="EditMessage.Subject">
+			<Translation Language="en-GB"><![CDATA[Subject]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Emne]]></Translation>
+		</Text>
+		<Text Key="EditMessage.AttachFile">
+			<Translation Language="en-GB"><![CDATA[Attach file]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Vedhæft fil]]></Translation>
+		</Text>
+		<Text Key="EditMessage.Submit">
+			<Translation Language="en-GB"><![CDATA[Save]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Gem]]></Translation>
+		</Text>
+		<Text Key="EditMessage.EditMessage">
+			<Translation Language="en-GB"><![CDATA[Edit message]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Redigér besked]]></Translation>
+		</Text>
+
+		<Text Key="AdminAuthorNameSetting.EmailAddress">
+			<Translation Language="en-GB"><![CDATA[E-mail Address]]></Translation>
+			<Translation Language="da-DK"><![CDATA[E-mail adresse]]></Translation>
+		</Text>
+		<Text Key="AdminAuthorNameSetting.FullnameOrUsername">
+			<Translation Language="en-GB"><![CDATA[Fullname (if present else username)]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Fulde navn (hvis oplyst ellers brugernavn)]]></Translation>
+		</Text>
+		<Text Key="AdminAuthorNameSetting.Username">
+			<Translation Language="en-GB"><![CDATA[Username]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Brugernavn]]></Translation>
+		</Text>
+		<Text Key="AdminAuthorNameSetting.UserOption">
+			<Translation Language="en-GB"><![CDATA[Allow user to select]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Brugerens valg]]></Translation>
+		</Text>
+
+		<Text Key="TopicType.Regular">
+			<Translation Language="en-GB"><![CDATA[Regular]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Normal]]></Translation>
+		</Text>
+		<Text Key="TopicType.Sticky">
+			<Translation Language="en-GB"><![CDATA[Sticky]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Sticky]]></Translation>
+		</Text>
+		<Text Key="TopicType.Announcement">
+			<Translation Language="en-GB"><![CDATA[Announcement]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Meddelelse]]></Translation>
+		</Text>
+		<Text Key="TopicFlag.Deleted">
+			<Translation Language="en-GB"><![CDATA[Deleted]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Slettet]]></Translation>
+		</Text>
+		<Text Key="TopicFlag.Locked">
+			<Translation Language="en-GB"><![CDATA[Locked]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Låst]]></Translation>
+		</Text>
+		<Text Key="TopicFlag.None">
+			<Translation Language="en-GB"><![CDATA[None]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Ingen]]></Translation>
+		</Text>
+		<Text Key="TopicFlag.Quarantined">
+			<Translation Language="en-GB"><![CDATA[Quarantined]]></Translation>
+			<Translation Language="da-DK"><![CDATA[I karantæne]]></Translation>
+		</Text>
+		<Text Key="PostFlag.Deleted">
+			<Translation Language="en-GB"><![CDATA[Deleted]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Slettet]]></Translation>
+		</Text>
+		<Text Key="PostFlag.None">
+			<Translation Language="en-GB"><![CDATA[None]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Ingen]]></Translation>
+		</Text>
+		<Text Key="PostFlag.Quarantined">
+			<Translation Language="en-GB"><![CDATA[Quarantined]]></Translation>
+			<Translation Language="da-DK"><![CDATA[I karantæne]]></Translation>
+		</Text>
+
+		<Text Key="Topic.Title">
+			<Translation Language="en-GB"><![CDATA[Topic '{Title}']]></Translation>
+			<Translation Language="da-DK"><![CDATA[Emne '{Title}']]></Translation>
+		</Text>
+		<Text Key="Topic.LastPost">
+			<Translation Language="en-GB"><![CDATA[by {0} on {1:f}]]></Translation>
+			<Translation Language="da-DK"><![CDATA[af {0} den {1:f}]]></Translation>
+		</Text>
+		<Text Key="Topic.Deleted">
+			<Translation Language="en-GB"><![CDATA[(Deleted) ]]></Translation>
+			<Translation Language="da-DK"><![CDATA[(Slettet) ]]></Translation>
+		</Text>
+		<Text Key="Topic.Replies">
+			<Translation Language="en-GB"><![CDATA[{0} \<dfn\>Replies\</dfn\>]]></Translation>
+			<Translation Language="da-DK"><![CDATA[{0} \<dfn\>Svar\</dfn\>]]></Translation>
+		</Text>
+		<Text Key="Topic.Views">
+			<Translation Language="en-GB"><![CDATA[{0} \<dfn\>Views\</dfn\>]]></Translation>
+			<Translation Language="da-DK"><![CDATA[{0} \<dfn\>Visninger\</dfn\>]]></Translation>
+		</Text>
+
+		<Text Key="Paging.Topic">
+			<Translation Language="en-GB"><![CDATA[#MessageCount:{1:{#} post|{#} posts} &bull; Page \<strong\>{PageIndex}\</strong\> #PageCount:{>1: of \<strong\>{#}\</strong\>|: of \<strong\>1\</strong\>}]]></Translation>
+			<Translation Language="da-DK"><![CDATA[#MessageCount:{1:{#} besked|{#} beskeder} &bull; Side \<strong\>{PageIndex}\</strong\> #PageCount:{>1: af \<strong\>{#}\</strong\>|: af \<strong\>1\</strong\>}]]></Translation>
+		</Text>
+
+		<Text Key="Paging.Forum">
+			<Translation Language="en-GB"><![CDATA[#TopicCount:{1:{#} topic|{#} topics} &bull; Page \<strong\>{PageIndex}\</strong\> #PageCount:{>1: of \<strong\>{#}\</strong\>|: of \<strong\>1\</strong\>}]]></Translation>
+			<Translation Language="da-DK"><![CDATA[#TopicCount:{1:{#} emne|{#} emner} &bull; Side \<strong\>{PageIndex}\</strong\> #PageCount:{>1: af \<strong\>{#}\</strong\>|: af \<strong\>1\</strong\>}]]></Translation>
+		</Text>
+
+		<Text Key="Category.Title">
+			<Translation Language="en-GB"><![CDATA[Category - {Name}]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Kategori - {Name}]]></Translation>
+		</Text>
+
+		<Text Key="Board.Title">
+			<Translation Language="en-GB"><![CDATA[{Name}]]></Translation>
+			<Translation Language="da-DK"><![CDATA[{Name}]]></Translation>
+		</Text>
+
+		<Text Key="Board.OnlineUsers">
+			<Translation Language="en-GB"><![CDATA[Online Users]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Online brugere]]></Translation>
+		</Text>
+
+		<Text Key="AttachFile.Title">
+			<Translation Language="en-GB"><![CDATA[Attach file to message: {Subject}]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Vedhæft fil til besked: {Subject}]]></Translation>
+		</Text>
+
+		<Text Key="AttachFile.Headline">
+			<Translation Language="en-GB"><![CDATA[Attach file]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Vedhæft fil]]></Translation>
+		</Text>
+
+		<Text Key="AttachFile.Submit">
+			<Translation Language="en-GB"><![CDATA[Update]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Opdatér]]></Translation>
+		</Text>
+
+		<Text Key="NoAccess.Title">
+			<Translation Language="en-GB"><![CDATA[No access]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Ingen adgang]]></Translation>
+		</Text>
+
+		<Text Key="NoAccess.Headline">
+			<Translation Language="en-GB"><![CDATA[No access]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Ingen adgang]]></Translation>
+		</Text>
+
+		<Text Key="Forum.PostTopic">
+			<Translation Language="en-GB"><![CDATA[Post a new topic]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Skriv nyt emne]]></Translation>
+		</Text>
+
+		<Text Key="Forum.Title">
+			<Translation Language="en-GB"><![CDATA[Forum - {Name}]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Forum - {Name}]]></Translation>
+		</Text>
+
+		<Text Key="CreateMessage.Title">
+			<Translation Language="en-GB"><![CDATA[Write new message in topic: {Title}]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Skriv nyt svar til emnet: {Title}]]></Translation>
+		</Text>
+
+		<Text Key="EditMessage.Title">
+			<Translation Language="en-GB"><![CDATA[Edit message: {Subject}]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Redigér besked: {Subject}]]></Translation>
+		</Text>
+
+		<Text Key="EditMessage.Reason">
+			<Translation Language="en-GB"><![CDATA[Edit/Delete Reason]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Grund for sletning/redigering]]></Translation>
+		</Text>
+
+		<Text Key="ViewMessage.Edited">
+			<Translation Language="en-GB"><![CDATA[Last edited by {Editor} on {Timestamp:f}]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Sidst redigeret af {Editor} den {Timestamp:f}]]></Translation>
+		</Text>
+
+		<Text Key="ViewMessage.Moderate">
+			<Translation Language="en-GB"><![CDATA[Moderate]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Moderér]]></Translation>
+		</Text>
+
+		<Text Key="ViewMessage.Delete">
+			<Translation Language="en-GB"><![CDATA[Delete]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Slet]]></Translation>
+		</Text>
+		<Text Key="ViewMessage.Undelete">
+			<Translation Language="en-GB"><![CDATA[Undelete]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Omgør sletning]]></Translation>
+		</Text>
+
+		<Text Key="ViewMessage.Report">
+			<Translation Language="en-GB"><![CDATA[Report]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Rapportér]]></Translation>
+		</Text>
+
+		<Text Key="ViewMessage.ModeratorDeleted">
+			<Translation Language="en-GB"><![CDATA[Deleted by a moderator, reason: {Reason}]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Slettet af en moderator, begrundelse: {Reason}]]></Translation>
+		</Text>
+
+		<Text Key="ViewMessage.AuthorDeleted">
+			<Translation Language="en-GB"><![CDATA[Deleted by the author, reason: {Reason}]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Slettet af forfatter, begrundelse: {Reason}]]></Translation>
+		</Text>
+
+		<Text Key="ViewMessage.Edit">
+			<Translation Language="en-GB"><![CDATA[Edit]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Redigér]]></Translation>
+		</Text>
+
+		<Text Key="ViewMessage.Quote">
+			<Translation Language="en-GB"><![CDATA[Reply with quote]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Besvar med ?quote?]]></Translation>
+		</Text>
+
+		<Text Key="ViewMessage.Attachments">
+			<Translation Language="en-GB"><![CDATA[Attachments]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Vedhæftede filer]]></Translation>
+		</Text>
+
+		<Text Key="ViewMessage.PosterJoined">
+			<Translation Language="en-GB"><![CDATA[\<strong\>Joined:\</strong\> {Timestamp:d}]]></Translation>
+			<Translation Language="da-DK"><![CDATA[\<strong\>Medlem fra:\</strong\> {Timestamp:d}]]></Translation>
+		</Text>
+
+		<Text Key="Moderator">
+			<Translation Language="en-GB"><![CDATA[a moderator]]></Translation>
+			<Translation Language="da-DK"><![CDATA[en moderator]]></Translation>
+		</Text>
+
+		<Text Key="UndeleteMessage.Title">
+			<Translation Language="en-GB"><![CDATA[Undelete post: {Subject}]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Omgør sletning af besked: {Subject}]]></Translation>
+		</Text>
+
+		<Text Key="UndeleteMessage.UndeleteMessage">
+			<Translation Language="en-GB"><![CDATA[Undelete message]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Omgør sletning af besked]]></Translation>
+		</Text>
+
+		<Text Key="UndeleteMessage.Submit">
+			<Translation Language="en-GB"><![CDATA[Undelete]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Omgør sletning]]></Translation>
+		</Text>
+
+		<Text Key="ReportMessage.Title">
+			<Translation Language="en-GB"><![CDATA[Report post: {Subject}]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Rapportér besked: {Subject}]]></Translation>
+		</Text>
+
+		<Text Key="ReportMessage.ReportMessage">
+			<Translation Language="en-GB"><![CDATA[Report post]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Rapportér besked]]></Translation>
+		</Text>
+
+		<Text Key="ReportMessage.Submit">
+			<Translation Language="en-GB"><![CDATA[Report]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Rapportér]]></Translation>
+		</Text>
+
+		<Text Key="ReportMessage.Confirm">
+			<Translation Language="en-GB"><![CDATA[Report]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Rapportér]]></Translation>
+		</Text>
+
+		<Text Key="ReportMessage.Reason">
+			<Translation Language="en-GB"><![CDATA[Reason]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Begrundelse]]></Translation>
+		</Text>
+
+		<Text Key="User.Title">
+			<Translation Language="en-GB"><![CDATA[View user profile: {Name}]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Se brugerprofil: {Name}]]></Translation>
+		</Text>
+
+		<Text Key="Forum.Follow">
+			<Translation Language="en-GB"><![CDATA[Follow]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Follow]]></Translation>
+		</Text>
+
+		<Text Key="Forum.Unfollow">
+			<Translation Language="en-GB"><![CDATA[Unfollow]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Unfollow]]></Translation>
+		</Text>
+
+		<Text Key="Topic.Follow">
+			<Translation Language="en-GB"><![CDATA[Follow]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Follow]]></Translation>
+		</Text>
+
+		<Text Key="Topic.Unfollow">
+			<Translation Language="en-GB"><![CDATA[Unfollow]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Unfollow]]></Translation>
+		</Text>
+
+		<Text Key="ShowUser.UserProfile">
+			<Translation Language="en-GB"><![CDATA[Profile for {User.Name}.]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Profil for {User.Name}.]]></Translation>
+		</Text>
+
+		<Text Key="EditUser.Title">
+			<Translation Language="en-GB"><![CDATA[Profile for {Name}]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Profil for {Name}]]></Translation>
+		</Text>
+
+		<Text Key="EditUser.Heading">
+			<Translation Language="en-GB"><![CDATA[Edit profile: {Name}.]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Redigér profil {Name}.]]></Translation>
+		</Text>
+
+		<Text Key="EditUser.AccountSettings">
+			<Translation Language="en-GB"><![CDATA[Account settings]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Konto oplysninger]]></Translation>
+		</Text>
+
+		<Text Key="EditUser.ProfileSettings">
+			<Translation Language="en-GB"><![CDATA[Profile settings]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Konto oplysninger]]></Translation>
+		</Text>
+
+		<Text Key="EditUser.SettingsSaved">
+			<Translation Language="en-GB"><![CDATA[The profile was updated.]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Profilen blev opdateret.]]></Translation>
+		</Text>
+
+		<Text Key="EditUser.UserProfile">
+			<Translation Language="en-GB"><![CDATA[Edit {Name}]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Rediger {Name}]]></Translation>
+		</Text>
+
+		<Text Key="EditUser.Submit">
+			<Translation Language="en-GB"><![CDATA[Save]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Gem]]></Translation>
+		</Text>
+
+		<Text Key="SearchUnanswered.Title">
+			<Translation Language="en-GB"><![CDATA[View Unanswered Topics]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Se ubesvarede emner]]></Translation>
+		</Text>
+
+		<Text Key="SearchUnanswered.Breadcrumb">
+			<Translation Language="en-GB"><![CDATA[Unanswered Topics]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Ubesvarede emner]]></Translation>
+		</Text>
+
+		<Text Key="SearchUnanswered.Breadcrumb">
+			<Translation Language="en-GB"><![CDATA[View Unanswered Topics]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Se ubesvarede emner]]></Translation>
+		</Text>
+
+		<Text Key="SearchUnanswered.Heading">
+			<Translation Language="en-GB"><![CDATA[View unanswered topics]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Se ubesvarede emner]]></Translation>
+		</Text>
+
+		<Text Key="LinkText.UnansweredPosts">
+			<Translation Language="en-GB"><![CDATA[View unanswered topics]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Se ubesvarede emner]]></Translation>
+		</Text>
+
+		<Text Key="LinkText.MarkAsRead">
+			<Translation Language="en-GB"><![CDATA[Mark as read]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Markér alle læste]]></Translation>
+		</Text>
+
+		<Text Key="EditProfile.InvalidEmailAddress">
+			<Translation Language="en-GB"><![CDATA[The e-mail address is not valid!]]></Translation>
+		</Text>
+
+		<Text Key="AdvancedSearch">
+			<Translation Language="en-GB"><![CDATA[Advanced Search]]></Translation>
+		</Text>
+
+		<Text Key="AdvancedSearchTitle">
+			<Translation Language="en-GB"><![CDATA[View the advanced search options]]></Translation>
+		</Text>
+
+		<Text Key="InitialSearchValue">
+			<Translation Language="en-GB"><![CDATA[Search...]]></Translation>
+		</Text>
+
+		<Text Key="SearchButton">
+			<Translation Language="en-GB"><![CDATA[Search]]></Translation>
+		</Text>
+
+		<Text Key="SearchTitle">
+			<Translation Language="en-GB"><![CDATA[Search for keywords]]></Translation>
+		</Text>
+
+		<Text Key="Moderate.Title">
+			<Translation Language="en-GB"><![CDATA[Moderator forum '{Name}']]></Translation>
+		</Text>
+
+		<Text Key="Moderate.TitleMain">
+			<Translation Language="en-GB"><![CDATA[Moderator Control Panel]]></Translation>
+		</Text>
+
+		<Text Key="Moderate.ActionMerge">
+			<Translation Language="en-GB"><![CDATA[Merge]]></Translation>
+		</Text>
+		<Text Key="Moderate.ActionMove">
+			<Translation Language="en-GB"><![CDATA[Move]]></Translation>
+		</Text>
+		<Text Key="Moderate.ActionDelete">
+			<Translation Language="en-GB"><![CDATA[Delete]]></Translation>
+		</Text>
+		<Text Key="Moderate.ActionSplit">
+			<Translation Language="en-GB"><![CDATA[Split]]></Translation>
+		</Text>
+
+		<Text Key="Moderate.Deleted">
+			<Translation Language="en-GB"><![CDATA[(Deleted) ]]></Translation>
+		</Text>
+		<Text Key="Moderate.Quarantined">
+			<Translation Language="en-GB"><![CDATA[(Quarantined) ]]></Translation>
+		</Text>
+		<Text Key="Moderate.DeleteReason">
+			<Translation Language="en-GB"><![CDATA[This message has been deleted, reason: {Reason}]]></Translation>
+		</Text>
+		<Text Key="Moderate.Moved">
+			<Translation Language="en-GB"><![CDATA[(Moved) ]]></Translation>
+		</Text>
+		<Text Key="Moderate.ExecuteAction">
+			<Translation Language="en-GB"><![CDATA[Submit]]></Translation>
+		</Text>
+
+		<Text Key="Moderator.TopTitle">
+			<Translation Language="en-GB"><![CDATA[Moderator Control Panel]]></Translation>
+		</Text>
+
+		<Text Key="Moderate.Button">
+			<Translation Language="en-GB"><![CDATA[Moderate forum]]></Translation>
+		</Text>
+
+		<Text Key="Moderate.TopicsHeading">
+			<Translation Language="en-GB"><![CDATA[Topics]]></Translation>
+		</Text>
+
+		<Text Key="Moderate.RepliesHeading">
+			<Translation Language="en-GB"><![CDATA[Replies]]></Translation>
+		</Text>
+
+		<Text Key="Moderate.ViewsHeading">
+			<Translation Language="en-GB"><![CDATA[Views]]></Translation>
+		</Text>
+
+		<Text Key="Moderate.LastPostHeading">
+			<Translation Language="en-GB"><![CDATA[Last Post]]></Translation>
+		</Text>
+
+		<Text Key="PostReports.Title">
+			<Translation Language="en-GB"><![CDATA[Unresolved post reports]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Ikke håndterede rapporterede indlæg]]></Translation>
+		</Text>
+		<Text Key="PostReports.TopTitle">
+			<Translation Language="en-GB"><![CDATA[Unresolved reports]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Ikke håndterede rapporter]]></Translation>
+		</Text>
+		<Text Key="PostReports.PostHeading">
+			<Translation Language="en-GB"><![CDATA[Posts]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Indlæg]]></Translation>
+		</Text>
+		<Text Key="PostReports.AuthorTopic">
+			<Translation Language="en-GB"><![CDATA[by {Author} in {Topic}]]></Translation>
+			<Translation Language="da-DK"><![CDATA[af {Author} i {Topic}]]></Translation>
+		</Text>
+
+		<Text Key="PostReport.Submit">
+			<Translation Language="en-GB"><![CDATA[Save]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Gem]]></Translation>
+		</Text>
+		<Text Key="PostReport.Reports">
+			<Translation Language="en-GB"><![CDATA[Unresolved reports]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Ikke håndterede rapporter]]></Translation>
+		</Text>
+		<Text Key="PostReport.Reason">
+			<Translation Language="en-GB"><![CDATA[Reason for post report]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Begrundelse for indlægsrapport]]></Translation>
+		</Text>
+		<Text Key="PostReport.Title">
+			<Translation Language="en-GB"><![CDATA[Post report for: {Subject}]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Indlægsrapport for: {Subject}]]></Translation>
+		</Text>
+		<Text Key="PostReport.TitleTop">
+			<Translation Language="en-GB"><![CDATA[Post report for: {Subject}]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Indlægsrapport for: {Subject}]]></Translation>
+		</Text>
+		<Text Key="PostReport.Edited">
+			<Translation Language="en-GB"><![CDATA[Last edited by {Editor} on {Timestamp:f}]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Sidst redigeret af {Editor} den {Timestamp:f}]]></Translation>
+		</Text>
+		<Text Key="PostReport.Delete">
+			<Translation Language="en-GB"><![CDATA[Delete post]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Slet besked]]></Translation>
+		</Text>
+		<Text Key="PostReport.EditPost">
+			<Translation Language="en-GB"><![CDATA[Edit post]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Redigér indlæg]]></Translation>
+		</Text>
+		<Text Key="PostReport.DeleteTopic">
+			<Translation Language="en-GB"><![CDATA[Delete topic]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Slet emne]]></Translation>
+		</Text>
+		<Text Key="PostReport.EditTopic">
+			<Translation Language="en-GB"><![CDATA[Edit topic]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Redigér emne]]></Translation>
+		</Text>
+
+		<Text Key="PostReports">
+			<Translation Language="en-GB"><![CDATA[Post Reports]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Indlægsrapporter]]></Translation>
+		</Text>
+
+		<Text Key="PostReportViewModel.Title">
+			<Translation Language="en-GB"><![CDATA[Topic Title]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Emne titel]]></Translation>
+		</Text>
+		<Text Key="PostReportViewModel.TopicFlag">
+			<Translation Language="en-GB"><![CDATA[Topic Flag]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Emne flag]]></Translation>
+		</Text>
+		<Text Key="PostReportViewModel.TopicType">
+			<Translation Language="en-GB"><![CDATA[Topic Type]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Emne type]]></Translation>
+		</Text>
+		<Text Key="PostReportViewModel.Subject">
+			<Translation Language="en-GB"><![CDATA[Post Subject]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Indlægstitel]]></Translation>
+		</Text>
+		<Text Key="PostReportViewModel.PostFlag">
+			<Translation Language="en-GB"><![CDATA[Post Flag]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Indlægsflag]]></Translation>
+		</Text>
+		<Text Key="PostReportViewModel.Content">
+			<Translation Language="en-GB"><![CDATA[Content]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Indhold]]></Translation>
+		</Text>
+		<Text Key="PostReportViewModel.ChangeReason">
+			<Translation Language="en-GB"><![CDATA[Reason]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Begrundelse]]></Translation>
+		</Text>
+		<Text Key="PostReportViewModel.Resolved">
+			<Translation Language="en-GB"><![CDATA[Resolved]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Løst]]></Translation>
+		</Text>
+
+		<Text Key="FollowForum.EmailSubject">
+			<Translation Language="en-GB"><![CDATA[The new topic '{Topic.Title}' has been posted in the forum: '{Forum.Name}'.]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Det nye emne "{Topic.Title}", er blevet oprettet i forummet "{Forum.Name}".]]></Translation>
+		</Text>
+		<Text Key="FollowForum.EmailBody">
+			<Translation Language="en-GB">
+				<![CDATA[To read the new topic '{Topic.Title}' in the forum '{Forum.Name}', please click this link or copy/paste the address into the address field in your browser:
+
+{Link}
+
+If you no longer want to follow this forum, please click the 'unfollow' link on the forum page.
+]]>
+			</Translation>
+			<Translation Language="da-DK">
+				<![CDATA[For at læse det nye emne "{Topic.Title}" i forummet "{Forum.Name}", klik det følgende link eller kopiér adressen ind i adresse feltet i din browser:
+
+{Link}
+
+Hvis du ikke længere ønsker at følge dette forum, klik venligst på 'unfollow' linket på forum siden.
+]]>
+			</Translation>
+		</Text>
+		<Text Key="FollowTopic.EmailSubject">
+			<Translation Language="en-GB"><![CDATA[A new post '{Post.Subject}' has been posted in a topic you follow.]]></Translation>
+			<Translation Language="da-DK"><![CDATA[Et nye indlæg "{Post.Subject}", er blevet oprettet i et emne du følger.]]></Translation>
+		</Text>
+		<Text Key="FollowTopic.EmailBody">
+			<Translation Language="en-GB">
+				<![CDATA[To read the new post '{Post.Subject}' in the topic '{Topic.Title}', please click this link or copy/paste the address into the address field in your browser:
+
+{Link}
+
+If you no longer want to follow this topic, please click the 'unfollow' link on the topic page.
+]]>
+			</Translation>
+			<Translation Language="da-DK">
+				<![CDATA[For at læse det nye indlæg "{Post.Subject}" i emnet "{Topic.Title}", klik det følgende link eller kopiér adressen ind i adresse feltet i din browser:
+
+{Link}
+
+Hvis du ikke længere ønsker at følge dette emne, klik venligst på 'unfollow' linket på emne siden.
+]]>
+			</Translation>
+		</Text>
+
+		<Text Key="PostReportResolvedSubject">
+			<Translation Language="en-GB"><![CDATA[A post report by you have been resolved.]]></Translation>
+			<Translation Language="da-DK"><![CDATA[En indlægsrapport fra dig er blevet løst.]]></Translation>
+		</Text>
+		<Text Key="PostReportResolvedBody">
+			<Translation Language="en-GB">
+				<![CDATA[The post '{Post.Subject}' you reported with the reason: '{Report.Reason}' has been resolved.]]>
+			</Translation>
+			<Translation Language="da-DK">
+				<![CDATA[Indlægget "{Post.Subject}" du rapporterede med begrundelse: "{Report.Reason}" er blevet løst.]]>
+			</Translation>
+		</Text>
+
+	</Namespace>
+
+</Localizations>

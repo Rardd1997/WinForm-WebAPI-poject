@@ -1,0 +1,36 @@
+﻿@model mvcForum.Web.ViewModels.BoardViewModel
+@using mvcForum.Web.Helpers
+@{
+	ViewBag.Title = ForumHelper.GetString("Board.Title", new { Name = Model.Name });
+	Layout = "~/areas/forum/views/shared/forumlayout.cshtml";
+}
+<!-- Views/Forum/Index.cshtml -->
+	@Html.Partial("Breadcrumb", Model.Path)
+	<a name="start_here"></a>
+	<p class="right">@ForumHelper.GetString("CurrentTime", new object[] { DateTime.UtcNow })</p>
+	<ul class="linklist">
+		<li>@Html.ActionLink(ForumHelper.GetLinkText("LinkText.UnansweredPosts"), "unanswered topics", "search")
+@if (ForumHelper.Authenticated()) {
+			<text>&bull;</text>
+			@Html.ActionLink(ForumHelper.GetLinkText("LinkText.MarkAsRead"), "mark as read", "home", new { id = Model.Id }, null)
+}
+		</li>
+	</ul>
+@if (Model.Authenticated) {
+<!--	<ul class="linklist">
+		<li><a href="./search.php?style=250&amp;search_id=unanswered">View unanswered posts</a> • <a href="./search.php?style=250&amp;search_id=unreadposts">View unread posts</a> • <a href="./search.php?style=250&amp;search_id=newposts">View new posts</a> • <a href="./search.php?style=250&amp;search_id=active_topics">View active topics</a></li>
+		<li class="rightside"><a accesskey="m" href="#TODO">Mark forums read</a></li>
+	</ul>-->
+}
+@foreach (var category in Model.Categories) {
+		@Html.Partial("CategoryPartial", category)
+}
+@if (Model.ShowOnline) {
+	<h3>@ForumHelper.GetString("Board.OnlineUsers")</h3>
+	<p>@String.Join(", ", Model.OnlineUsers.Select(u => u.UseFullName ? u.FullName : u.Name))</p>
+}
+
+@if (ForumHelper.Debug) {
+<!-- For Selenium Test -->
+<div id="forum_home_index" style="display: none;"></div>
+}

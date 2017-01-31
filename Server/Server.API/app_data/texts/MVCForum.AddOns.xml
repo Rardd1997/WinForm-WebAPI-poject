@@ -1,0 +1,216 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Localizations>
+
+	<Namespace Name="mvcForum.AddOns.Akismet">
+		<Text Key="PageTitle">
+			<Translation Language="en-GB"><![CDATA[Akismet MVC Forum add-on]]></Translation>
+		</Text>
+		<Text Key="Key">
+			<Translation Language="en-GB"><![CDATA[Akismet API key:]]></Translation>
+		</Text>
+		<Text Key="Enabled">
+			<Translation Language="en-GB"><![CDATA[Enabled:]]></Translation>
+		</Text>
+		<Text Key="RunAsync">
+			<Translation Language="en-GB"><![CDATA[Run this add-on asynchronously:]]></Translation>
+		</Text>
+		<Text Key="Name">
+			<Translation Language="en-GB"><![CDATA[Akismet]]></Translation>
+		</Text>
+		<Text Key="Description">
+			<Translation Language="en-GB"><![CDATA[The Akismet anti-spam add-on is build on the http://akismet.com anti-spam service. You'll need a key to use it. Free for personal use.]]></Translation>
+		</Text>
+		<Text Key="Heading">
+			<Translation Language="en-GB"><![CDATA[Akismet Configuration]]></Translation>
+		</Text>
+		<Text Key="Button">
+			<Translation Language="en-GB"><![CDATA[Save]]></Translation>
+		</Text>
+		<Text Key="MarkAsSpamOnHit">
+			<Translation Language="en-GB"><![CDATA[Mark a new post/topic as spam if Akismet reports it as spam:]]></Translation>
+		</Text>
+		<Text Key="SpamScore">
+			<Translation Language="en-GB"><![CDATA[Score if post/topic is reported as spam]]></Translation>
+		</Text>
+		<Text Key="SuccessHeading">
+			<Translation Language="en-GB"><![CDATA[Changes Saved]]></Translation>
+		</Text>
+		<Text Key="SuccessBody">
+			<Translation Language="en-GB"><![CDATA[The changes has been saved]]></Translation>
+		</Text>
+		<Text Key="QuarantineFeedback">
+			<Translation Language="en-GB"><![CDATA[Your new post has been put in quarantine. The content of the post seems to be spam. A moderator will take a look at your post shortly.]]></Translation>
+		</Text>
+		<Text Key="QuarantineReason">
+			<Translation Language="en-GB"><![CDATA[Akismet has reported the post as spam.]]></Translation>
+		</Text>
+	</Namespace>
+
+	<Namespace Name="mvcForum.AddOns.MultiPost">
+		<Text Key="PageTitle">
+			<Translation Language="en-GB"><![CDATA[Multi-post add-on]]></Translation>
+		</Text>
+		<Text Key="Enabled">
+			<Translation Language="en-GB"><![CDATA[Enabled:]]></Translation>
+		</Text>
+		<Text Key="RunAsync">
+			<Translation Language="en-GB"><![CDATA[Run this add-on asynchronously:]]></Translation>
+		</Text>
+		<Text Key="Name">
+			<Translation Language="en-GB"><![CDATA[Multi-post]]></Translation>
+		</Text>
+		<Text Key="Description">
+			<Translation Language="en-GB"><![CDATA[The multi-post anti-spam add-on can block users from posting more than a given number of posts in a given time interval.]]></Translation>
+		</Text>
+		<Text Key="Heading">
+			<Translation Language="en-GB"><![CDATA[Multi-post Configuration]]></Translation>
+		</Text>
+		<Text Key="Button">
+			<Translation Language="en-GB"><![CDATA[Save]]></Translation>
+		</Text>
+		<Text Key="Interval">
+			<Translation Language="en-GB"><![CDATA[Interval (in minutes):]]></Translation>
+		</Text>
+		<Text Key="Posts">
+			<Translation Language="en-GB"><![CDATA[The maximum allowed posts/topics by the same user in the given interval:]]></Translation>
+		</Text>
+		<Text Key="SuccessHeading">
+			<Translation Language="en-GB"><![CDATA[Changes Saved]]></Translation>
+		</Text>
+		<Text Key="SuccessBody">
+			<Translation Language="en-GB"><![CDATA[The changes has been saved]]></Translation>
+		</Text>
+		<Text Key="QuarantineFeedback">
+			<Translation Language="en-GB"><![CDATA[Your new post has been put in quarantine. The forum automatically puts posts in quarantine when a user posts more a set number of new posts/topics in given number of minutes. A moderator will take a look at your post shortly.]]></Translation>
+		</Text>
+		<Text Key="QuarantineReason">
+			<Translation Language="en-GB"><![CDATA[The user has posted more than {Posts} posts/topics in the given interval of {Interval} minutes.]]></Translation>
+		</Text>
+	</Namespace>
+
+	<Namespace Name="mvcForum.AddOns.NewUserTrial">
+		<Text Key="PageTitle">
+			<Translation Language="en-GB"><![CDATA[New user trial add-on]]></Translation>
+		</Text>
+		<Text Key="Name">
+			<Translation Language="en-GB"><![CDATA[New User Trial]]></Translation>
+		</Text>
+		<Text Key="Description">
+			<Translation Language="en-GB"><![CDATA[The new user trial add-on will automatically quarantine new posts/topics from users with less than a given number of visible posts.]]></Translation>
+		</Text>
+		<Text Key="RunAsync">
+			<Translation Language="en-GB"><![CDATA[Run this add-on asynchronously:]]></Translation>
+		</Text>
+		<Text Key="Enabled">
+			<Translation Language="en-GB"><![CDATA[Enabled:]]></Translation>
+		</Text>
+		<Text Key="AutoLimit">
+			<Translation Language="en-GB"><![CDATA[Auto quarantine posts/topics from users with less that the given number of visible posts/topics:]]></Translation>
+		</Text>
+		<Text Key="ExcludeGroups">
+			<Translation Language="en-GB"><![CDATA[Exclude members of the selected groups:]]></Translation>
+		</Text>
+		<Text Key="Button">
+			<Translation Language="en-GB"><![CDATA[Save]]></Translation>
+		</Text>
+		<Text Key="Heading">
+			<Translation Language="en-GB"><![CDATA[New User Trial Configuration]]></Translation>
+		</Text>
+		<Text Key="SuccessHeading">
+			<Translation Language="en-GB"><![CDATA[Changes Saved]]></Translation>
+		</Text>
+		<Text Key="SuccessBody">
+			<Translation Language="en-GB"><![CDATA[The changes has been saved]]></Translation>
+		</Text>
+		<Text Key="QuarantineFeedback">
+			<Translation Language="en-GB"><![CDATA[Your new post has been put in quarantine. Until you have reached {Limit} approved post(s), any new post will be quarantined.]]></Translation>
+		</Text>
+		<Text Key="QuarantineReason">
+			<Translation Language="en-GB"><![CDATA[The user have not reached the limit of {Limit} appoved posts/topics.]]></Translation>
+		</Text>
+	</Namespace>
+
+	<Namespace Name="mvcForum.AddOns.StopForumSpam">
+		<Text Key="PageTitle">
+			<Translation Language="en-GB"><![CDATA[Stop Forum Spam add-on]]></Translation>
+		</Text>
+		<Text Key="Key">
+			<Translation Language="en-GB"><![CDATA[Stop Forum Spam API key:]]></Translation>
+		</Text>
+		<Text Key="UseForAntiSpam">
+			<Translation Language="en-GB"><![CDATA[Use against spam:]]></Translation>
+		</Text>
+		<Text Key="CheckNewUsers">
+			<Translation Language="en-GB"><![CDATA[Use against new users:]]></Translation>
+		</Text>
+		<Text Key="RunAsync">
+			<Translation Language="en-GB"><![CDATA[Run this add-on asynchronously:]]></Translation>
+		</Text>
+		<Text Key="Name">
+			<Translation Language="en-GB"><![CDATA[Stop Forum Spam]]></Translation>
+		</Text>
+		<Text Key="Description">
+			<Translation Language="en-GB"><![CDATA[The Stop Forum Spam anti-spam add-on is build on the http://stopforumspam.com anti-spam service.]]></Translation>
+		</Text>
+		<Text Key="Heading">
+			<Translation Language="en-GB"><![CDATA[Stop Forum Spam Configuration]]></Translation>
+		</Text>
+		<Text Key="Button">
+			<Translation Language="en-GB"><![CDATA[Save]]></Translation>
+		</Text>
+		<Text Key="MarkAsSpamOnHit">
+			<Translation Language="en-GB"><![CDATA[Mark a new post/topic as spam if Stop Forum Spam recognizes the author:]]></Translation>
+		</Text>
+		<Text Key="SuccessHeading">
+			<Translation Language="en-GB"><![CDATA[Changes Saved]]></Translation>
+		</Text>
+		<Text Key="SuccessBody">
+			<Translation Language="en-GB"><![CDATA[The changes has been saved]]></Translation>
+		</Text>
+		<Text Key="QuarantineFeedback">
+			<Translation Language="en-GB"><![CDATA[Your new post has been put in quarantine. The content of the post seems to be spam. A moderator will take a look at your post shortly.]]></Translation>
+		</Text>
+		<Text Key="QuarantineReason">
+			<Translation Language="en-GB"><![CDATA[Stop Forum Spam reports this as spam.]]></Translation>
+		</Text>
+	</Namespace>
+
+	<Namespace Name="mvcForum.AddOns">
+		<Text Key="FollowTopic.Subject">
+			<Translation Language="en-GB"><![CDATA[New post in topic: '{Topic.Title}']]></Translation>
+			<Translation Language="da-DK"><![CDATA[Nyt besked i emnet: {Topic.Title}]]></Translation>
+		</Text>
+
+		<Text Key="FollowTopic.Body">
+			<Translation Language="en-GB">
+				<![CDATA[See the content of the topic here: {URL}
+
+To avoid any further messages about this topic, click 'Unfollow' when viewing the topic.]]>
+			</Translation>
+			<Translation Language="da-DK">
+				<![CDATA[Se indholdet af emnet her: {URL}
+
+For at undgå fremtidige beskeder om dette emne, klik "Unfollow" på emne siden.]]>
+			</Translation>
+		</Text>
+
+		<Text Key="FollowForum.Subject">
+			<Translation Language="en-GB"><![CDATA[New topic in forum: '{Forum.Name}']]></Translation>
+			<Translation Language="da-DK"><![CDATA[Nyt emne i forum: {Forum.Name}]]></Translation>
+		</Text>
+
+		<Text Key="FollowForum.Body">
+			<Translation Language="en-GB">
+				<![CDATA[See the topics of the forum here: {URL}
+
+To avoid any further messages about this forum, click 'Unfollow' when viewing the forum.]]>
+			</Translation>
+			<Translation Language="da-DK">
+				<![CDATA[Se indholdet af forummet her: {URL}
+
+For at undgå fremtidige beskeder om dette forum, klik "Unfollow" på forum siden.]]>
+			</Translation>
+		</Text>
+	</Namespace>
+
+</Localizations>

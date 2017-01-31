@@ -1,0 +1,47 @@
+﻿@model mvcForum.Web.ViewModels.UserViewModel
+@using mvcForum.Web.Helpers;
+@{
+	ViewBag.Title = ForumHelper.GetString("User.Title", new { Name = Model.Name });
+	Layout = "~/areas/forum/views/shared/forumlayout.cshtml";
+}
+<!-- Views/Profile/Index.cshtml -->
+@Html.Partial("Breadcrumb", Model.Path)
+<a name="start_here"></a>
+<div id="page-body">
+	<div id="content-start"></div>
+	<h2>@ForumHelper.GetString("ShowUser.UserProfile", new { User = Model })</h2>
+	<div class="panel" id="postingbox">
+		<div class="block-border block-block">
+			<div class="block-content">
+				<h3>@ForumHelper.GetString("ShowUser.ShowUser")</h3>
+				<fieldset class="fields1">
+					<dl style="clear: left;">
+						<dt>@Html.LabelFor(x => x.Name)</dt>
+						<dd>@Html.DisplayFor(x => x.Name)</dd>
+					</dl>
+@if (!String.IsNullOrWhiteSpace(Model.FullName)) {
+					<dl>
+						<dt>@Html.LabelFor(x => x.FullName)</dt>
+						<dd>@Html.DisplayFor(x => x.Name)</dd>
+					</dl>
+}
+					<dl>
+						<dt>@Html.LabelFor(x => x.FirstVisit)</dt>
+						<dd>@Model.FirstVisit.ToLocalDateTime().ToString("f")</dd>
+					</dl>
+					<dl>
+						<dt>@Html.LabelFor(x => x.LastVisit)</dt>
+						<dd>@Model.LastVisit.ToLocalDateTime().ToString("f")</dd>
+					</dl>
+@if ((Model.UserFlag & mvcForum.Core.UserFlag.PublicEmailAddress) == mvcForum.Core.UserFlag.PublicEmailAddress) {
+					<dl>
+						<dt>@Html.LabelFor(x => x.Email)</dt>
+						<dd>@Html.DisplayFor(x => x.Email)</dd>
+					</dl>
+}
+				</fieldset>
+				<div class="block-footer"></div>
+			</div>
+		</div>
+	</div>
+</div>

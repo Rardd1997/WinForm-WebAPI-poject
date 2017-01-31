@@ -1,0 +1,7 @@
+﻿@using mvcForum.Web.Helpers;
+@{
+	ViewBag.Title = ForumHelper.GetString("NoAccess.Title");
+	Layout = "~/areas/forum/views/shared/forumlayout.cshtml";
+}
+<h2>@ForumHelper.GetString("NoAccess.Headline")</h2>
+@TempData["Reason"]

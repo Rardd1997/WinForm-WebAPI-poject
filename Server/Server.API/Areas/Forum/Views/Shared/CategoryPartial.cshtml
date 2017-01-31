@@ -1,0 +1,27 @@
+﻿@model mvcForum.Web.ViewModels.CategoryViewModel
+@using mvcForum.Web.Helpers;
+<!-- Views/Forum/CategoryPartial.cshtml -->
+<div class="forabg">
+	<div class="block-header"><span><span></span></span></div>
+	<div class="block-content">
+		<div class="block-inner">
+			<ul class="topiclist">
+				<li class="header">
+					<dl class="icon"><!--<a href="#" onclick="ca_expand_forum(this, 1); return false;" class="forum-expand" id="forumblock1"></a>-->
+						<dt>@Html.RouteLink(Model.Name, "ShowCategory", new RouteValueDictionary { { "id", Model.Id }, { "title", Model.Name.ToSlug() } })</dt>
+						<dd class="topics">@ForumHelper.GetString("Labels.Topics")</dd>
+						<dd class="posts">@ForumHelper.GetString("Labels.Posts")</dd>
+						<dd class="lastpost"><span>@ForumHelper.GetString("Labels.LastPost")</span></dd>
+					</dl>
+				</li>
+			</ul>
+			<ul class="topiclist forums">
+				@foreach (var forum in Model.Forums) {
+					@Html.Partial("ForumPartial", forum)
+	}
+			</ul>
+			<div class="block-clear"></div>
+		</div>
+	</div>
+	<div class="block-footer"><span><span></span></span></div>
+</div>

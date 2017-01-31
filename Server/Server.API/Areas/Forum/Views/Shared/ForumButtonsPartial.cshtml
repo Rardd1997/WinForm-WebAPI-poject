@@ -1,0 +1,6 @@
+﻿@model mvcForum.Web.ViewModels.ForumViewModel
+@using mvcForum.Web.Helpers;
+<!-- Views/Shared/ForumButtonsPartial.cshtml -->
+<div class="buttons">
+	<div class="post-icon" title="Post a new topic"><a href="@Url.Action("Create", "Topic", new RouteValueDictionary { { "id", Model.Id } })"><span></span>@ForumHelper.GetString("Forum.PostTopic")</a></div>
+</div>

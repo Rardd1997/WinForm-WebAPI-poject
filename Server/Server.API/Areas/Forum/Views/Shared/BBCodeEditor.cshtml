@@ -1,0 +1,10 @@
+﻿@model String
+@using mvcForum.Core.Abstractions.Interfaces;
+	@Html.TextArea("Body", Model, new { @class = "inputbox", rows = 15, cols = 76, id = "editor" })
+	<script type="text/javascript" src="@Url.Content("~/scripts/markitup/jquery.markitup.js")"></script>
+	<script type="text/javascript" src="@Url.Content("~/scripts/markitup/sets/bbcode/set.js")"></script>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			jQuery("#editor").markItUp(mySettings);
+		});
+	</script>

@@ -1,0 +1,111 @@
+﻿@model mvcForum.Web.ViewModels.Update.UpdateUserViewModel
+@using mvcForum.Web.Helpers;
+@{
+	ViewBag.Title = ForumHelper.GetString("EditUser.Title", new { Name = Model.Name });
+	Layout = "~/areas/forum/views/shared/forumlayout.cshtml";
+}
+<!-- Views/Profile/Update.cshtml -->
+<a name="start_here"></a>
+<div id="page-body">
+	<div id="content-start"></div>
+	<h2>@ForumHelper.GetString("EditUser.UserProfile", new { Name = Model.Name })</h2>
+@if (TempData.ContainsKey("Status")) {
+	<p>@TempData["Status"]</p>
+}
+@using (Html.BeginForm()) {
+		@Html.HiddenFor(t => t.Id)
+		@Html.ValidationSummary()
+	<div class="panel" id="editprofile">
+		<div class="block-header"><span><span></span></span></div>
+		<div class="block-content">
+			<div class="block-inner">
+				<h3>@ForumHelper.GetHtmlString("EditUser.AccountSettings")</h3>
+				<fieldset class="fields1">
+@if (Model.ExternalUser && String.IsNullOrWhiteSpace(Model.Email)) {
+					<dl style="clear: left;">
+						<dt></dt>
+						<dd>@ForumHelper.GetString("ExternalUserFirstVisit", null, "mvcForum.Web.Profile.Update")</dd>
+					</dl>
+					<dl style="clear: left;">
+						<dt>@Html.LabelFor(t => t.Name)</dt>
+						<dd>@Html.TextBoxFor(t => t.Name, new { @class = "inputbox autowidth", size = 45 })</dd>
+					</dl>
+}
+else {
+					<dl style="clear: left;">
+						<dt>@Html.LabelFor(t => t.Name)</dt>
+						<dd>@Html.DisplayTextFor(t => t.Name)</dd>
+					</dl>
+}
+					<dl style="clear: left;">
+						<dt>@Html.LabelFor(t => t.Email)</dt>
+						<dd>@Html.TextBoxFor(t => t.Email, new { @class = "inputbox autowidth", size = 45 })</dd>
+					</dl>
+@if (!Model.ExternalUser) {
+					<dl style="clear: left;">
+						<dt>@Html.LabelFor(t => t.OldPassword)</dt>
+						<dd>@Html.PasswordFor(t => t.OldPassword, new { @class = "inputbox autowidth", size = 45 })</dd>
+					</dl>
+					<dl style="clear: left;">
+						<dt>@Html.LabelFor(t => t.NewPassword)</dt>
+						<dd>@Html.PasswordFor(t => t.NewPassword, new { @class = "inputbox autowidth", size = 45 })</dd>
+					</dl>
+					<dl style="clear: left;">
+						<dt>@Html.LabelFor(t => t.RepeatedNewPassword)</dt>
+						<dd>@Html.PasswordFor(t => t.RepeatedNewPassword, new { @class = "inputbox autowidth", size = 45 })</dd>
+					</dl>
+}
+				</fieldset>
+				<div class="block-clear"></div>
+			</div>
+		</div>
+		<div class="block-footer"><span><span></span></span></div>
+	</div>
+
+	<div class="panel" id="editsettings">
+		<div class="block-header"><span><span></span></span></div>
+		<div class="block-content">
+			<div class="block-inner">
+				<h3>@ForumHelper.GetHtmlString("EditUser.ProfileSettings")</h3>
+				<fieldset class="fields1">
+					<dl style="clear: left;">
+						<dt>@Html.LabelFor(t => t.FullName)</dt>
+						<dd>@Html.TextBoxFor(t => t.FullName, new { @class = "inputbox autowidth", size = 45 })</dd>
+					</dl>
+					<dl style="clear: left;">
+						<dt>@Html.LabelFor(t => t.Timezone)</dt>
+						<dd>@Html.DropDownListFor(t => t.Timezone, TimezoneHelper.GetTimeZones(Model.Timezone))</dd>
+					</dl>
+					<dl style="clear: left;">
+						<dt>@Html.LabelFor(t => t.Culture)</dt>
+						<dd>@Html.DropDownListFor(t => t.Culture, CultureInfoHelper.GetCultures(Model.Culture))</dd>
+					</dl>
+@if (Model.AllowUserTheme && Model.Themes != null && Model.Themes.Any()) {
+					<dl style="clear: left;">
+						<dt>@Html.LabelFor(t => t.Theme)</dt>
+						<dd>@Html.DropDownListFor(t => t.Theme, new String[] { "" }.Concat(Model.Themes).Select(t => new SelectListItem { Selected = (Model.Theme == t), Text = t, Value = t }))</dd>
+					</dl>
+}
+				</fieldset>
+				<div class="block-clear"></div>
+			</div>
+		</div>
+		<div class="block-footer"><span><span></span></span></div>
+	</div>
+
+	<div class="panel bg2">
+		<div class="block-header"><span><span></span></span></div>
+		<div class="block-content">
+			<div class="block-inner">
+				<fieldset class="submit-buttons">
+<!--			<input type="submit" accesskey="k" tabindex="7" name="save" value="Save" class="button2" />&nbsp; 
+				<input type="submit" tabindex="5" name="preview" value="Preview" class="button2" onclick="document.getElementById('postform').action += '#preview';" />&nbsp;
+-->					<input type="submit" accesskey="s" tabindex="6" name="post" value="Submit" class="button1 default-submit-action" />&nbsp;
+				</fieldset>
+				<div class="block-clear"></div>
+			</div>
+		</div>
+		<div class="block-footer"><span><span></span></span></div>
+	</div>
+}
+</div>

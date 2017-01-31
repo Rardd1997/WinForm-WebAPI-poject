@@ -1,0 +1,8 @@
+﻿@{
+	var items = Html.Navigation(Url, "TopNavigation");
+}
+<ul class="linklist rightside topnav">
+@foreach (var item in items) {
+	<li><a href="@item.URL">@item.Title</a></li>
+}
+</ul>

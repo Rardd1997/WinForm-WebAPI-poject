@@ -1,0 +1,57 @@
+﻿@model mvcForum.Web.ViewModels.Update.UpdateMessageViewModel
+@using mvcForum.Web.Helpers;
+@{
+	ViewBag.Title = ForumHelper.GetString("EditMessage.Title", new { Subject = Model.Subject });
+	Layout = "~/areas/forum/views/shared/forumlayout.cshtml";
+}
+@Html.Partial("Breadcrumb", Model.Path)
+<a name="start_here"></a>
+<div id="page-body">
+	<div id="content-start"></div>
+	<h2>@Html.RouteLink(Model.Subject, "ShowTopic", new RouteValueDictionary { { "id", Model.TopicId }, { "title", Model.TopicTitle.ToSlug() } })</h2>
+	@using (Html.BeginForm()) {
+		@Html.HiddenFor(x => x.Id)
+	<div class="panel" id="postingbox">
+		<div class="block-border block-block">
+			<div class="block-content">
+				<h3>@ForumHelper.GetString("EditMessage.EditMessage")</h3>
+				<fieldset class="fields1">
+					<dl style="clear: left;">
+						<dt>@Html.LabelFor(x => x.Subject)</dt>
+						<dd>@Html.TextBoxFor(x => x.Subject, new { @class = "inputbox autowidth", size = "45" })</dd>
+					</dl>
+@*if (Model.IsModerator) {
+					<dl style="clear: left;">
+						<dt>@Html.LabelFor(x => x.Flag)</dt>
+						<dd>@Html.DropDownListFor(x => x.Flag, ForumHelper.GetPostFlags(Model.Flag), new { @class = "inputbox autowidth" })</dd>
+					</dl>
+					<dl>
+						<dt>@Html.LabelFor(x => x.Reason)</dt>
+						<dd>@Html.TextAreaFor(x => x.Reason, new { @class = "inputbox", rows = 5, cols = 76 })</dd>
+					</dl>
+}*@
+					<dl>
+						<dt>@Html.LabelFor(x => x.Body)</dt>
+						<dd>@Html.Partial(ForumHelper.GetEditorString() + "Editor", String.IsNullOrEmpty(Model.Body) ? "" : Model.Body)</dd>
+					</dl>
+				</fieldset>
+				<div class="block-footer"></div>
+			</div>
+		</div>
+	</div>
+	<div class="panel bg2">
+		<div class="block-border block-block">
+			<div class="block-content">
+				<fieldset class="submit-buttons">			
+					<input type="submit" value="@ForumHelper.GetString("EditMessage.Submit")" class="button2" />
+				</fieldset>
+				<div class="block-footer"></div>
+			</div>
+		</div>
+	</div>
+ }
+</div>
+@if (ForumHelper.Debug) {
+<!-- For Selenium Test -->
+<div id="forum_message_edit" style="display: none;"></div>
+}

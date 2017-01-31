@@ -1,0 +1,13 @@
+﻿@model List<mvcForum.Web.Areas.ForumAdmin.ViewModels.BreadcrumbNode>
+				<ul class="breadcrumb">
+@foreach (var node in Model) {
+	if (Model.Last().Action != node.Action) {
+					<li>
+						<a href="@node.Action">@node.Title</a> <span class="divider">/</span>
+					</li>
+	}
+	else {
+					<li class="active">@node.Title</li>
+	}
+}
+				</ul>

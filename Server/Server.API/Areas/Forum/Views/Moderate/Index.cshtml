@@ -1,0 +1,80 @@
+﻿@model mvcForum.Web.ViewModels.ModerateViewModel
+@using mvcForum.Web.Extensions;
+@using mvcForum.Web.Helpers;
+@{
+    if (Model.SelectedForum != null) {
+        ViewBag.Title = ForumHelper.GetString("Moderate.Title", new { Name = Model.SelectedForum.Name });
+    }
+    else {
+        ViewBag.Title = ForumHelper.GetString("Moderate.TitleMain");
+    }
+    Layout = "~/areas/forum/views/shared/forumlayout.cshtml";
+}
+<!-- Views/Moderate/Index.cshtml -->
+@Html.Partial("Breadcrumb", new Dictionary<String, String>())
+<strong>@Html.ActionLink(ForumHelper.GetLinkText("PostReports"), "ReportList", "Moderate")</strong>
+<p class="right">@ForumHelper.GetString("CurrentTime", new Object[] { DateTime.UtcNow })</p>
+<div id="page-body">
+    <div id="content-start"> </div>
+    <h2>@ForumHelper.GetHtmlString("Moderator.TopTitle")</h2>
+    @using (Html.BeginForm("Index", "Moderate", new { area = "forum" })) {
+        @Html.DropDownList("id", Model.AccessibleForums.ToSelectList(Model.SelectedForum))
+        <input type="submit" value="@ForumHelper.GetString("Moderate.Button")" />
+    }
+	<div class="topic-actions">
+		@Html.Partial("ForumPagingPartial", Model.SelectedForum)
+		<div class="search-box"></div>
+	</div>
+    @using (Html.BeginForm("execute", "moderate", new { area = "forum" })) {
+	<input type="hidden" name="id" value="@Model.SelectedForum.Id" />
+    <div class="forumbg">
+        <div class="block-border block-block">
+            <div class="block-content">
+                <ul class="topiclist">
+                    <li class="header">
+                        <dl>
+                            <dt>@ForumHelper.GetHtmlString("Moderate.TopicsHeading")</dt>
+                            <dd class="posts">@ForumHelper.GetHtmlString("Moderate.RepliesHeading")</dd>
+                            <dd class="views">@ForumHelper.GetHtmlString("Moderate.ViewsHeading")</dd>
+                            <dd class="lastpost"><span>@ForumHelper.GetHtmlString("Moderate.LastPostHeading")</span></dd>
+							<dd></dd>
+                        </dl>
+                    </li>
+                </ul>
+        		<ul class="topiclist topics">
+@foreach (var topic in Model.SelectedForum.Topics) {
+		            <li class="row bg1">
+			            <dl>
+				            <dt title="@topic.Title">
+								@(topic.Deleted ? ForumHelper.GetString("Moderate.Deleted") : topic.Quarantined ? ForumHelper.GetString("Moderate.Quarantined") : topic.Moved ? ForumHelper.GetString("Moderate.Moved") : "")
+								@Html.ActionLink(topic.Title, "topic", "moderate", new { id = topic.Id }, new { @class = "topictitle" })
+								<br />
+					            @ForumHelper.GetHtmlString("Topic.LastPost", new object[] { topic.Author.Wrap("<a href=\"" + Url.RouteUrl("ShowProfile", new RouteValueDictionary { { "id", topic.AuthorId }, { "name", topic.Author.ToSlug() } }) + "\">{#}</a>"), topic.Posted }) </dt>
+				            <dd class="posts">@ForumHelper.GetHtmlString("Topic.Replies", new object[] { topic.MessageCount })</dd>
+				            <dd class="views">@ForumHelper.GetHtmlString("Topic.Views", new object[] { topic.Views })</dd>
+				            <dd class="lastpost">@Html.Partial("LastMessagePartial", topic)</dd>
+							<dd><input type="checkbox" name="topics" value="@topic.Id" /></dd>
+			            </dl>
+		            </li>
+}
+                </ul>
+				<div class="block-footer"> </div>
+            </div>
+        </div>
+    </div>
+	<div class="topic-actions">
+		@Html.Partial("ForumPagingPartial", Model.SelectedForum)
+		<div class="search-box">
+		</div>
+	</div>
+	<p class="right">
+		<select name="action">
+			<option>@ForumHelper.GetString("Moderate.ActionDelete")</option>
+			<option>@ForumHelper.GetString("Moderate.ActionMerge")</option>
+			<option>@ForumHelper.GetString("Moderate.ActionMove")</option>
+			<option>@ForumHelper.GetString("Moderate.ActionSplit")</option>
+		</select>
+		<input type="submit" value="@ForumHelper.GetString("Moderate.ExecuteAction")" />
+	</p>
+	}
+</div>

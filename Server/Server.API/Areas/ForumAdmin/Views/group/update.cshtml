@@ -1,0 +1,45 @@
+﻿@model mvcForum.Web.Areas.ForumAdmin.ViewModels.Group
+@{
+	String ns = "MVCForum.ForumAdmin.Group.Update";
+	ViewBag.Title = Html.LocalizedString("PageTitle", ns);
+	Layout = "~/Areas/ForumAdmin/Views/Shared/adminlayout.cshtml";
+}
+<section id="groupsec">
+	<div class="row-fluid">
+		<div class="span12">
+			<div class="alert hide" data-bind="css: { hide: NoStatus, 'alert-success': Success, 'alert-error': Error }">
+				<a href="#" data-bind="click: HideStatus" class="close">×</a>
+				<h4 class="alert-heading" data-bind="text: StatusHeading"></h4>
+				<span data-bind="text: StatusBody"></span>
+			</div>
+			<!-- ko with: Group -->
+			<div class="hide" id="forum" data-bind="css: { hide: !Loaded() }">
+				@Html.Partial("BreadcrumbNavigation", Model.Path)
+				@using (Html.BeginForm("update", "group", new { area = "forumadmin", id = Model.Id }, FormMethod.Post, new { @class = "form-horizontal" })) {
+					<fieldset>
+						<legend>@Html.LocalizedString("UpdateGroupForm", ns)</legend>
+						<div class="control-group" data-bind="css: { error: !Name.isValid() }">
+							@Html.LabelFor(x => x.Name, new { @class = "control-label" })
+							<div class="controls">
+								@Html.TextBoxFor(x => x.Name, new { data_bind = "value: Name", @class = "input-large" })
+							</div>
+						</div>
+						<div class="form-actions">
+							<button type="submit" class="btn btn-primary" data-bind="click: Save">@Html.LocalizedString("SaveGroup", ns)</button>
+						</div>
+					</fieldset>
+	}
+			</div>
+			<!-- /ko -->
+		</div>
+	</div>
+</section>
+<script type="text/javascript">
+	var readUrl = "@Url.Action("read", "group", new { area = "forumapi", id = Model.Id, mode = "json" })";
+	var updateUrl = "@Url.Action("update", "group", new { area = "forumapi", mode = "json" })";
+	var groupId = @Model.Id;
+</script>
+@section scripts {
+	<script type="text/javascript" src="@Url.Content("~/scripts/knockout.validation.js")"></script>
+	<script type="text/javascript" src="@Url.Content("~/scripts/viewmodels/groupupdate.js")"></script>
+}

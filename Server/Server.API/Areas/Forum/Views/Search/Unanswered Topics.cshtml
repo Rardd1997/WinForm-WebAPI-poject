@@ -1,0 +1,65 @@
+﻿@model mvcForum.Web.ViewModels.UnansweredTopicsViewModel
+@using mvcForum.Web.Helpers;
+@{
+	ViewBag.Title = ForumHelper.GetString("SearchUnanswered.Title");
+	Layout = "~/areas/forum/views/shared/forumlayout.cshtml";
+}
+<!-- Views/Search/UnansweredPosts.cshtml-->
+	@Html.Partial("Breadcrumb", Model.Path)
+	<a name="start_here"></a>
+	<p class="right">@ForumHelper.GetString("CurrentTime", new object[] { DateTime.UtcNow })</p>
+	<h2>@ForumHelper.GetString("SearchUnanswered.Heading")</h2>
+	<div class="topic-actions">
+@*		@Html.Partial("ForumPagingPartial", Model)
+		@Html.Partial("ForumButtonsPartial", Model)*@
+		<div class="search-box">
+<!--			<form method="post" id="forum-search" action="./search.php?style=250&amp;fid[]=2">
+			<fieldset>
+				<input class="inputbox search tiny" type="text" name="keywords" id="search_keywords" size="20" value="Search this forum…" onclick="if (this.value == 'Search this forum…') this.value = '';" onblur="if (this.value == '') this.value = 'Search this forum…';" />
+				<input class="button2" type="submit" value="Search" />
+				<input type="hidden" value="2" name="fid[]" />
+			</fieldset>
+			</form>-->
+		</div>
+	</div>
+	<div class="forumbg announcement">
+		<div class="block-header"><span><span></span></span></div>
+		<div class="block-content">
+			<div class="block-inner">
+				<ul class="topiclist">
+					<li class="header">
+						<dl class="icon">
+							<dt>@ForumHelper.GetString("Labels.Topics")</dt>
+							<dd class="posts">@ForumHelper.GetString("Labels.Replies")</dd>
+							<dd class="views">@ForumHelper.GetString("Labels.Views")</dd>
+							<dd class="lastpost"><span>@ForumHelper.GetString("Labels.LastPost")</span></dd>
+						</dl>
+					</li>
+				</ul>
+				<ul class="topiclist topics">
+	@foreach (var topic in Model.Topics) {
+	@Html.Partial("TopicPartial", topic)
+	}
+				</ul>
+				<div class="block-clear"></div>
+			</div>
+		</div>
+		<div class="block-footer"><span><span></span></span></div>
+	</div>
+<!--	<form method="post" action="./viewforum.php?style=250&amp;f=2">
+		<fieldset class="display-options">
+			
+			<label>Display topics from previous: <select name="st" id="st"><option value="0" selected="selected">All Topics</option><option value="1">1 day</option><option value="7">7 days</option><option value="14">2 weeks</option><option value="30">1 month</option><option value="90">3 months</option><option value="180">6 months</option><option value="365">1 year</option></select></label>
+
+			<label>Sort by <select name="sk" id="sk"><option value="a">Author</option><option value="t" selected="selected">Post time</option><option value="r">Replies</option><option value="s">Subject</option><option value="v">Views</option></select></label>
+			<label><select name="sd" id="sd"><option value="a">Ascending</option><option value="d" selected="selected">Descending</option></select> <input type="submit" name="sort" value="Go" class="button2" /></label>
+			
+		</fieldset>
+	</form>
+
+	<hr />
+	-->
+	<div class="topic-actions">
+@*		@Html.Partial("ForumButtonsPartial", Model)
+		@Html.Partial("ForumPagingPartial", Model)*@
+	</div>

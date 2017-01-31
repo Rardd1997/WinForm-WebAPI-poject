@@ -1,0 +1,46 @@
+﻿@model IEnumerable<mvcForum.Web.ViewModels.PostReportViewModel>
+@using mvcForum.Web.Helpers;
+@using mvcForum.Web.ViewModels;
+@{
+	ViewBag.Title = ForumHelper.GetString("PostReports.Title");
+	Layout = "~/areas/forum/views/shared/forumlayout.cshtml";
+}
+<!-- Views/Moderate/ReportList.cshtml -->
+@Html.Partial("Breadcrumb", new Dictionary<String, String>())
+<a name="start_here"></a>
+<p class="right">@ForumHelper.GetString("CurrentTime", new object[] { DateTime.UtcNow })</p>
+<div id="page-body">
+	<div id="content-start"> </div>
+	<h2>@ForumHelper.GetHtmlString("PostReports.TopTitle")</h2>
+	<div class="forumbg">
+		<div class="block-border block-block">
+			<div class="block-content">
+				<ul class="topiclist">
+					<li class="header">
+						<dl class="icon">
+							<dt>@ForumHelper.GetHtmlString("PostReports.PostHeading")</dt>
+							<dd class="posts"></dd>
+							<dd class="views"></dd>
+							<dd class="lastpost"></dd>
+						</dl>
+					</li>
+				</ul>
+				<ul class="topiclist topics">
+@foreach (PostReportViewModel report in Model) { 
+						<li class="row bg1">
+							<dl class="icon">
+								<dt title="*">@Html.ActionLink(report.IsTopic ? report.Title : report.Subject, "Report", "Moderate", new { id = report.Id }, null)<br />
+								@ForumHelper.GetHtmlString("PostReports.AuthorTopic", new { Author = report.Author.Wrap("<a href=\"" + Url.RouteUrl("ShowProfile", new { id = report.AuthorId, name = report.Author }) + "\">{#}</a>"), Topic = report.Title.Wrap("<a href=\"" + Url.RouteUrl("ShowTopic", new { id = report.TopicId, title = report.IsTopic ? report.Title.ToSlug() : report.Subject.ToSlug() }) + "\">{#}</a>") })
+								</dt>
+								<dd class="posts"></dd>
+								<dd class="views"></dd>
+								<dd class="lastpost"></dd>
+							</dl>
+						</li>
+}
+				</ul>
+				<div class="block-footer"> </div>
+			</div>
+		</div>
+	</div>
+</div>

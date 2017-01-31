@@ -1,0 +1,89 @@
+﻿@model mvcForum.Web.ViewModels.ForumViewModel
+@using mvcForum.Web.Helpers;
+@{
+	ViewBag.Title = ForumHelper.GetString("Forum.Title", new { Name = Model.Name });
+	Layout = "~/areas/forum/views/shared/forumlayout.cshtml";
+}
+<!-- Views/Forum/Index.cshtml-->
+	@Html.Partial("Breadcrumb", Model.Path)
+    @if (Model.IsModerator) {
+        <strong>@Html.ActionLink(ForumHelper.GetLinkText("ModeratorCP"), "index", "moderate", new { id = Model.Id }, null)</strong>
+    }
+	@if (TempData["Feedback"] != null) {
+	 <ul>
+	 @foreach (var text in (IEnumerable<MvcHtmlString>)TempData["Feedback"]) {
+	  <li>@text</li>
+  }
+	 
+	 </ul>
+ }
+	<a name="start_here"></a>
+	<p class="right">@ForumHelper.GetString("CurrentTime", new object[] { DateTime.UtcNow })</p>
+	<h2><a href="">@Model.Name</a></h2>
+@if (ForumHelper.Authenticated()) {
+	<ul class="linklist">
+		<li>
+			@Html.ActionLink(ForumHelper.GetString("LinkText.MarkAsRead"), "Mark As Read", "Forum", new { id = Model.Id }, null)
+		</li>
+	</ul>
+}
+	<div class="topic-actions">
+		@Html.Partial("ForumPagingPartial", Model)
+		@Html.Partial("ForumButtonsPartial", Model)
+		<div class="search-box">
+		</div>
+	</div>
+	@if (Model.SubForums.Count() > 0) {
+	<div class="forabg">
+		<div class="block-header"><span><span></span></span></div>
+		<div class="block-content">
+			<div class="block-inner">
+				<ul class="topiclist">
+					<li class="header">
+						<dl class="icon"><!--<a href="#" onclick="ca_expand_forum(this, 1); return false;" class="forum-expand" id="forumblock1"></a>-->
+							<dt>@ForumHelper.GetString("Labels.Forum")</dt>
+							<dd class="topics">@ForumHelper.GetString("Labels.Topics")</dd>
+							<dd class="posts">@ForumHelper.GetString("Labels.Posts")</dd>
+							<dd class="lastpost"><span>@ForumHelper.GetString("Labels.LastPost")</span></dd>
+						</dl>
+					</li>
+				</ul>
+				<ul class="topiclist forums">
+					@foreach (var forum in Model.SubForums) {
+						@Html.Partial("ForumPartial", forum)
+	 }
+				</ul>
+				<div class="block-clear"></div>
+			</div>
+		</div>
+		<div class="block-footer"><span><span></span></span></div>
+	</div>
+ }
+	<div class="forumbg announcement">
+		<div class="block-header"><span><span></span></span></div><div class="block-content"><div class="block-inner">
+		<ul class="topiclist">
+			<li class="header">
+				<dl class="icon">
+					<dt>@ForumHelper.GetString("Labels.Topics")</dt>
+					<dd class="posts">@ForumHelper.GetString("Labels.Replies")</dd>
+					<dd class="views">@ForumHelper.GetString("Labels.Views")</dd>
+					<dd class="lastpost"><span>@ForumHelper.GetString("Labels.LastPost")</span></dd>
+				</dl>
+
+			</li>
+		</ul>
+		<ul class="topiclist topics">
+	@foreach (var topic in Model.Topics) {
+		@Html.Partial("TopicPartial", topic)
+ }
+			</ul>
+		<div class="block-clear"></div></div></div><div class="block-footer"><span><span></span></span></div>
+	</div>
+	<div class="topic-actions">
+		@Html.Partial("ForumButtonsPartial", Model)
+		@Html.Partial("ForumPagingPartial", Model)
+	</div>
+@if (ForumHelper.Debug) {
+<!-- For Selenium Test -->
+<div id="forum_forum_index" style="display: none;"></div>
+}

@@ -1,0 +1,28 @@
+﻿@model mvcForum.Web.ViewModels.ForumViewModel
+@using mvcForum.Web.Helpers;
+<!-- Views/Shared/ForumPagingPartial.cshtml -->
+<div class="pagination">
+@if (ForumHelper.Authenticated()) {
+	if (Model.Following) {
+		@Html.ActionLink(ForumHelper.GetString("Forum.Unfollow"), "UnFollow", new { forumId = Model.Id })
+	}
+	else {
+		@Html.ActionLink(ForumHelper.GetString("Forum.Follow"), "Follow", new { forumId = Model.Id })
+	}
+	<text>&bull;</text>
+ }
+	@ForumHelper.GetHtmlString("Paging.Forum", new { TopicCount = Model.Paging.ActualCount, PageIndex = Model.Paging.Page, PageCount = Model.Paging.Pages })
+@if (Model.Paging.Pages > 1) {
+	<text>&bull; </text><span>@for (int index = 1; index <= Model.Paging.Pages; index++) {
+				  if (Model.Paging.Page > 1) {
+<span class="page-sep">, </span>
+				  }
+				  if (Model.Paging.Page == index) {
+	 <strong>@index</strong>
+				  }
+				  else { 
+	<a href="?page=@index">@index</a>
+				  }
+			  }</span>
+}
+</div>

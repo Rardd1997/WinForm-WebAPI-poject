@@ -1,0 +1,23 @@
+﻿@model mvcForum.Web.ViewModels.CategoryViewModel
+@using mvcForum.Web.Helpers;
+@{
+	ViewBag.Title = ForumHelper.GetString("Category.Title", new { Name = Model.Name });
+	Layout = "~/areas/forum/views/shared/forumlayout.cshtml";
+}
+<!-- Views/Forum/Category.cshtml -->
+	@Html.Partial("Breadcrumb", Model.Path)
+	<a name="start_here"></a>
+	<p class="right">@ForumHelper.GetString("CurrentTime", new object[] { DateTime.UtcNow })</p>
+	<h2><a href="">@Model.Name</a></h2>
+@if (ForumHelper.Authenticated()) {
+	<ul class="linklist">
+		<li>
+			@Html.ActionLink(ForumHelper.GetString("LinkText.MarkAsRead"), "Mark As Read", "Category", new { id = Model.Id }, null)
+		</li>
+	</ul>
+}
+	@Html.Partial("CategoryPartial", Model)
+@if (ForumHelper.Debug) {
+<!-- For Selenium Test -->
+<div id="forum_category_index" style="display: none;"></div>
+}

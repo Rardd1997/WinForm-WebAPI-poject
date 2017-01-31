@@ -1,0 +1,186 @@
+﻿@model mvcForum.Web.Areas.ForumAdmin.ViewModels.Update.ForumSettingsViewModel
+@{
+	String ns = "MVCForum.ForumAdmin.Settings.Index";
+	ViewBag.Title = Html.LocalizedString("PageTitle", ns);
+	Layout = "~/Areas/ForumAdmin/Views/Shared/adminlayout.cshtml";
+}
+<header class="jumbotron subhead" id="overview">
+	<h1>@Html.LocalizedString("Heading", ns)</h1>
+</header>
+<section id="stats">
+	<div class="row-fluid">
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="#">@Html.LocalizedString("GeneralSettingsTabTitle", ns)</a></li>
+			<li><a href="@Url.Action("userregistration", "settings", new { area = "forumadmin" })">@Html.LocalizedString("UserRegistrationTabTitle", ns)</a></li>
+			<li><a href="@Url.Action("mail", "settings", new { area = "forumadmin" })">@Html.LocalizedString("MailTabTitle", ns)</a></li>
+		</ul>
+		<div class="span12">
+@if (TempData.ContainsKey("Saved") && ((Boolean)TempData["Saved"])) {
+			<div class="alert alert-success">
+				<h4 class="alert-heading">@Html.LocalizedString("SuccessHeading", ns)</h4>
+				@Html.LocalizedString("SuccessBody", ns)
+			</div>
+}
+			@using (Html.BeginForm("index", "settings", FormMethod.Post, new { @class = "form-horizontal" })) {
+				<fieldset>
+					<legend>@Html.LocalizedString("UpdateSettingsForm", ns)</legend>
+					<div class="control-group">
+						@Html.LabelFor(x => x.TopicsPerPage, new { @class = "control-label" })
+						<div class="controls">
+							@Html.TextBoxFor(x => x.TopicsPerPage, new { @class = "input-mini" })
+						</div>
+					</div>
+					<div class="control-group">
+						@Html.LabelFor(x => x.MessagesPerPage, new { @class = "control-label" })
+						<div class="controls">
+							@Html.TextBoxFor(x => x.MessagesPerPage, new { @class = "input-mini" })
+						</div>
+					</div>
+					<div class="control-group">
+						@Html.LabelFor(x => x.ShowDeletedMessages, new { @class = "control-label" })
+						<div class="controls">
+							<label class="checkbox">
+								@Html.CheckBoxFor(x => x.ShowDeletedMessages)
+							</label>
+						</div>
+					</div>
+					<div class="control-group">
+						@Html.LabelFor(x => x.AllowQuickReply, new { @class = "control-label" })
+						<div class="controls">
+							<label class="checkbox">
+								@Html.CheckBoxFor(x => x.AllowQuickReply)
+							</label>
+						</div>
+					</div>
+					<div class="control-group">
+						@Html.LabelFor(x => x.DefaultTimezone, new { @class = "control-label" })
+						<div class="controls">
+							@Html.DropDownListFor(x => x.DefaultTimezone, TimezoneHelper.GetTimeZones(Model.DefaultTimezone), new { @class = "input-large" })
+						</div>
+					</div>
+					<div class="control-group">
+						@Html.LabelFor(x => x.DefaultCulture, new { @class = "control-label" })
+						<div class="controls">
+							@Html.DropDownListFor(x => x.DefaultCulture, CultureInfoHelper.GetCultures(Model.DefaultCulture), new { @class = "input-large" })
+						</div>
+					</div>
+					<div class="control-group">
+						@Html.LabelFor(x => x.SiteURL, new { @class = "control-label" })
+						<div class="controls">
+							@Html.TextBoxFor(x => x.SiteURL, new { @class = "input-large" })
+						</div>
+					</div>
+					<div class="control-group">
+						@Html.LabelFor(x => x.InformOnQuarantine, new { @class = "control-label" })
+						<div class="controls">
+							<label class="checkbox">
+								@Html.CheckBoxFor(x => x.InformOnQuarantine)
+							</label>
+						</div>
+					</div>
+					<div class="control-group">
+						@Html.LabelFor(x => x.MaxFileSize, new { @class = "control-label" })
+						<div class="controls">
+							@Html.TextBoxFor(x => x.MaxFileSize, new { @class = "input-mini" })
+						</div>
+					</div>
+					<div class="control-group">
+						@Html.LabelFor(x => x.MaxAttachmentsSize, new { @class = "control-label" })
+						<div class="controls">
+							@Html.TextBoxFor(x => x.MaxAttachmentsSize, new { @class = "input-mini" })
+						</div>
+					</div>
+					<div class="control-group">
+						@Html.LabelFor(x => x.AllowedExtensions, new { @class = "control-label" })
+						<div class="controls">
+							@Html.TextBoxFor(x => x.AllowedExtensions, new { @class = "input-large" })
+						</div>
+					</div>
+					<div class="control-group">
+						@Html.LabelFor(x => x.Theme, new { @class = "control-label" })
+						<div class="controls">
+							@Html.DropDownListFor(x => x.Theme, new String[] { "" }.Concat(Model.Themes).Select(t => new SelectListItem { Selected = (Model.Theme == t), Text = t, Value = t }), new { @class = "input-large" })
+						</div>
+					</div>
+					<div class="control-group">
+						@Html.LabelFor(x => x.AllowUserDefinedTheme, new { @class = "control-label" })
+						<div class="controls">
+							<label class="checkbox">
+								@Html.CheckBoxFor(x => x.AllowUserDefinedTheme)
+							</label>
+						</div>
+					</div>
+					<div class="control-group">
+						@Html.LabelFor(x => x.AsynchronousAntiSpam, new { @class = "control-label" })
+						<div class="controls">
+							<label class="checkbox">
+								@Html.CheckBoxFor(x => x.AsynchronousAntiSpam)
+							</label>
+						</div>
+					</div>
+					<div class="control-group">
+						@Html.LabelFor(x => x.ShowOldPostsOnReply, new { @class = "control-label" })
+						<div class="controls">
+							<label class="checkbox">
+								@Html.CheckBoxFor(x => x.ShowOldPostsOnReply)
+							</label>
+						</div>
+					</div>
+					<div class="control-group">
+						@Html.LabelFor(x => x.ShowOnlineUsers, new { @class = "control-label" })
+						<div class="controls">
+							<label class="checkbox">
+								@Html.CheckBoxFor(x => x.ShowOnlineUsers)
+							</label>
+						</div>
+					</div>
+					<div class="control-group">
+						@Html.LabelFor(x => x.PostsOnReply, new { @class = "control-label" })
+						<div class="controls">
+							@Html.TextBoxFor(x => x.PostsOnReply, new { @class = "input-mini" })
+						</div>
+					</div>
+					<div class="control-group">
+						@Html.LabelFor(x => x.Editor, new { @class = "control-label" })
+						<div class="controls">
+							@Html.DropDownListFor(x => x.Editor, mvcForum.Web.Helpers.ForumHelper.GetContentEditors(Model.Editor), new { @class = "input-large" })
+						</div>
+					</div>
+					<div class="control-group">
+						@Html.LabelFor(x => x.NewUserGroups, new { @class = "control-label" })
+						<div class="controls">
+							@Html.ListBoxFor(x => x.NewUserGroups, mvcForum.Web.Helpers.ForumHelper.GetGroups(Model.NewUserGroups), new { multiple = "multiple", @class = "input-large" })
+						</div>
+					</div>
+					<div class="control-group">
+						@Html.LabelFor(x => x.RedirectUrlLoggedIn, new { @class = "control-label" })
+						<div class="controls">
+							@Html.TextBoxFor(x => x.RedirectUrlLoggedIn, new { @class = "input-large" })
+						</div>
+					</div>
+					<div class="control-group">
+						@Html.LabelFor(x => x.RedirectUrlLoggedOut, new { @class = "control-label" })
+						<div class="controls">
+							@Html.TextBoxFor(x => x.RedirectUrlLoggedOut, new { @class = "input-large" })
+						</div>
+					</div>
+					<div class="control-group">
+						@Html.LabelFor(x => x.RedirectUrlRegistrered, new { @class = "control-label" })
+						<div class="controls">
+							@Html.TextBoxFor(x => x.RedirectUrlRegistrered, new { @class = "input-large" })
+						</div>
+					</div>
+					<div class="control-group">
+						@Html.LabelFor(x => x.AuthorName, new { @class = "control-label" })
+						<div class="controls">
+							@Html.DropDownListFor(x => x.AuthorName, mvcForum.Web.Helpers.ForumHelper.GetAuthorNameOptions(Model.AuthorName), new { @class = "input-large" })
+						</div>
+					</div>
+					<div class="form-actions">
+						<button type="submit" class="btn btn-primary" data-bind="click: Save">@Html.LocalizedString("SaveSettings", ns)</button>
+					</div>
+				</fieldset>
+			}
+		</div>
+	</div>
+</section>

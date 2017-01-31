@@ -79,6 +79,7 @@
             this.buttonLogin.TabIndex = 26;
             this.buttonLogin.Text = "Login";
             this.buttonLogin.UseVisualStyleBackColor = true;
+            this.buttonLogin.Click += new System.EventHandler(this.buttonLogin_Click);
             // 
             // buttonCancel
             // 
@@ -88,6 +89,7 @@
             this.buttonCancel.TabIndex = 27;
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // buttonForgotPass
             // 
@@ -97,6 +99,7 @@
             this.buttonForgotPass.TabIndex = 28;
             this.buttonForgotPass.Text = "Forgot password";
             this.buttonForgotPass.UseVisualStyleBackColor = true;
+            this.buttonForgotPass.Click += new System.EventHandler(this.buttonForgotPass_Click);
             // 
             // UserLoginForm
             // 

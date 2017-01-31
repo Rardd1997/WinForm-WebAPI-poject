@@ -1,0 +1,24 @@
+﻿@model Boolean
+@using mvcForum.Web.Helpers;
+@{
+	ViewBag.Title = ForumHelper.GetString("Activate.Title");
+	Layout = "~/areas/forum/views/shared/forumlayout.cshtml";
+}
+	<div class="panel" id="postingbox">
+		<div class="block-header">
+			<span><span></span></span>
+		</div>
+		<div class="block-content">
+			<div class="block-inner">
+				<h3>@ForumHelper.GetString("Activate.Headline")</h3>
+				<fieldset class="fields1">
+@if (Model) {
+	@ForumHelper.GetString("Activate.Success")
+}
+else {
+	@ForumHelper.GetString("Activate.Failure")
+}
+				</fieldset>
+			</div>
+		</div>
+	</div>

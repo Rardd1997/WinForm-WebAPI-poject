@@ -1,0 +1,50 @@
+﻿@{
+	String ns = "MVCForum.ForumAdmin.Group.Index";
+	ViewBag.Title = Html.LocalizedString("PageTitle", ns);
+	Layout = "~/Areas/ForumAdmin/Views/Shared/adminlayout.cshtml";
+}
+<section id="groups">
+	<div class="row-fluid">
+		<div class="span12">
+			<div class="hide alert" data-bind="css: { hide: NoStatus, 'alert-success': Success, 'alert-error': Error }">
+				<a href="#" data-bind="click: HideStatus" class="close">×</a>
+				<h4 class="alert-heading" data-bind="text: StatusHeading"></h4>
+				<span data-bind="text: StatusBody"></span>
+			</div>
+			<div class="hide" data-bind="css: { hide: !Loaded() }">
+				<h2>@Html.LocalizedString("GroupsSubHeading", ns)</h2>
+				<table class="table table-bordered table-striped">
+					<thead>
+						<tr>
+							<th>@Html.LocalizedString("ColumnHeadingName", ns)</th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody data-bind="foreach: Groups">
+						<tr>
+							<td data-bind="text: Name"></td>
+							<td>
+								<a href="#" data-bind="attr: { href: '@Url.Action("update", "group", new { area = "forumadmin" })/' + Id }" class="btn btn-primary">@Html.LocalizedString("EditGroup", ns)</a>
+								<a href="#" class="btn btn-warning" data-bind="click: Delete">@Html.LocalizedString("DeleteGroup", ns)</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<a href="#" class="btn btn-primary" data-bind="click: ShowAdd">@Html.LocalizedString("AddGroup", ns)</a>
+			</div>
+		</div>
+	</div>
+	@Html.Partial("NewGroupModal", new mvcForum.Web.Areas.ForumAPI.ViewModels.Group() )
+</section>
+<script type="text/javascript">
+	var groupListUrl = "@Url.Action("list", "group", new { area = "forumapi", mode = "json" })";
+	var deleteUrl = "@Url.Action("delete", "group", new { area = "forumapi", mode = "json" })";
+	var createUrl = "@Url.Action("create", "group", new { area = "forumapi", mode = "json" })";
+</script>
+
+@section scripts {
+	<script type="text/javascript" src="@Url.Content("~/scripts/knockout.validation.js")"></script>
+	<script type="text/javascript" src="@Url.Content("~/scripts/boostrap-collapse.js")"></script>
+	<script type="text/javascript" src="@Url.Content("~/scripts/common.js")"></script>
+	<script type="text/javascript" src="@Url.Content("~/scripts/viewmodels/grouplist.js")"></script>
+}

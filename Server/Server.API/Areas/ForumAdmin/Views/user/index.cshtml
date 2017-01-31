@@ -1,0 +1,70 @@
+﻿@{
+	String ns = "MVCForum.ForumAdmin.User.Index";
+	ViewBag.Title = Html.LocalizedString("PageTitle", ns);
+	Layout = "~/Areas/ForumAdmin/Views/Shared/adminlayout.cshtml";
+}
+<header class="jumbotron subhead" id="overview">
+	<h1>@Html.LocalizedString("Heading", ns)</h1>
+</header>
+<section id="users">
+	<div class="row-fluid">
+		<div class="span12">
+			<div class="hide alert" data-bind="css: { hide: NoStatus, 'alert-success': Success, 'alert-error': Error }">
+				<a href="#" data-bind="click: HideStatus" class="close">×</a>
+				<h4 class="alert-heading" data-bind="text: StatusHeading"></h4>
+				<span data-bind="text: StatusBody"></span>
+			</div>
+			<div id="userlist" class="hide" data-bind="css: { hide: !Loaded() }">
+				<h2>@Html.LocalizedString("UsersSubHeading", ns)</h2>
+				<div class="input-append">
+					<input class="span2" type="text" data-bind="value: Query">
+					<button class="btn" data-bind="click: Search" type="button">Search</button>
+				</div>
+				<table class="table table-bordered table-striped">
+					<thead>
+						<tr>
+							<th>@Html.LocalizedString("ColumnHeadingUserName", ns)</th>
+							<th>@Html.LocalizedString("ColumnHeadingEmailAddress", ns)</th>
+							<th>@Html.LocalizedString("ColumnHeadingDeleted", ns)</th>
+							<th>@Html.LocalizedString("ColumnHeadingActive", ns)</th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody data-bind="foreach: Users">
+						<tr>
+							<td data-bind="text: Name"></td>
+							<td data-bind="text: EmailAddress"></td>
+							<td data-bind="text: Deleted"></td>
+							<td data-bind="text: Active"></td>
+							<td>
+								<a href="#" data-bind="attr: { href: '@Url.Action("update", "user", new { area = "forumadmin" })/' + Id }" class="btn btn-primary">@Html.LocalizedString("EditUser", ns)</a>
+								<a href="#" class="btn btn-warning" data-bind="click: Delete">@Html.LocalizedString("DeleteUser", ns)</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<div class="pagination hide" data-bind="css: { 'hide': !PagingVisible() }">
+					<ul>
+						<li><a data-bind="click: Prev, css: { 'disabled': Index() == 1 }" href="#">Prev</a></li>
+						<li><a href="#" data-bind="click: Next">Next</a></li>
+					</ul>
+				</div>
+				<a href="#" class="btn btn-primary" data-bind="click: ShowAdd">@Html.LocalizedString("AddUser", ns)</a>
+			</div>
+		</div>
+	</div>
+	@Html.Partial("NewUserModal", new mvcForum.Web.Areas.ForumAPI.ViewModels.ForumUser() )
+</section>
+<script type="text/javascript">
+	var userListUrl = "@Url.Action("list", "user", new { area = "forumapi", mode = "json" })";
+	var deleteUrl = "@Url.Action("delete", "user", new { area = "forumapi", mode = "json" })";
+	var createUrl = "@Url.Action("create", "user", new { area = "forumapi", mode = "json" })";
+	var searchUrl = "@Url.Action("search", "user", new { area = "forumapi", mode = "json" })";
+</script>
+
+@section scripts {
+	<script type="text/javascript" src="@Url.Content("~/scripts/knockout.validation.js")"></script>
+	<script type="text/javascript" src="@Url.Content("~/scripts/boostrap-collapse.js")"></script>
+	<script type="text/javascript" src="@Url.Content("~/scripts/common.js")"></script>
+	<script type="text/javascript" src="@Url.Content("~/scripts/viewmodels/userlist.js")"></script>
+}
