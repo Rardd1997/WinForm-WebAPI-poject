@@ -1,16 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Server.Domain.Entities;
 
-namespace Server.Domain.Abstract
+namespace Server.Domain.Concrete
 {
-    public interface IDbRepository 
+    class EFDBContext : DbContext
     {
-        IQueryable<Profile> Profiles { get; }
-
-        void SaveChanges();
+        public DbSet<Profile> Profiles { get; set; }
     }
 }

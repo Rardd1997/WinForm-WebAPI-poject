@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
-using System.Data.Entity;
-using System.Data.Linq;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,9 +8,9 @@ using Server.Domain.Entities;
 
 namespace Server.Domain.Concrete
 {
-    public class AdoNetDbRepository : IDbRepository
+    class EFDBRepository : IDbRepository
     {
-        private AdoNetDbContext context = new AdoNetDbContext();
+        EFDBContext context = new EFDBContext();
 
         public IQueryable<Profile> Profiles => context.Profiles;
 
@@ -22,5 +19,4 @@ namespace Server.Domain.Concrete
             context.SaveChanges();
         }
     }
-
 }
