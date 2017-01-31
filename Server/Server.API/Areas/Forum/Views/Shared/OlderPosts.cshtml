@@ -1,0 +1,49 @@
+﻿@model mvcForum.Web.ViewModels.Create.CreateMessageViewModel
+@using mvcForum.Web.Helpers;
+<h3 id="review">
+	@*<span class="right-box"><a href="#review">EXPAND</a></span>*@Topic review: @Model.Subject
+</h3>
+
+<div id="topicreview">
+	@for (Int32 index = 0; index < Model.Posts.Count(); index++) {
+	 var post = Model.Posts[index];
+	<div class="post @if (index % 2 == 1) { <text>bg1</text> }
+				  else { <text>bg2</text> }">
+		<div class="postbody" id="pr@(post.Id)">
+			<p class="author">
+				<!-- IF S_IS_BOT 
+				{topic_review_row.MINI_POST_IMG} ELSE <a href="{topic_review_row.U_MINI_POST}">{topic_review_row.MINI_POST_IMG}</a> ENDIF -->
+				@ForumHelper.GetHtmlString("CreateMessage.OldPosted", new { Author = post.Author.Wrap("<strong>{#}</strong>"), Timestamp = post.Posted.UtcDateTime })
+				<!-- IF topic_review_row.U_MCP_DETAILS 
+				| <a href="{topic_review_row.U_MCP_DETAILS}">{L_POST_DETAILS}</a> ENDIF -->
+			</p>
+			<h3><a href="#pr@(post.Id)">@post.Subject</a></h3>
+			<div class="content">
+				@ForumHelper.ParseContent(post.Body)
+			</div>
+			<!-- IF topic_review_row.S_HAS_ATTACHMENTS 
+			<div class="ca-bbcode">
+				<div class="ca-bbcode2 ca-attachment">
+					<dl class="attachbox">
+						<dt>{L_ATTACHMENTS}</dt>
+						BEGIN attachment 
+						<dd>
+							{topic_review_row.attachment.DISPLAY_ATTACHMENT}</dd>
+							END attachment 
+					</dl>
+				</div>
+			</div>
+			ENDIF -->
+			<!-- IF topic_review_row.POSTER_QUOTE and topic_review_row.DECODED_MESSAGE -->
+			<div id="message_@(post.Id)" style="display: none;">topic_review_row.DECODED_MESSAGE</div>
+			<!-- ENDIF -->
+			<!-- IF topic_review_row.POSTER_QUOTE and topic_review_row.DECODED_MESSAGE 
+			<ul class="profile-icons">
+					<li class="quote-icon"><a href="#postingbox" title="{L_QUOTE} {topic_review_row.POST_AUTHOR}"><span>{L_QUOTE} {topic_review_row.POST_AUTHOR}</span></a></li>
+			</ul>
+			<div class="clear"></div>
+			 ENDIF -->
+		</div>
+	</div>
+ }
+</div>

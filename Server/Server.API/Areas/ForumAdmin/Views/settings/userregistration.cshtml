@@ -1,0 +1,123 @@
+﻿@model mvcForum.Web.Areas.ForumAdmin.ViewModels.Update.UserRegistrationViewModel
+@{
+	String ns = "MVCForum.ForumAdmin.Settings.UserRegistration";
+	ViewBag.Title = Html.LocalizedString("PageTitle", ns);
+	Layout = "~/Areas/ForumAdmin/Views/Shared/adminlayout.cshtml";
+}
+<header class="jumbotron subhead" id="overview">
+	<h1>@Html.LocalizedString("Heading", ns)</h1>
+</header>
+<section id="userreg">
+	<div class="row-fluid">
+		<ul class="nav nav-tabs">
+			<li><a href="@Url.Action("index", "settings", new { area = "forumadmin" })">@Html.LocalizedString("GeneralSettingsTabTitle", ns)</a></li>
+			<li class="active"><a href="#">@Html.LocalizedString("UserRegistrationTabTitle", ns)</a></li>
+			<li><a href="@Url.Action("mail", "settings", new { area = "forumadmin" })">@Html.LocalizedString("MailTabTitle", ns)</a></li>
+		</ul>
+		<div class="span12">
+@if (TempData.ContainsKey("Saved") && ((Boolean)TempData["Saved"])) {
+			<div class="alert alert-success">
+				<h4 class="alert-heading">@Html.LocalizedString("SuccessHeading", ns)</h4>
+				@Html.LocalizedString("SuccessBody", ns)
+			</div>
+}
+			@using (Html.BeginForm("userregistration", "settings", FormMethod.Post, new { @class = "form-horizontal" })) {
+				<fieldset>
+					<legend>@Html.LocalizedString("UserRegistrationForm", ns)</legend>
+					<div class="control-group">
+						@Html.LabelFor(x => x.UseForumAccountController, new { @class = "control-label" })
+						<div class="controls">
+							<input type="checkbox" name="UseForumAccountController" data-bind="checked: UseForumAccountController" value="true" />
+						</div>
+					</div>
+					<div class="control-group" data-bind="visible: UseForumAccountController">
+						@Html.LabelFor(x => x.AllowLocalUsers, new { @class = "control-label" })
+						<div class="controls">
+							<input type="checkbox" name="AllowLocalUsers" data-bind="checked: AllowLocalUsers" value="true" />
+						</div>
+					</div>
+					<div class="control-group" data-bind="visible: AllowLocalUsers() && UseForumAccountController()">
+						@Html.LabelFor(x => x.AllowSignUp, new { @class = "control-label" })
+						<div class="controls">
+							<input type="checkbox" name="AllowSignUp" data-bind="checked: AllowSignUp" value="true" />
+						</div>
+					</div>
+					<div class="control-group" data-bind="visible: UseForumAccountController() && AllowLocalUsers() && AllowSignUp()">
+						@Html.LabelFor(x => x.RequireEmailValidation, new { @class = "control-label" })
+						<div class="controls">
+							<input type="checkbox" name="RequireEmailValidation" data-bind="checked: RequireEmailValidation" value="true" />
+						</div>
+					</div>
+					<div class="control-group" data-bind="visible: UseForumAccountController() && AllowLocalUsers() && AllowSignUp() && RequireEmailValidation()">
+						@Html.LabelFor(x => x.ValidationSubject, new { @class = "control-label" })
+						<div class="controls">
+							<input type="text" name="ValidationSubject" data-bind="value: ValidationSubject" class="span8" />
+						</div>
+					</div>
+					<div class="control-group" data-bind="visible: UseForumAccountController() && AllowLocalUsers() && AllowSignUp() && RequireEmailValidation()">
+						@Html.LabelFor(x => x.ValidationBody, new { @class = "control-label" })
+						<div class="controls">
+							<textarea name="ValidationBody" data-bind="value: ValidationBody" class="span8" rows="6"></textarea>
+							<span class="help-block">@Html.LocalizedString("ValidationBodyHelpText", ns)</span>
+						</div>
+					</div>
+					<div class="control-group" data-bind="visible: UseForumAccountController() && AllowLocalUsers() && AllowSignUp()">
+						@Html.LabelFor(x => x.ForgottenPasswordSubject, new { @class = "control-label" })
+						<div class="controls">
+							<input type="text" name="ForgottenPasswordSubject" data-bind="value: ForgottenPasswordSubject" class="span8" />
+						</div>
+					</div>
+					<div class="control-group" data-bind="visible: UseForumAccountController() && AllowLocalUsers() && AllowSignUp()">
+						@Html.LabelFor(x => x.ForgottenPasswordBody, new { @class = "control-label" })
+						<div class="controls">
+							<textarea name="ForgottenPasswordBody" data-bind="value: ForgottenPasswordBody" class="span8" rows="6"></textarea>
+							<span class="help-block">@Html.LocalizedString("ForgottenPasswordBodyHelpText", ns)</span>
+						</div>
+					</div>
+					<div class="control-group" data-bind="visible: UseForumAccountController() && AllowLocalUsers() && AllowSignUp()">
+						@Html.LabelFor(x => x.RequireRulesAccept, new { @class = "control-label" })
+						<div class="controls">
+							<input type="checkbox" name="RequireRulesAccept" data-bind="checked: RequireRulesAccept" value="true" />
+						</div>
+					</div>
+					<div class="control-group" data-bind="visible: UseForumAccountController() && AllowLocalUsers() && AllowSignUp() && RequireRulesAccept()">
+						@Html.LabelFor(x => x.SignUpRules, new { @class = "control-label" })
+						<div class="controls">
+							<textarea name="SignUpRules" data-bind="value: SignUpRules" class="span8" rows="6"></textarea>
+						</div>
+					</div>
+					<div class="control-group" data-bind="visible: UseForumAccountController">
+						@Html.LabelFor(x => x.AllowOpenAuthUsers, new { @class = "control-label" })
+						<div class="controls">
+							<input type="checkbox" name="AllowOpenAuthUsers" data-bind="checked: AllowOpenAuthUsers" value="true" />
+							<span class="help-block">@Html.LocalizedString("AllowOpenAuthHelpText", ns)</span>
+						</div>
+					</div>
+					<div class="form-actions">
+						<button type="submit" class="btn btn-primary">@Html.LocalizedString("SaveSettings", ns)</button>
+					</div>
+				</fieldset>
+   }
+			</div>
+	   </div>
+</section>
+<script type="text/javascript">
+	var useController = @Model.UseForumAccountController.ToString().ToLowerInvariant();
+	var local = @Model.AllowLocalUsers.ToString().ToLowerInvariant();
+	var openAuth = @Model.AllowOpenAuthUsers.ToString().ToLowerInvariant();
+	var signup = @Model.AllowSignUp.ToString().ToLowerInvariant();
+	var emailValidation = @Model.RequireEmailValidation.ToString().ToLowerInvariant();
+	var subject = @Html.Raw(Json.Encode(Model.ValidationSubject));
+	var body = @Html.Raw(Json.Encode(Model.ValidationBody));
+	var rulesAccept = @Model.RequireRulesAccept.ToString().ToLowerInvariant();
+	var rules = @Html.Raw(Json.Encode(Model.SignUpRules));
+	var forgottenSubject = @Html.Raw(Json.Encode(Model.ForgottenPasswordSubject));
+	var forgottenBody = @Html.Raw(Json.Encode(Model.ForgottenPasswordBody));
+</script>
+
+@section scripts {
+	<script type="text/javascript" src="@Url.Content("~/scripts/knockout.validation.js")"></script>
+	<script type="text/javascript" src="@Url.Content("~/scripts/boostrap-collapse.js")"></script>
+	<script type="text/javascript" src="@Url.Content("~/scripts/common.js")"></script>
+	<script type="text/javascript" src="@Url.Content("~/scripts/viewmodels/userregistration.js")"></script>
+}

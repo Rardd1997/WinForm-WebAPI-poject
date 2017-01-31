@@ -1,0 +1,119 @@
+﻿@model mvcForum.Web.ViewModels.BasicInstallViewModel
+@{
+	String ns = "mvcForum.Web.ViewModels.BasicInstallViewModel";
+	ViewBag.Title = "Basic Installation";
+	Layout = "~/Areas/ForumAdmin/Views/Shared/adminlayout.cshtml";
+}
+<section id="install">
+	<div class="row-fluid">
+		<div class="span12">
+			@using (Html.BeginForm("index", "basicinstall", null, FormMethod.Post, new { @class = "form-horizontal" })) {
+				<fieldset>
+					<legend>Basic Installation</legend>
+					@if (TempData.ContainsKey("ImportErrors") && !String.IsNullOrEmpty((String)TempData["ImportErrors"])) {
+						<p>@Html.Raw((String)TempData["ImportErrors"])</p>
+					}
+					<div class="control-group" data-bind="visible: CanInstallAdmin">
+						@Html.LabelFor(x => x.CreateAdmin, new { @class = "control-label" })
+						<div class="controls">
+							<label class="checkbox">
+								@Html.CheckBoxFor(x => x.CreateAdmin, new { data_bind = "checked: InstallAdmin, css: { disabled: ImportUsers }" })
+							</label>
+						</div>
+					</div>
+					<div class="hide control-group" data-bind="css: { 'hide': !InstallAdmin() }">
+						@Html.LabelFor(x => x.AdminUsername, new { @class = "control-label" })
+						<div class="controls">
+							@Html.TextBoxFor(x => x.AdminUsername, new { @class = "input-large" })
+							@Html.ValidationMessageFor(m => m.AdminUsername)
+						</div>
+					</div>
+					<div class="hide control-group" data-bind="css: { 'hide': !InstallAdmin() }">
+						@Html.LabelFor(x => x.AdminEmail, new { @class = "control-label" })
+						<div class="controls">
+							@Html.TextBoxFor(x => x.AdminEmail, new { @class = "input-large" })
+							@Html.ValidationMessageFor(m => m.AdminEmail)
+						</div>
+					</div>
+					<div class="hide control-group" data-bind="css: { 'hide': !InstallAdmin() }">
+						@Html.LabelFor(x => x.AdminPassword, new { @class = "control-label" })
+						<div class="controls">
+							@Html.PasswordFor(x => x.AdminPassword, new { @class = "input-large" })
+							@Html.ValidationMessageFor(m => m.AdminPassword)
+						</div>
+					</div>
+					<p class="hide" data-bind="css: { 'hide': CanInstallAdmin }">An administrator already exists in the database, no new administrator can be created by the installer.</p>
+					<div class="control-group">
+						@Html.LabelFor(x => x.ImportMembershipUsers, new { @class = "control-label" })
+						<div class="controls">
+							<label class="checkbox">
+								@Html.CheckBoxFor(x => x.ImportMembershipUsers, new { data_bind = "checked: ImportUsers" })
+							</label>
+						</div>
+					</div>
+					<div class="hide control-group" data-bind="css: { 'hide': !ImportUsers() }">
+						@Html.LabelFor(x => x.ExistingUserEmail, new { @class = "control-label" })
+						<div class="controls">
+							@Html.TextBoxFor(x => x.ExistingUserEmail, new { @class = "input-large", data_bind = "css: { disabled: InstallAdmin }" })
+							@Html.ValidationMessageFor(m => m.ExistingUserEmail)
+						</div>
+					</div>
+					<div class="control-group" data-bind="css: { 'hide': !CanInstallGroups }">
+						@Html.LabelFor(x => x.CreateGroups, new { @class = "control-label" })
+						<div class="controls">
+							<label class="checkbox">
+								@Html.CheckBoxFor(x => x.CreateGroups, new { data_bind = "checked: InstallGroups" })
+							</label>
+						</div>
+					</div>
+					<p class="hide" data-bind="css: { 'hide': CanInstallGroups }">One or more groups already exists, no groups can be created by the installer.</p>
+					<div class="control-group" data-bind="visible: CanInstallSimpleForum">
+						@Html.LabelFor(x => x.CreateSimpleForum, new { @class = "control-label" })
+						<div class="controls">
+							<label class="checkbox">
+								@Html.CheckBoxFor(x => x.CreateSimpleForum, new { data_bind = "checked: InstallForum" })
+							</label>
+						</div>
+					</div>
+					<p class="hide" data-bind="css: { 'hide': CanInstallSimpleForum }">One or more boards already exists, the installer can not do a simple forum installation.</p>
+					<div class="control-group">
+						@Html.LabelFor(x => x.SiteURL, new { @class = "control-label" })
+						<div class="controls">
+							@Html.TextBoxFor(x => x.SiteURL, new { @class = "input-large" })
+							@Html.ValidationMessageFor(m => m.SiteURL)
+						</div>
+					</div>
+@if (Request.IsLocal) {
+					@Html.HiddenFor(x => x.SubmitInstallation)
+}
+else {
+					<div class="control-group">
+						@Html.LabelFor(x => x.SubmitInstallation, new { @class = "control-label" })
+						<div class="controls">
+							<label class="checkbox">
+								@Html.CheckBoxFor(x => x.SubmitInstallation)
+							</label>
+							<span class="help-inline">@Html.LocalizedString("SubmitInstallationText", ns)</span>
+						</div>
+					</div>
+}
+					<div class="form-actions">
+						<button type="submit" data-bind="css: { enable: CanInstallAdmin || CanInstallGroups || CanInstallSimpleForum }" class="btn btn-primary">Install</button>
+					</div>
+				</fieldset>
+			}
+		</div>
+	</div>
+</section>
+<script type="text/javascript">
+	var canCreateAdmin = @Json.Encode(Model.CanCreateAdmin);
+	var canCreateGroups = @Json.Encode(Model.CanCreateGroups);
+	var canCreateSimpleForum = @Json.Encode(Model.CanCreateSimpleForum);
+</script>
+
+@section scripts {
+	<script type="text/javascript" src="@Url.Content("~/scripts/knockout.validation.js")"></script>
+	<script type="text/javascript" src="@Url.Content("~/scripts/boostrap-collapse.js")"></script>
+	<script type="text/javascript" src="@Url.Content("~/scripts/common.js")"></script>
+	<script type="text/javascript" src="@Url.Content("~/scripts/viewmodels/basicinstall.js")"></script>
+}

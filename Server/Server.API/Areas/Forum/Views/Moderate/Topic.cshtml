@@ -1,0 +1,90 @@
+﻿@model mvcForum.Web.ViewModels.TopicViewModel
+@using mvcForum.Core;
+@using mvcForum.Web.Extensions;
+@using mvcForum.Web.Helpers;
+@{
+	ViewBag.Title = ForumHelper.GetString("Topic.Title", new { Title = Model.Title });
+	Layout = "~/areas/forum/views/shared/forumlayout.cshtml";
+}
+	<!-- Views/Moderate/Topic.aspx -->
+	@Html.Partial("Breadcrumb", Model.Path)
+	<a name="start_here"></a>
+	<h2><a href="">@Model.Title</a></h2>
+	<div class="topic-actions">
+@*		@Html.Partial("TopicButtonsPartial", Model)
+		@Html.Partial("TopicPagingPartial", Model)*@
+		<div class="search-box"> </div>
+	</div>
+	<div class="clear"></div>
+	<div class="">
+@foreach (var message in Model.Posts) {
+		<div class="post">
+			<div class="block-border block-block block-post block-post">
+				<div class="block-content">
+					<div id="profilediv@(message.Position)">
+						<div class="profile-block">
+							@Html.Partial("MessagePosterPartial", message)
+						</div>
+					</div>
+					<div class="postbody" id="body@(message.Id)">
+						<div class="post-content">
+							<p class="author">
+								<a href="#p@(message.Position)">
+									<img src="@Url.Content("~/content/img/forum/icon_post_target.gif")" width="11" height="9" alt="Post" title="Post" /></a>
+								@message.Posted.ToLocalDateTime().ToString("F")
+							</p>
+							<h3 @if (message.Position == 1) { <text>class="first"</text> }>
+	@if (message.Flag == PostFlag.Deleted) {
+								@ForumHelper.GetString("Moderate.Deleted")
+	}
+	else if (message.Flag == PostFlag.Quarantined) {
+								@ForumHelper.GetString("Moderate.Quarantined")
+	}
+								@message.Subject
+							</h3>
+							<div class="content">
+	@if (message.Flag == PostFlag.Deleted) {
+								@ForumHelper.GetString("Moderate.DeleteReason", new { Reason = message.DeleteReason })
+	}
+	else {
+								@ForumHelper.ParseContent(message.Body)
+	}
+							</div>
+
+	@if (message.LastEdited.HasValue) {
+							<div class="notice">
+								@ForumHelper.GetString("ViewMessage.Edited", new { Editor = (message.ModeratorChanged ? ForumHelper.GetString("Moderator") : message.PrettyName), Timestamp = message.LastEdited.Value })
+							</div>
+	}
+						</div>
+						<ul class="profile-icons">
+							<li class="top-icon"><a href="#top" class="top" title="Top"><span>Top</span></a>
+							</li>
+	@if (message.Position != 0 && message.CanDelete && message.Flag != PostFlag.Deleted) {
+								<li class="delete-icon"><a title="@(ForumHelper.GetString("ViewMessage.Delete"))" href="@Url.Action("delete", "message", new RouteValueDictionary { { "id", message.Id } })">
+									<span>@ForumHelper.GetString("ViewMessage.Delete")</span></a> </li>
+	}
+	@if (message.CanDelete && message.Flag == PostFlag.Deleted) {
+								<li class="delete-icon"><a title="@(ForumHelper.GetString("ViewMessage.Undelete"))" href="@Url.Action("undelete", "message", new RouteValueDictionary { { "id", message.Id } })">
+									<span>@ForumHelper.GetString("ViewMessage.Undelete")</span></a> </li>
+	}
+	@if (message.IsModerator) {
+								<li class="edit-icon"><a title="@(ForumHelper.GetString("ViewMessage.Moderate"))" href="@Url.Action("moderate", (message.Position == 0 ? "topic" : "message"), new RouteValueDictionary { { "id", (message.Position == 0 ? message.TopicId : message.Id) } })">
+									<span>@ForumHelper.GetString("ViewMessage.Moderate")</span></a> </li>
+	}
+						</ul>
+						<div class="clear"> </div>
+					</div>
+				</div>
+			</div>
+		</div>
+}
+	</div>
+	<div class="topic-actions">
+@*		@Html.Partial("TopicButtonsPartial", Model)
+		@Html.Partial("TopicPagingPartial", Model)*@
+	</div>
+@if (ForumHelper.Debug) {
+<!-- For Selenium Test -->
+<div id="forum_topic_index" style="display: none;"></div>
+}

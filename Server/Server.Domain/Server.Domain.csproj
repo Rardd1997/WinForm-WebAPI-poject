@@ -54,6 +54,8 @@
     <Compile Include="Abstract\IDbRepository.cs" />
     <Compile Include="Concrete\AdoNetDbContext.cs" />
     <Compile Include="Concrete\AdoNetDbRepository.cs" />
+    <Compile Include="Concrete\EFDBContext.cs" />
+    <Compile Include="Concrete\EFDBRepository.cs" />
     <Compile Include="Entities\Profile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

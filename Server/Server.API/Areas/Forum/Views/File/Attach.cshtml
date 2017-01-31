@@ -1,0 +1,39 @@
+﻿@model mvcForum.Web.ViewModels.MessageViewModel
+@using mvcForum.Web.Helpers;
+@{
+    ViewBag.Title = ForumHelper.GetString("AttachFile.Title", new { Subject = Model.Subject });
+	Layout = "~/areas/forum/views/shared/forumlayout.cshtml";
+}
+@Html.Partial("Breadcrumb", Model.Path)
+<a name="start_here"></a>
+<div id="page-body">
+	<div id="content-start"></div>
+	<h2>@Html.RouteLink(Model.Subject, "ShowTopic", new RouteValueDictionary { { "id", Model.TopicId }, { "title", Model.Topic.Title.ToSlug() } })</h2>
+	@using (Html.BeginForm("Attach", "File", FormMethod.Post, new { enctype = "multipart/form-data" })) {
+		@Html.HiddenFor(x => x.Id)
+	<div class="panel" id="postingbox">
+		<div class="block-border block-block">
+			<div class="block-content">
+				<h3>@ForumHelper.GetString("AttachFile.Headline")</h3>
+				<fieldset class="fields1">
+					<dl style="clear: left;">
+						<dt>@Html.Label("File")</dt>
+						<dd><input type="file" name="files" /></dd>
+					</dl>
+				</fieldset>
+				<div class="block-footer"></div>
+			</div>
+		</div>
+	</div>
+	<div class="panel bg2">
+		<div class="block-border block-block">
+			<div class="block-content">
+				<fieldset class="submit-buttons">			
+					<input type="submit" value="@ForumHelper.GetString("AttachFile.Submit")" class="button2" />
+				</fieldset>
+				<div class="block-footer"></div>
+			</div>
+		</div>
+	</div>
+ }
+</div>

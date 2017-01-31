@@ -1,0 +1,29 @@
+﻿@model mvcForum.Web.ViewModels.TopicViewModel
+@using mvcForum.Web.Helpers;
+@{
+	var postText = String.Format("{0} post", Model.MessageCount + 1);
+	if (Model.MessageCount == 1) {
+		postText = String.Format("{0} posts", Model.MessageCount + 1);
+	}
+}
+<!-- Views/Forum/TopicPagingPartial.cshtml -->
+<div class="pagination">
+@if (ForumHelper.Authenticated()) {
+	if (Model.Following) {
+		@Html.ActionLink(ForumHelper.GetString("Topic.Unfollow"), "UnFollow", new { topicId = Model.Id })
+	}
+	else {
+		@Html.ActionLink(ForumHelper.GetString("Topic.Follow"), "Follow", new { topicId = Model.Id })
+	}
+	<text>&bull;</text>
+ }
+
+	@ForumHelper.GetHtmlString("Paging.Topic", new { MessageCount = Model.MessageCount, PageIndex = Model.Page, PageCount = Model.Pages })
+	@if (Model.Pages > 1) {<text>&bull; </text><span>
+		@for (int index = 1; index <= Model.Pages; index++) {
+	  if (Model.Page > 1) { <span class="page-sep">, </span>}
+	  if (Model.Page == index) { <strong>@index</strong>}
+	  else { <a href="@(Url.RouteUrl("ShowTopic", new { id = Model.Moved && !Model.OriginalTopic.Deleted ? Model.OriginalTopic.Id : Model.Id, title = Model.Title.ToSlug() }))?page=@index">@index </a> }
+  } </span>
+ } 
+</div>

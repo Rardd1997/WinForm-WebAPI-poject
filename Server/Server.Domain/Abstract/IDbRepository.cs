@@ -9,7 +9,7 @@ namespace Server.Domain.Abstract
 {
     public interface IDbRepository 
     {
-        IList<Profile> Profiles { get; }
+        IQueryable<Profile> Profiles { get; }
 
         void SaveChanges();
     }

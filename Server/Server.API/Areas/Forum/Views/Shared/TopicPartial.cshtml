@@ -1,0 +1,51 @@
+﻿@model mvcForum.Web.ViewModels.TopicViewModel
+@using mvcForum.Web.Extensions;
+@using mvcForum.Web.Helpers;
+@{
+	var iconName = String.Empty;
+	if (Model.Moved) {
+		iconName = "topic_moved";
+	}
+	else {
+		if (Model.Sticky) {
+			iconName += "sticky";
+		}
+		else if (Model.Announcement) {
+			iconName += "announcement";
+		}
+		else {
+			iconName += "topic";
+		}
+		if (Model.HasUnread) {
+			iconName += "_unread";
+		}
+		else {
+			iconName += "_read";
+		}
+		if (Model.Locked) {
+			iconName += "_locked";
+		}
+	}
+	iconName += ".gif";
+
+	String title = Model.Title;	
+	if (Model.Moved) {
+		title = Model.OriginalTopic.Title;
+	}
+}
+		<li class="row bg1">
+			<dl class="icon" style="background-image: url(@Url.Content("~/content/img/forum/" + iconName)); background-repeat: no-repeat;">
+				<dt title="@title">
+@if (Model.Deleted) {
+				@ForumHelper.GetString("Topic.Deleted")
+}
+				<a href="@Url.RouteUrl("ShowTopic", new { id = Model.Moved && !Model.OriginalTopic.Deleted ? Model.OriginalTopic.Id : Model.Id, title = Model.Title.ToSlug(), additional = "sincelast" })#sincelast" class="topictitle">@Model.Title</a>
+				<br />
+				@if (Model.Pages > 1) {
+				<strong class="pagination"><span>@for (int index = 1; index <= Model.Pages; index++) { if (index > 1) { <span class="page-sep">, </span> } @Html.RouteLink(index.ToString(), "ShowTopic", new RouteValueDictionary { { "id", Model.Id }, { "title", Model.Title.ToSlug() }, { "page", index } }); }</span></strong>}
+					@ForumHelper.GetHtmlString("Topic.LastPost", new object[] { Model.Author.Wrap("<a href=\"" + Url.RouteUrl("ShowProfile", new RouteValueDictionary { { "id", Model.AuthorId }, { "name", Model.Author.ToSlug() } }) + "\">{#}</a>"), Model.Posted.ToUniversalTime() }) </dt>
+				<dd class="posts">@Model.MessageCount<dfn>@ForumHelper.GetString("Topic.Replies")</dfn></dd>
+				<dd class="views">@Model.Views<dfn>@ForumHelper.GetString("Topic.Views")</dfn></dd>
+				<dd class="lastpost">@Html.Partial("LastMessagePartial", Model)</dd>
+			</dl>
+		</li>

@@ -1,0 +1,21 @@
+﻿@using mvcForum.Web.Helpers;
+@{
+	ViewBag.Title = ForumHelper.GetString("External.Title");
+	Layout = "~/areas/forum/views/shared/forumlayout.cshtml";
+}
+	<div class="panel" id="postingbox">
+		<div class="block-header">
+			<span><span></span></span>
+		</div>
+		<div class="block-content">
+			<div class="block-inner">
+				<h3>@ForumHelper.GetString("External.Headline")</h3>
+				<fieldset class="fields1">
+					<dl style="clear: left;">
+						<dt></dt>
+						<dd>@ForumHelper.GetString("External.Body")</dd>
+					</dl>
+				</fieldset>
+			</div>
+		</div>
+	</div>

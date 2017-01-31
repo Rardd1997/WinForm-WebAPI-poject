@@ -1,0 +1,61 @@
+﻿@model mvcForum.Web.ViewModels.Create.CreateMessageViewModel
+@using mvcForum.Web.Helpers;
+@{
+	ViewBag.Title = ForumHelper.GetString("CreateMessage.Title", new { Title = Model.Topic.Title });
+	Layout = "~/areas/forum/views/shared/forumlayout.cshtml";
+}
+	<!-- Views/Forum/CreateMessage.cshtml -->
+	@Html.Partial("Breadcrumb", Model.Path)
+	<a name="start_here"></a>
+	<h2>@Html.RouteLink(Model.Topic.Title, "ShowTopic", new RouteValueDictionary { { "id", Model.TopicId }, { "title", Model.Topic.Title.ToSlug() } })</h2>
+@using (Html.BeginForm("create", "message", FormMethod.Post, new { enctype = "multipart/form-data" })) {
+		@Html.HiddenFor(t => t.TopicId)
+		@Html.HiddenFor(t => t.ReplyTo)
+	<div class="panel" id="postingbox">
+		<div class="block-header"><span><span></span></span></div>
+			<div class="block-content">
+				<div class="block-inner">	
+					<h3>@ForumHelper.GetString("CreateMessage.PostNewMessage")</h3>
+					<fieldset class="fields1">
+						<dl style="clear: left;">
+							<dt>@Html.LabelFor(t => t.Subject)</dt>
+							<dd>@Html.TextBoxFor(t => t.Subject, new { @class = "inputbox autowidth", size = 45 })</dd>
+						</dl>
+						<dl style="clear: left;">
+							<dt>@Html.LabelFor(t => t.Body)</dt>
+							<dd>@Html.Partial(ForumHelper.GetEditorString() + "Editor", String.IsNullOrEmpty(Model.Body) ? "" : Model.Body)</dd>
+						</dl>
+	@if (Model.Topic.CanUpload) {
+@*						<dl style="clear: left;">
+							<dt>@Html.LabelFor(t => t.AttachFile)</dt>
+							<dd>@Html.CheckBoxFor(t => t.AttachFile)</dd>
+						</dl>*@
+						<dl style="clear: left;">
+							<dt>@Html.LabelFor(t => t.AttachFile)</dt>
+							<dd><input type="file" id="files" name="files" /></dd>
+						</dl>
+ }
+					</fieldset>
+					<div class="block-clear"></div>
+				</div>
+			</div>
+			<div class="block-footer"><span><span></span></span></div>
+		</div>
+		<div class="panel bg2">
+			<div class="block-header"><span><span></span></span></div>
+			<div class="block-content">
+				<div class="block-inner">
+					<fieldset class="submit-buttons">
+						<input type="submit" accesskey="s" tabindex="6" name="post" value="@ForumHelper.GetString("CreateMessage.Submit")" class="button1 default-submit-action" />&nbsp;
+					</fieldset>
+					<div class="block-clear"> </div>
+				</div>
+			</div>
+			<div class="block-footer"><span><span></span></span></div>
+		</div>
+}
+@Html.Partial("OlderPosts", Model)
+@if (ForumHelper.Debug) {
+<!-- For Selenium Test -->
+<div id="forum_message_create" style="display: none;"></div>
+}

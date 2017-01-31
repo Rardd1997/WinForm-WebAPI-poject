@@ -15,7 +15,7 @@ namespace Server.Domain.Concrete
     {
         private AdoNetDbContext context = new AdoNetDbContext();
 
-        public IList<Profile> Profiles => context.Profiles.ToList();
+        public IQueryable<Profile> Profiles => context.Profiles;
 
         public void SaveChanges()
         {

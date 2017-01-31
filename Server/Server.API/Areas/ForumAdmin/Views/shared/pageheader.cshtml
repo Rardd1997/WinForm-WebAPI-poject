@@ -1,0 +1,12 @@
+﻿@model IEnumerable<MVCBootstrap.Web.Mvc.Navigations.NavigationItem>
+	<header class="jumbotron subhead" id="overview">
+		<h1>@ViewBag.Heading</h1>
+<!--	<p class="lead"></p>-->
+		<div class="subnav">
+			<ul class="nav nav-pills">
+@foreach (var page in Model) {
+				<li@if (page.Selected){<text> class="active"</text>}>@Html.Link(page.Title, page.URL, page.AdditionalData)</li>
+}
+			</ul>
+		</div>
+	</header>

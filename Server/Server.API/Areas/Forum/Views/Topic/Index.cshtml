@@ -1,0 +1,42 @@
+﻿@model mvcForum.Web.ViewModels.TopicViewModel
+@using mvcForum.Web.Helpers;
+@{
+	ViewBag.Title = ForumHelper.GetString("Topic.Title", new { Title = Model.Title });
+	Layout = "~/areas/forum/views/shared/forumlayout.cshtml";
+}
+	<!-- Views/Topic/Index.aspx -->
+	@Html.Partial("Breadcrumb", Model.Path)
+@if (Model.IsModerator) {
+        <strong>@Html.ActionLink(ForumHelper.GetLinkText("ModeratorCP"), "Index", "Moderate", new { id = Model.ForumId }, null)</strong>
+}
+@if (TempData["Feedback"] != null) {
+	 <ul>
+	 @foreach (var text in (IEnumerable<MvcHtmlString>)TempData["Feedback"]) {
+	  <li>@text</li>
+	}
+	 </ul>
+}
+	<a name="start_here"></a>
+	<h2><a href="">@Model.Title</a></h2>
+	<div class="topic-actions">
+		@Html.Partial("TopicButtonsPartial", Model)
+		@Html.Partial("TopicPagingPartial", Model)
+		<div class="search-box"> </div>
+	</div>
+	<div class="clear"></div>
+	<div class="">
+@foreach (var message in Model.Posts) {
+	 @Html.Partial("MessagePartial", message)
+}
+	</div>
+@if (Model.AllowQuickReply) {
+@Html.Partial("QuickReply", new mvcForum.Web.ViewModels.Create.QuickReplyViewModel { TopicId = Model.Id })
+}
+	<div class="topic-actions">
+		@Html.Partial("TopicButtonsPartial", Model)
+		@Html.Partial("TopicPagingPartial", Model)
+	</div>
+@if (ForumHelper.Debug) {
+<!-- For Selenium Test -->
+<div id="forum_topic_index" style="display: none;"></div>
+}

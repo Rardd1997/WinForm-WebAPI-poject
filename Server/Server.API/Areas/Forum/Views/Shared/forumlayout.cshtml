@@ -1,0 +1,83 @@
+﻿@using mvcForum.Web.Extensions;
+@using mvcForum.Web.Helpers;
+@{
+	String ns = "mvcForum.Web";
+	String initialValue = ForumHelper.GetString("InitialSearchValue", null, ns);
+	if (!String.IsNullOrEmpty(initialValue)) {
+		initialValue = initialValue.Replace("'", "\\'");
+	}
+	
+	String editor = ForumHelper.GetEditorString().ToLower();
+}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-gb" xml:lang="en-gb">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="content-language" content="en-gb" />
+	<title>@ViewBag.Title</title>
+	<link href="@Url.Content("~/content/css/forum/print.css")" rel="stylesheet" type="text/css" media="print" title="printonly" />
+	<link href="@Url.Content("~/content/css/forum/forum.css")" rel="stylesheet" type="text/css" media="screen, projection" />
+	<!--[if IE]><link href="@Url.Content("~/content/css/forum/tweaks_ie.css")" type="text/css" rel="stylesheet"/><![endif]-->
+	<link rel="shortcut icon" href="~/favicon.ico" />
+
+	<link rel="stylesheet" type="text/css" href="@Url.Content("~/content/css/markitup/style.css")" />
+	@* Sort this out, needs to be done in another way! Maybe like in the bootstrap theme?  *@
+@if (editor == "bbcode" || editor == "markdown") {
+	<link rel="stylesheet" type="text/css" href="@Url.Content("~/content/css/markitup/sets/" + editor + "/style.css")" />
+}
+else if (editor == "html") {
+	
+}
+	<script type="text/javascript" src="@Url.Content("~/scripts/jquery-1.7.2.min.js")"></script>
+</head>
+<body id="phpbb" class="section-index ltr">
+	<div id="global" style="width: 100%; margin: 0 auto;">
+		<p class="skiplink">
+			<a href="#start_here">Skip to content</a></p>
+		<div id="header">
+			<div>
+				<div>
+					<span>.</span></div>
+			</div>
+		</div>
+		<div id="middle1">
+			<div id="middle2">
+				<div id="middle3">
+					<div id="middle4">
+						<div id="middle5">
+							<a id="top" name="top" accesskey="t"></a>
+							<div id="search-box">
+								@using (Html.BeginForm("Index", "Search", new { area = "forum" }, FormMethod.Post, new { id = "search" })) {
+								<fieldset>
+									@Html.TextBox("Query", initialValue, new { @class = "inputbox search", title = ForumHelper.GetString("SearchTitle", null, ns), onclick = "if(this.value=='" + initialValue + "')this.value='';", onblur = "if(this.value=='')this.value='" + initialValue + "';"})
+									<input class="button2" value="@ForumHelper.GetString("SearchButton", null, ns)" type="submit" /><br />
+									@Html.ActionLink(ForumHelper.GetLinkText("AdvancedSearch", null, ns), "Index", "Search", null, new { title = ForumHelper.GetString("AdvancedSearchTitle", null, ns) })
+								</fieldset>
+}
+							</div>
+							@Html.Partial("TopNavigation")
+							<div id="logo"><a href="@Url.Action("Index", "Home", new { area = "Forum" })"><span>Awesome Styles demo</span><img src="@Url.Content("~/content/img/forum/site_logo.gif")" width="310" height="70" alt="" title="" /></a></div>
+							<!-- header end -->
+							@RenderBody()
+							@Html.Partial("Footer")
+							<div id="footer-clear">&nbsp;</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="footer">
+			<div>
+				<div><span>.</span></div>
+			</div>
+		</div>
+		<div id="copyrights">
+			@ForumHelper.GetHtmlString("PoweredBy", new { Product = "MVC Forum".Wrap("<a target=\"_blank\" href=\"http://mvcforum.org\">{#}</a>"), EndYear = DateTime.Now.Year, ShortVersion = ForumHelper.GetShortVersion(), LongVersion = ForumHelper.GetVersion(), CopyrightOwner = "creativeminds".Wrap("<a target=\"_blank\" href=\"http://creativeminds.dk\">{#}</a>") })
+			<br />
+			Design by <a href="http://www.stsoftware.biz/">ST Software</a> for <a href="http://blacklist.org/">blacklist.org</a>.
+		</div>
+	</div>
+	@Html.Partial("BottomScripts")
+@*@StackExchange.Profiling.MiniProfiler.RenderIncludes()*@
+</body>
+</html>

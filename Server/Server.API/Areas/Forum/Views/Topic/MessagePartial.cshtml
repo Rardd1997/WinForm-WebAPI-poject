@@ -1,0 +1,126 @@
+﻿@model mvcForum.Web.ViewModels.MessageViewModel
+@using mvcForum.Core;
+@using mvcForum.Web.Extensions;
+@using mvcForum.Web.Helpers;
+@{
+    var postFix = String.Empty;
+    if (Model.Position == 1) {
+        postFix = "-first";
+    }
+
+    var id = Model.Id.ToString();
+    var position = Model.Position.ToString();
+    var deleted = (Model.Flag & PostFlag.Deleted) != 0;
+    var quarantined = (Model.Flag & PostFlag.Quarantined) != 0;
+}
+<div id="p@(id)" class="post">
+@if (Model.LastRead) {
+	<a name="sincelast"></a>
+}
+	<div class="block-border block-block block-post block-post@(postFix)">
+		<div class="block-content">
+    @if (deleted) {
+			<div class="postbody" id="body@(id)">
+				<div class="post-content">
+                    <h3>Deleted</h3>
+					<div class="content">
+						@Model.DeleteReason
+					</div>
+                </div>
+            </div>
+    }
+    else if (quarantined) {
+			<div id="profilediv@(position)">
+				<div class="profile-block">
+					@Html.Partial("MessagePosterPartial", Model)
+				</div>
+			</div>
+			<div class="postbody" id="body@(id)">
+				<div class="post-content">
+                    <h3>Quarantined</h3>
+                    <a name="quarantined@(position)"></a>
+                </div>
+            </div>
+			<ul class="profile-icons">
+        @if (Model.CanDelete) {
+						<li class="delete-icon"><a title="Delete" href="@Url.Action("Delete", "Message", new RouteValueDictionary { { "id", Model.Id } })">
+							<span>@ForumHelper.GetString("ViewMessage.Delete")</span></a> </li>
+        }
+        @if (Model.CanEdit) {
+					<li class="edit-icon"><a title="Edit post" href="@Url.Action("Edit", "Message", new RouteValueDictionary { { "id", Model.Id } })">
+						<span>@ForumHelper.GetString("ViewMessage.Edit")</span></a> </li>
+        }
+			</ul>
+			<div class="clear"> </div>
+    }
+    else {
+			<div id="profilediv@(position)">
+				<div class="profile-block">
+					@Html.Partial("MessagePosterPartial", Model)
+				</div>
+			</div>
+			<div class="postbody" id="body@(id)">
+				<div class="post-content">
+					<p class="author">
+						<a href="#p@(position)">
+							<img src="@Url.Content("~/content/img/forum/icon_post_target.gif")" width="11" height="9" alt="Post" title="Post" /></a>
+						@Model.Posted.ToLocalDateTime().ToString("F")
+					</p>
+					<h3 @if (Model.Position == 1) { <text>class="first"</text> }>
+						<a href="#p@(position)">@Model.Subject</a></h3>
+					<div class="content">
+						@ForumHelper.ParseContent(Model.Body)
+					</div>
+					@if (Model.Attachments.Count() > 0) {
+						<div class="ca-bbcode">
+							<div class="ca-bbcode2 ca-attachment">
+								<dl class="attachbox">
+									<dt>@ForumHelper.GetString("ViewMessage.Attachments")</dt>
+		@foreach (var att in Model.Attachments) {
+										@Html.Partial("AttachmentPartial", att)
+  }
+								</dl>
+							</div>
+						</div>
+     }
+					@if (Model.LastEdited.HasValue) {
+						<div class="notice">
+							@ForumHelper.GetString("ViewMessage.Edited", new { Editor = (Model.ModeratorChanged ? ForumHelper.GetString("Moderator") : Model.PrettyName), Timestamp = Model.LastEdited.Value })
+						</div>
+     }
+					<!--<div class="signature" id="sig: Model.Id ">test</div>-->
+				</div>
+				<ul class="profile-icons">
+					<li class="top-icon"><a href="#top" class="top" title="Top"><span>Top</span></a>
+					</li>
+					@if (Model.Authenticated) {
+						<li class="report-icon"><a title="Report" href="@Url.Action("report", "message", new RouteValueDictionary { { "id", Model.Id } })">
+							<span>@ForumHelper.GetString("ViewMessage.Report")</span></a> </li>
+     }
+					@if (Model.CanDelete) {
+						<li class="delete-icon"><a title="Delete" href="@Url.Action("delete", "message", new RouteValueDictionary { { "id", Model.Id } })">
+							<span>@ForumHelper.GetString("ViewMessage.Delete")</span></a> </li>
+     }
+					@if (Model.CanPost) {
+						<li class="quote-icon"><a title="Quote" href="@Url.Action("create", "message", new RouteValueDictionary { { "id", Model.TopicId }, { "replytoid", Model.Id } })">
+							<span>@ForumHelper.GetString("ViewMessage.Quote")</span></a> </li>
+     }
+					@if (Model.CanEdit) {
+						<li class="edit-icon"><a title="Edit post" href="@Url.Action("edit", (Model.Position == 0 ? "topic" : "message"), new RouteValueDictionary { { "id", (Model.Position == 0 ? Model.TopicId : Model.Id) } })">
+							<span>@ForumHelper.GetString("ViewMessage.Edit")</span></a> </li>
+     }
+					@if (Model.IsModerator) {
+						<li class="moderate-icon"><a title="Moderate post" href="@Url.Action((Model.Position == 0 ? "topic" : "message"), "moderate", new RouteValueDictionary { { "id", (Model.Position == 0 ? Model.TopicId : Model.Id) } })">
+							<span>@ForumHelper.GetString("ViewMessage.Moderate")</span></a> </li>
+	 }
+				</ul>
+				<div class="clear"> </div>
+			</div>
+}
+			<div class="block-footer"> </div>
+		</div>
+ 	</div>
+	<div class="block-footer">
+		<span><span></span></span>
+	</div>
+</div>

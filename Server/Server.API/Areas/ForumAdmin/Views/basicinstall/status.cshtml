@@ -1,0 +1,14 @@
+﻿@model mvcForum.Web.ViewModels.BasicInstallViewModel
+@{
+	ViewBag.Title = "Status";
+	Layout = "~/Areas/ForumAdmin/Views/Shared/adminlayout.cshtml";
+}
+<section id="install">
+	<div class="row-fluid">
+		<div class="span12">
+			<h2>Basic installation</h2>
+			<p>Installation done, go take a look at the @Html.ActionLink("forum administration", "index", "home", new { area = "forumadmin" }, null).<br />
+			@TempData["ImportErrors"]</p>
+		</div>
+	</div>
+</section>

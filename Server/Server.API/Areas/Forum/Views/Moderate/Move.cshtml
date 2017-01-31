@@ -1,0 +1,68 @@
+﻿@model mvcForum.Web.ViewModels.MoveViewModel
+@using mvcForum.Web.Helpers;
+@{
+	ViewBag.Title = ForumHelper.GetString("Moderate.Title", new { Name = Model.Forum.Name });
+	Layout = "~/areas/forum/views/shared/forumlayout.cshtml";
+}
+<!-- Views/Moderate/Move.cshtml -->
+<p class="right">@ForumHelper.GetString("CurrentTime", new Object[] { DateTime.UtcNow })</p>
+@using (Html.BeginForm("move", "moderate", new { area = "forum" })) {
+	foreach (Int32 id in Model.Topics.Select(t => t.Id)) {
+		<input type="hidden" name="topics" value="@id" />
+	}
+	<div class="panel" id="postingbox">
+		<div class="block-header">
+			<span><span></span></span>
+		</div>
+		<div class="block-content">
+			<div class="block-inner">
+				<h3>@ForumHelper.GetString("Move.Heading")</h3>
+				<fieldset class="fields1">
+					<dl style="clear: left;">
+						<dt>@ForumHelper.GetString("Move.Destination")</dt>
+						<dd>@Html.DropDownList("destinationId", ForumHelper.GetModerateForums(Model.Forum.Id))</dd>
+					</dl>
+					<dl style="clear: left;">
+						<dt>@ForumHelper.GetString("Move.LeaveTopics")</dt>
+						<dd><input type="checkbox" name="LeaveTopic" value="true" /></dd>
+					</dl>
+					<dl style="clear: left;">
+						<dt></dt>
+						<dd>
+							<ul>
+						@foreach (var topic in Model.Topics) {
+								<li>@topic.Title</li>
+	  }
+							</ul>
+						  </dd>
+					</dl>
+				</fieldset>
+				<div class="block-clear"></div>
+			</div>
+		</div>
+		<div class="block-footer">
+			<span><span></span></span>
+		</div>
+	</div>	
+		<div class="panel bg2">
+		<div class="block-header">
+			<span><span></span></span>
+		</div>
+		<div class="block-content">
+			<div class="block-inner">
+				<fieldset class="submit-buttons">
+					<input type="submit" accesskey="s" tabindex="6" name="post" value="@ForumHelper.GetString("Move.Submit")" class="button1 default-submit-action" />&nbsp;
+				</fieldset>
+				<div class="block-clear"></div>
+			</div>
+		</div>
+		<div class="block-footer">
+			<span><span></span></span>
+		</div>
+	</div>
+}
+
+@if (ForumHelper.Debug) {
+<!-- For Selenium Test -->
+<div id="forum_moderate_move" style="display: none;"></div>
+}

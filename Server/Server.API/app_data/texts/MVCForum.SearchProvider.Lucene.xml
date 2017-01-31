@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Localizations>
+	<Namespace Name="mvcForum.SearchProvider.Lucene">
+		<Text Key="Name">
+			<Translation Language="en-GB"><![CDATA[Lucene]]></Translation>
+		</Text>
+		<Text Key="Description">
+			<Translation Language="en-GB"><![CDATA[This search provider for MVC Forum uses the open source Lucene.Net library for indexing and searching posts.]]></Translation>
+		</Text>
+		<Text Key="PageTitle">
+			<Translation Language="en-GB"><![CDATA[Lucene.Net search add-on]]></Translation>
+		</Text>
+		<Text Key="Button">
+			<Translation Language="en-GB"><![CDATA[Save]]></Translation>
+		</Text>
+		<Text Key="Enabled">
+			<Translation Language="en-GB"><![CDATA[Enabled]]></Translation>
+		</Text>
+		<Text Key="RunAsync">
+			<Translation Language="en-GB"><![CDATA[Run asynchronously]]></Translation>
+		</Text>
+		<Text Key="Delay">
+			<Translation Language="en-GB"><![CDATA[Index delay]]></Translation>
+		</Text>
+		<Text Key="TitleWeight">
+			<Translation Language="en-GB"><![CDATA[Title weight (in percent)]]></Translation>
+		</Text>
+		<Text Key="TopicWeight">
+			<Translation Language="en-GB"><![CDATA[Topic weight (in percent)]]></Translation>
+		</Text>
+		<Text Key="StickyWeight">
+			<Translation Language="en-GB"><![CDATA[Sticky weight (in percent)]]></Translation>
+		</Text>
+		<Text Key="AnnouncementWeight">
+			<Translation Language="en-GB"><![CDATA[Announcement weight (in percent)]]></Translation>
+		</Text>
+		<Text Key="UpdateForm">
+			<Translation Language="en-GB"><![CDATA[Lucene Configuration]]></Translation>
+		</Text>
+		<Text Key="SuccessHeading">
+			<Translation Language="en-GB"><![CDATA[Changes Saved]]></Translation>
+		</Text>
+		<Text Key="SuccessBody">
+			<Translation Language="en-GB"><![CDATA[The changes has been saved]]></Translation>
+		</Text>
+	</Namespace>
+</Localizations>

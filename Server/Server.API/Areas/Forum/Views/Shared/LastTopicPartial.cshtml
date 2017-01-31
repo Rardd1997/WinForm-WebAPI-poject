@@ -1,0 +1,14 @@
+﻿@model mvcForum.Web.ViewModels.ForumViewModel
+@using mvcForum.Web.Helpers;
+<!-- Views/Forum/LastTopicPartial.cshtml-->
+<span><dfn>@ForumHelper.GetString("LastPost.LastPost") </dfn>@if (Model.Accessible &&  Model.LastPosted.HasValue && Model.LastTopicId.HasValue) {
+@ForumHelper.GetHtmlString("LastTopic.By", new object[] {
+                                                            Model.LastUsername.Wrap("<a href=\"" + Url.RouteUrl("ShowProfile", new RouteValueDictionary { { "id", Model.AuthorId }, { "name", Model.Author.ToSlug() } }) + "\">{#}</a>"),
+                                                            Model.LastPosted.Value.UtcDateTime,
+                                                            Model.LastTopicTitle.Wrap("<a href=\"" + Url.RouteUrl("ShowTopic", new { id = Model.LastTopicId, title = Model.LastTopicTitle.ToSlug(), additional = "sincelast"  }) + "#sincelast\">{#}</a>")
+                                                        })
+															 }
+															 else {
+@ForumHelper.GetHtmlString("LastPost.NoPost")
+															 }
+</span>

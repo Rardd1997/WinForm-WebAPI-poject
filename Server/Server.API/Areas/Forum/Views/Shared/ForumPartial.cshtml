@@ -1,0 +1,42 @@
+﻿@model mvcForum.Web.ViewModels.ForumViewModel
+@using mvcForum.Web.Extensions;
+@using mvcForum.Web.Helpers;
+@{
+	var iconName = String.Empty;
+	if (Model.Unread) {
+		iconName += "forum_unread";
+	}
+	else {
+		iconName += "forum_read";
+	}
+	iconName += ".gif";
+
+	var subForumList = String.Empty;
+	if (Model.SubForums != null) {
+		foreach (var site in Model.SubForums.Select((item, index) => new {item, index})) {
+			if (site.index > 0) {
+				subForumList += ", ";
+			}
+			subForumList += Html.ForumLink(site.item.Id, site.item.Name, null);
+		}
+	}
+	}
+<!-- Views/Forum/ForumPartial.cshtml -->
+<li class="row">
+	<dl class="icon" style="background-image: url(@Url.Content("~/content/img/forum/" + iconName)); background-repeat: no-repeat;">
+		<dt title="No unread posts">
+		@if (Model.Accessible) {
+			@Html.ForumLink(Model.Id, Model.Name, new { @class = "forumtitle" });
+  }
+  else {
+			  <a class="forumtitle">@Model.Name @ForumHelper.GetString("NoAccess")</a>
+  }
+		<br />@Model.Description
+		@if (Model.SubForums != null && Model.SubForums.Count() > 0) {
+			<br /><text>Sub forums: </text>@Html.Raw(subForumList)
+  }</dt>
+		<dd class="topics">@Model.Paging.Count<dfn>@ForumHelper.GetString("TopicCount")</dfn></dd>
+		<dd class="posts">@Model.Posts <dfn>@ForumHelper.GetString("PostCount")</dfn></dd>
+		<dd class="lastpost">@Html.Partial("LastTopicPartial", Model)</dd>
+	</dl>
+</li>

@@ -1,0 +1,155 @@
+﻿@model mvcForum.Web.ViewModels.PostReportViewModel
+@using mvcForum.Web.Extensions;
+@using mvcForum.Web.Helpers;
+@{
+	ViewBag.Title = ForumHelper.GetString("PostReport.Title", new { Subject = Model.IsTopic ? Model.Title : Model.Subject });
+	Layout = "~/areas/forum/views/shared/forumlayout.cshtml";
+}
+@Html.Partial("Breadcrumb", new Dictionary<String, String> { { Url.Action("ReportList", "Moderate", new { area = "forum" }), ForumHelper.GetString("PostReport.Reports") } })
+<a name="start_here"></a>
+<h2>@ForumHelper.GetHtmlString("PostReport.TitleTop", new { Subject = Model.IsTopic ? Model.Title : Model.Subject })</h2>
+<div id="page-body">
+	<div class="post">
+		<div class="block-border block-block block-post">
+			<div class="block-content">
+				<div id="profilediv">
+					<div class="profile-block">
+						<div class="postprofile" id="profile1">
+							<div id="minimize1" class="post-minimize"></div>
+							<div class="profile-top">
+								<p class="profile-author">
+									@Html.RouteLink(Model.Author, "ShowProfile", new RouteValueDictionary { { "id", Model.AuthorId }, { "name", Model.Author.ToSlug() } }, new Dictionary<String, object> { { "class", "profile-link" }, { "id" , "link1" }})
+								</p>
+							</div>
+							<div class="profile-details">
+								<p>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="postbody" id="body">
+					<div class="post-content">
+						<p class="author">
+							<img src="@Url.Content(@Url.ForumImage("icon_post_target.gif"))" width="11" height="9" alt="Post" title="Post" />
+							@Model.Posted.ToLocalDateTime().ToString("F")
+						</p>
+						<h3>@if (Model.IsTopic) { @Model.Title }
+		  else { @Model.Subject }</h3>
+						<div class="content">
+						@ForumHelper.ParseContent(Model.Content)
+						</div>
+						@if (Model.LastEdited.HasValue) {
+							<div class="notice">
+								@ForumHelper.GetString("PostReport.Edited", new { Editor = (Model.ModeratorChanged ? ForumHelper.GetString("Moderator") : Model.Author), Timestamp = Model.LastEdited.Value })
+							</div>
+	  }
+					</div>
+					<div class="clear"> </div>
+				</div>
+				<div class="block-footer"> </div>
+			</div>
+		</div>
+		<div class="block-footer">
+			<span><span></span></span>
+		</div>
+	</div>
+	<div class="post">
+		<div class="block-border block-block block-post">
+			<div class="block-content">
+				<div id="report">
+					<div class="profile-block">
+						<div class="postprofile" id="profilereport">
+							<div class="profile-top">
+								<p class="profile-author">
+									@Html.RouteLink(Model.ReporterName, "ShowProfile", new RouteValueDictionary { { "id", Model.ReporterId }, { "name", Model.ReporterName.ToSlug() } }, new Dictionary<String, object> { { "class", "profile-link" }, { "id", "link1" } })
+								</p>
+							</div>
+							<div class="profile-details">
+								<p> </p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="postbody" id="bodyreport">
+					<div class="post-content">
+						<p class="author">
+							<img src="@Url.Content(@Url.ForumImage("icon_post_target.gif"))" width="11" height="9" alt="Post" title="Post" />
+							@Model.Timestamp.ToLocalDateTime().ToString("F")
+						</p>
+						<h3>@ForumHelper.GetHtmlString("PostReport.Reason")</h3>
+						<div class="content">
+						@Model.Reason
+						</div>
+					</div>
+					<div class="clear"> </div>
+				</div>
+				<div class="block-footer"> </div>
+			</div>
+		</div>
+		<div class="block-footer">
+			<span><span></span></span>
+		</div>
+	</div>
+	@using (Html.BeginForm()) {
+		@Html.HiddenFor(x => x.Id)
+	<div class="panel" id="postingbox">
+		<div class="block-border block-block">
+			<div class="block-content">
+				<h3>@ForumHelper.GetString(Model.IsTopic ? "PostReport.EditTopic" : "PostReport.EditPost")</h3>
+				<fieldset class="fields1">
+	 				<dl style="clear: left;">
+						<dt>@Html.LabelFor(x => x.Resolved)</dt>
+						<dd>@Html.CheckBoxFor(x => x.Resolved)</dd>
+					</dl>
+					<dl style="clear: left;">
+	@if (Model.IsTopic) {
+						<dt>@Html.LabelFor(x => x.Title)</dt>
+						<dd>@Html.TextBoxFor(x => x.Title, new { @class = "inputbox autowidth", size = "45" })</dd>
+ }
+ else {
+ 						<dt>@Html.LabelFor(x => x.Subject)</dt>
+						<dd>@Html.TextBoxFor(x => x.Subject, new { @class = "inputbox autowidth", size = "45" })</dd>
+ }
+					</dl>
+	@if (Model.IsTopic) {
+	 				<dl style="clear: left;">
+						<dt>@Html.LabelFor(x => x.TopicType)</dt>
+						<dd>@Html.DropDownListFor(x => x.TopicType, ForumHelper.GetTopicTypes(Model.TopicType), new { @class = "inputbox autowidth" })</dd>
+					</dl>
+					<dl style="clear: left;">
+						<dt>@Html.LabelFor(x => x.TopicFlag)</dt>
+						<dd>@Html.DropDownListFor(x => x.TopicFlag, ForumHelper.GetTopicFlags(Model.TopicFlag), new { @class = "inputbox autowidth" })</dd>
+					</dl>
+	}
+	else {
+ 	 				<dl style="clear: left;">
+						<dt>@Html.LabelFor(x => x.PostFlag)</dt>
+						<dd>@Html.DropDownListFor(x => x.PostFlag, ForumHelper.GetPostFlags(Model.PostFlag), new { @class = "inputbox autowidth" })</dd>
+					</dl>
+	}
+					<dl>
+						<dt>@Html.LabelFor(x => x.ChangeReason)</dt>
+						<dd>@Html.TextAreaFor(x => x.ChangeReason, new { @class = "inputbox", rows = 5, cols = 76 })</dd>
+					</dl>
+					<dl>
+						<dt>@Html.LabelFor(x => x.Content)</dt>
+						<dd>@Html.TextAreaFor(x => x.Content, new { @class = "inputbox", rows = 15, cols = 76 })</dd>
+					</dl>
+				</fieldset>
+				<div class="block-footer"></div>
+			</div>
+		</div>
+	</div>
+	<div class="panel bg2">
+		<div class="block-border block-block">
+			<div class="block-content">
+				<fieldset class="submit-buttons">			
+					<input type="submit" value="@ForumHelper.GetString("PostReport.Submit")" class="button2" />
+				</fieldset>
+				<div class="block-footer"></div>
+			</div>
+		</div>
+	</div>
+ }
+</div>

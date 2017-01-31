@@ -1,0 +1,74 @@
+﻿@model mvcForum.Web.ViewModels.SplitViewModel
+@using mvcForum.Web.Helpers;
+@{
+	ViewBag.Title = ForumHelper.GetString("SplitTopic.Title", new { Title = Model.Topic.Title });
+	Layout = "~/areas/forum/views/shared/forumlayout.cshtml";
+}
+	<!-- Views/Moderate/Split.aspx -->
+@using (Html.BeginForm("split", "moderate", new { area = "forum" })) {
+	@Html.Hidden("ForumId", Model.Forum.Id)
+	@Html.Hidden("TopicId", Model.Topic.Id)
+	<div class="panel" id="postingbox">
+		<div class="block-header">
+			<span><span></span></span>
+		</div>
+		<div class="block-content">
+			<div class="block-inner">
+				<h3>@ForumHelper.GetString("Split.Heading")</h3>
+				<fieldset class="fields1">
+					<dl style="clear: left;">
+						<dt>@ForumHelper.GetString("Split.OriginalTopicTitle")</dt>
+						<dd>@Html.TextBoxFor(m => m.OriginalTopicTitle)</dd>
+					</dl>
+					<dl style="clear: left;">
+						<dt>@ForumHelper.GetString("Split.NewTopicTitle")</dt>
+						<dd>@Html.TextBoxFor(m => m.NewTopicTitle)</dd>
+					</dl>
+				</fieldset>
+				<div class="block-clear"></div>
+			</div>
+		</div>
+		<div class="block-footer">
+			<span><span></span></span>
+		</div>
+	</div>	
+				<h3>@ForumHelper.GetString("Split.Select")</h3>
+	<div id="topicreview">
+	@foreach (var post in Model.Topic.Posts.OrderBy(p => p.Posted)) {
+		<div class="post">
+			<div class="postbody" id="pr@(post.Id)">
+		@if (post.Position != 0) {
+				<input type="checkbox" name="PostId" value="@post.Id" />
+  }
+				<p class="author">
+					@ForumHelper.GetHtmlString("CreateMessage.OldPosted", new { Author = post.Author.Wrap("<strong>{#}</strong>"), Timestamp = post.Posted.UtcDateTime })
+				</p>
+				<h3><a href="#pr@(post.Id)">@post.Subject</a></h3>
+				<div class="content">
+					@ForumHelper.ParseContent(post.Body)
+				</div>
+			</div>
+		</div>
+ }
+	</div>
+	<div class="panel bg2">
+		<div class="block-header">
+			<span><span></span></span>
+		</div>
+		<div class="block-content">
+			<div class="block-inner">
+				<fieldset class="submit-buttons">
+					<input type="submit" accesskey="s" tabindex="6" name="post" value="@ForumHelper.GetString("Split.Submit")" class="button1 default-submit-action" />&nbsp;
+				</fieldset>
+				<div class="block-clear"></div>
+			</div>
+		</div>
+		<div class="block-footer">
+			<span><span></span></span>
+		</div>
+	</div>
+}
+@if (ForumHelper.Debug) {
+<!-- For Selenium Test -->
+<div id="forum_moderate_split" style="display: none;"></div>
+}

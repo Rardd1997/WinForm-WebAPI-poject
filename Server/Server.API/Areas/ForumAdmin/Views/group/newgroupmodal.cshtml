@@ -1,0 +1,29 @@
+﻿@model mvcForum.Web.Areas.ForumAPI.ViewModels.Group
+@{
+	String ns = "MVCForum.ForumAdmin.Group.Index";
+}
+	<div class="modal hide" data-bind="css: { hide: AddHidden }">
+		<div class="modal-header">
+			<button type="button" class="close" data-bind="click: HideAdd">&times;</button>
+			<h3>@Html.LocalizedString("CreateGroupHeading", ns)</h3>
+		</div>
+		<!-- ko with: CreateModal -->
+		<div class="modal-body">
+			@using (Html.BeginForm("create", "group", new { area = "forumadmin" })) {
+				<fieldset>
+					<legend class="hide"></legend>
+					<div class="control-group" data-bind="css: { error: !Name.isValid() }">
+						@Html.LabelFor(x => x.Name, new { @class = "control-label" })
+						<div class="controls">
+							@Html.TextBoxFor(x => x.Name, new { @class = "input-large", data_bind = "value: Name" })
+						</div>
+					</div>
+				</fieldset>
+			}
+		</div>
+		<div class="modal-footer">
+			<a href="#" class="btn" data-bind="click: $parent.HideAdd">@Html.LocalizedString("AddGroupClose", ns)</a>
+			<a href="#" class="btn btn-primary" data-bind="click: Create">@Html.LocalizedString("AddGroupCreate", ns)</a>
+		</div>
+		<!-- /ko -->
+	</div>

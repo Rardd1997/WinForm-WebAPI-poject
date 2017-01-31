@@ -1,0 +1,118 @@
+﻿@model mvcForum.Web.Areas.ForumAdmin.ViewModels.List.Statistics
+@{
+	String ns = "MVCForum.ForumAdmin.Home.Index";
+	ViewBag.Title = Html.LocalizedString("PageTitle", ns);
+	Layout = "~/Areas/ForumAdmin/Views/Shared/adminlayout.cshtml";
+}
+<header class="jumbotron subhead" id="overview">
+	<h1>@Html.LocalizedString("Heading", ns)</h1>
+</header>
+<section id="stats">
+	<div class="row-fluid">
+		<div class="span12">
+			<div id="boards" class="hide" data-bind="css: { hide: !Loaded() }">
+				<h2>@Html.LocalizedString("BoardsSubHeading", ns)</h2>
+				<div class="alert" data-bind="css: { hide: NoStatus, 'alert-success': Success, 'alert-error': Error }">
+					<a href="#" data-bind="click: HideStatus" class="close">×</a>
+					<h4 class="alert-heading" data-bind="text: StatusHeading"></h4>
+					<span data-bind="text: StatusBody"></span>
+				</div>
+				<table class="table table-bordered table-striped">
+					<thead>
+						<tr>
+							<th>@Html.LocalizedString("ColumnHeadingBoardName", ns)</th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody data-bind="foreach: Boards">
+						<tr>
+							<td data-bind="text: Name"></td>
+							<td>
+								<a href="#" data-bind="attr: { href: '@Url.Action("update", "board", new { area = "forumadmin" })/' + Id }" class="btn btn-primary">@Html.LocalizedString("EditBoard", ns)</a>
+								<a href="#" class="btn btn-warning" data-bind="click: Delete">@Html.LocalizedString("DeleteBoard", ns)</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<a href="#" class="btn btn-primary" data-bind="click: ShowAdd">@Html.LocalizedString("AddBoard", ns)</a>
+			</div>
+			<div class="hide" data-bind="css: { hide: !HeadlinesLoaded() }">
+				<h2>@Html.LocalizedString("NewsSubHeading", ns)</h2>
+				<div class="alert alert-info">
+					<dl data-bind="foreach: Headlines">
+						<dt data-bind="text: Heading"></dt>
+						<dd><span data-bind="text: Datestamp"></span>, @Html.LocalizedString("By", ns) <span data-bind="text: Author"></span>, <a target="_blank" data-bind="attr: { 'href': Url }">@Html.LocalizedString("ReadMore", ns)</a></dd>
+					</dl>
+				</div>
+			</div>
+			<div class="hide" data-bind="css: { hide: !Loaded() }">
+				<h2>@Html.LocalizedString("SubHeading", ns)</h2>
+				<table class="table table-bordered table-striped">
+					<thead>
+						<tr>
+							<th></th>
+							<th></th>
+							<th></th>
+							<th></th>
+						</tr>
+					</thead>
+					<!-- ko with: Statistics -->
+					<tbody>
+						<tr>
+							<td>@Html.LocalizedString("NOPosts", ns)</td>
+							<td data-bind="text: NumberOfPosts"></td>
+							<td>@Html.LocalizedString("PostsPD", ns)</td>
+							<td data-bind="text: PostsPerDay"></td>
+						</tr>
+						<tr>
+							<td>@Html.LocalizedString("NOTopics", ns)</td>
+							<td data-bind="text: NumberOfTopics"></td>
+							<td>@Html.LocalizedString("TopicsPD", ns)</td>
+							<td data-bind="text: TopicsPerDay"></td>
+						</tr>
+						<tr>
+							<td>@Html.LocalizedString("NOUsers", ns)</td>
+							<td data-bind="text: NumberOfUsers"></td>
+							<td>@Html.LocalizedString("UsersPD", ns)</td>
+							<td data-bind="text: UsersPerDay"></td>
+						</tr>
+						<tr>
+							<td>@Html.LocalizedString("NOAttachments", ns)</td>
+							<td data-bind="text: NumberOfAttachments"></td>
+							<td>@Html.LocalizedString("AttachmentsPD", ns)</td>
+							<td data-bind="text: AttachmentsPerDay"></td>
+						</tr>
+						<tr>
+							<td>@Html.LocalizedString("BoardStart", ns)</td>
+							<td data-bind="text: BoardStart"></td>
+							<td>@Html.LocalizedString("AttachmentSize", ns)</td>
+							<td data-bind="text: AttachmentsSize"></td>
+						</tr>
+						<tr>
+							<td>@Html.LocalizedString("Version", ns)</td>
+							<td data-bind="text: Version"></td>
+							<td></td>
+							<td></td>
+						</tr>
+					</tbody>
+					<!-- /ko -->
+				</table>
+			</div>
+		</div>
+	</div>
+	@Html.Partial("NewBoardModal", new mvcForum.Web.Areas.ForumAPI.ViewModels.Board() )
+</section>
+<script type="text/javascript">
+	var statisticsUrl = "@Url.Action("statistics", "board", new { area = "forumapi", id = 1, mode = "json" })";
+	var boardListUrl = "@Url.Action("list", "board", new { area = "forumapi", mode = "json" })";
+	var deleteUrl = "@Url.Action("delete", "board", new { area = "forumapi", mode = "json" })";
+	var createUrl = "@Url.Action("create", "board", new { area = "forumapi", mode = "json" })";
+	var headlinesUrl = "@Url.Action("read", "headline", new { area = "forumapi", mode = "json" })";
+</script>
+
+@section scripts {
+	<script type="text/javascript" src="@Url.Content("~/scripts/knockout.validation.js")"></script>
+	<script type="text/javascript" src="@Url.Content("~/scripts/boostrap-collapse.js")"></script>
+	<script type="text/javascript" src="@Url.Content("~/scripts/common.js")"></script>
+	<script type="text/javascript" src="@Url.Content("~/scripts/viewmodels/statistics.js")"></script>
+}

@@ -1,0 +1,21 @@
+﻿@model Dictionary<string, string>
+@using mvcForum.Web.Helpers;
+<!-- Views/Shared/Breadcrumb.cshtml -->
+							<div id="page-header">
+								<div class="navbar navbar-top">
+									<div class="block-border block-block">
+										<div class="block-content">
+	<ul class="linklist navlinks">
+		<li class="icon-home"><a href="@Url.Action("index", "home", new { area = "forum" })" accesskey="h">@ForumHelper.GetString("Forum")</a>
+@if (Model != null) {
+	foreach (var pair in Model) {
+		<strong>&#8249; </strong><a href="@pair.Key">@pair.Value</a>
+	}
+}
+		</li>
+	</ul>
+   											<div class="block-footer"></div>
+										</div>
+									</div>
+								</div>
+							</div>

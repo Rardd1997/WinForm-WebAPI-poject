@@ -1,0 +1,66 @@
+﻿@model mvcForum.Web.Areas.ForumAdmin.ViewModels.Update.MailViewModel
+@{
+	String ns = "MVCForum.ForumAdmin.Settings.Mail";
+	ViewBag.Title = Html.LocalizedString("PageTitle", ns);
+	Layout = "~/Areas/ForumAdmin/Views/Shared/adminlayout.cshtml";
+}
+<header class="jumbotron subhead" id="overview">
+	<h1>@Html.LocalizedString("Heading", ns)</h1>
+</header>
+<section id="mail">
+	<div class="row-fluid">
+		<ul class="nav nav-tabs">
+			<li><a href="@Url.Action("index", "settings", new { area = "forumadmin" })">@Html.LocalizedString("GeneralSettingsTabTitle", ns)</a></li>
+			<li><a href="@Url.Action("userregistration", "settings", new { area = "forumadmin" })">@Html.LocalizedString("UserRegistrationTabTitle", ns)</a></li>
+			<li class="active"><a href="#">@Html.LocalizedString("MailTabTitle", ns)</a></li>
+		</ul>
+		<div class="span12">
+			@if (TempData.ContainsKey("Saved") && ((Boolean)TempData["Saved"])) {
+				<div class="alert alert-success">
+					<h4 class="alert-heading">@Html.LocalizedString("SuccessHeading", ns)</h4>
+					@Html.LocalizedString("SuccessBody", ns)
+				</div>
+			}
+			<div class="alert alert-success" data-bind="text: Status, visible: Show">
+			</div>
+			@using (Html.BeginForm("mail", "settings", FormMethod.Post, new { @class = "form-horizontal" })) {
+				<fieldset>
+					<legend>@Html.LocalizedString("MailForm", ns)</legend>
+					<div class="control-group">
+						<label class="control-label">@Html.LocalizedString("TestRecipient", ns)</label>
+						<div class="controls">
+							<input type="text" class="span8" data-bind="value: Recipient" />
+						</div>
+					</div>
+					<div class="form-actions">
+						<button type="submit" data-bind="click: Send" class="btn btn-primary">@Html.LocalizedString("TestSend", ns)</button>
+					</div>
+					<hr />
+					<div class="control-group">
+						@Html.LabelFor(x => x.SenderName, new { @class = "control-label" })
+						<div class="controls">
+							@Html.TextBoxFor(x => x.SenderName, new { @class = "span8" })
+						</div>
+					</div>
+					<div class="control-group">
+						@Html.LabelFor(x => x.SenderEmailAddress, new { @class = "control-label" })
+						<div class="controls">
+							@Html.TextBoxFor(x => x.SenderEmailAddress, new { @class = "span8" })
+						</div>
+					</div>
+					<div class="form-actions">
+						<button type="submit" class="btn btn-primary">@Html.LocalizedString("SaveSettings", ns)</button>
+					</div>
+				</fieldset>
+			}
+		</div>
+	</div>
+</section>
+@section scripts {
+	<script type="text/javascript">
+		var sendUrl = "@Url.Action("send", "testmail", new { area = "forumapi", mode = "json" })";
+	</script>
+	<script type="text/javascript" src="@Url.Content("~/scripts/knockout.validation.js")"></script>
+	<script type="text/javascript" src="@Url.Content("~/scripts/common.js")"></script>
+	<script type="text/javascript" src="@Url.Content("~/scripts/viewmodels/mail.js")"></script>
+}

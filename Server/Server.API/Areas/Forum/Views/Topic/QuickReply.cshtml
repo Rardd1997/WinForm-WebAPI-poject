@@ -1,0 +1,33 @@
+﻿@model mvcForum.Web.ViewModels.Create.QuickReplyViewModel
+@using mvcForum.Web.Helpers;
+@using (Html.BeginForm("quick", "message")) {
+	@Html.HiddenFor(t => t.TopicId)
+	<div class="panel" id="postingbox">
+		<div class="block-header"><span><span></span></span></div>
+		<div class="block-content">
+			<div class="block-inner">
+				<h3>@ForumHelper.GetString("CreateMessage.QuickReply")</h3>
+				<fieldset class="fields1">
+					<dl style="clear: left;">
+						<dt>@Html.LabelFor(t => t.Body)</dt>
+						<dd>@Html.Partial(ForumHelper.GetEditorString() + "Editor", String.IsNullOrEmpty(Model.Body) ? "" : Model.Body)</dd>
+					</dl>
+				</fieldset>
+				<div class="block-clear"></div>
+			</div>
+		</div>
+		<div class="block-footer"><span><span></span></span></div>
+	</div>
+	<div class="panel bg2">
+		<div class="block-header"><span><span></span></span></div>
+		<div class="block-content">
+			<div class="block-inner">
+				<fieldset class="submit-buttons">
+					<input type="submit" accesskey="s" tabindex="6" name="post" value="@ForumHelper.GetString("CreateMessage.QuickSubmit")" class="button1 default-submit-action" />&nbsp;
+				</fieldset>
+				<div class="block-clear"> </div>
+			</div>
+		</div>
+		<div class="block-footer"><span><span></span></span></div>
+	</div>
+}

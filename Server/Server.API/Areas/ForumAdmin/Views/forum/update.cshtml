@@ -1,0 +1,112 @@
+﻿@model mvcForum.Web.Areas.ForumAdmin.ViewModels.Forum
+@{
+	String ns = "MVCForum.ForumAdmin.Forum.Index";
+	ViewBag.Title = Html.LocalizedString("PageTitle", ns);
+	Layout = "~/Areas/ForumAdmin/Views/Shared/adminlayout.cshtml";
+}
+<section id="forumsec">
+	<div class="row-fluid">
+		<div class="span12">
+			<div class="alert" data-bind="css: { hide: NoStatus, 'alert-success': Success, 'alert-error': Error }">
+				<a href="#" data-bind="click: HideStatus" class="close">×</a>
+				<h4 class="alert-heading" data-bind="text: StatusHeading"></h4>
+				<span data-bind="text: StatusBody"></span>
+			</div>
+			<!-- ko with: Forum -->
+			<div class="hide" id="forum" data-bind="css: { hide: !Loaded() }">
+				@Html.Partial("BreadcrumbNavigation", Model.Path)
+				@using (Html.BeginForm("update", "forum", new { area = "forumadmin", id = Model.Id }, FormMethod.Post, new { @class = "form-horizontal" })) {
+					<fieldset>
+						<legend>@Html.LocalizedString("UpdateForumForm", ns)</legend>
+						<div class="control-group" data-bind="css: { error: !Name.isValid() }">
+							@Html.LabelFor(x=>x.Name, new { @class = "control-label" })
+							<div class="controls">
+								@Html.TextBoxFor(x => x.Name, new { data_bind = "value: Name", @class = "input-large" })
+							</div>
+						</div>
+						<div class="control-group">
+							@Html.LabelFor(x=>x.Description, new { @class = "control-label" })
+							<div class="controls">
+								@Html.TextAreaFor(x => x.Description, new { data_bind = "value: Description", @class = "span8", rows = 5 })
+							</div>
+						</div>
+						<div class="control-group" data-bind="css: { error: !SortOrder.isValid() }">
+							@Html.LabelFor(x=>x.SortOrder, new { @class = "control-label" })
+							<div class="controls">
+								@Html.TextBoxFor(x => x.SortOrder, new { data_bind = "value: SortOrder", @class = "input-large" })
+							</div>
+						</div>
+						<div class="form-actions">
+							<button type="submit" class="btn btn-primary" data-bind="click: Save, css: { 'disabled': Updating }, text: ButtonText">@Html.LocalizedString("SaveForum", ns)</button>
+						</div>
+					</fieldset>
+				}
+			</div>
+			<div id="forums" class="hide" data-bind="css: { hide: !SubForumsLoaded() }">
+				<h2>@Html.LocalizedString("ForumsSubHeading", ns)</h2>
+				<table class="table table-bordered table-striped">
+					<thead>
+						<tr>
+							<th>@Html.LocalizedString("ColumnHeadingForumName", ns)</th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody data-bind="foreach: SubForums">
+						<tr>
+							<td data-bind="text: Name"></td>
+							<td>
+								<a href="#" data-bind="attr: { href: '@Url.Action("update", "forum", new { area = "forumadmin", id = "" })/' + Id }" class="btn btn-primary">@Html.LocalizedString("EditForum", ns)</a>
+								<a href="#" class="btn btn-warning" data-bind="click: Delete">@Html.LocalizedString("DeleteForum", ns)</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<a href="#" class="btn btn-primary" data-bind="click: $parent.ShowAdd">@Html.LocalizedString("AddForum", ns)</a>
+			</div>
+			<!-- /ko -->
+			<div id="access" class="hide" data-bind="css: { hide: !AccessMasksLoaded() }">
+				<h2>@Html.LocalizedString("AccessMaskHeading", ns)</h2>
+				<table class="table table-bordered table-striped">
+					<thead>
+						<tr>
+							<th>@Html.LocalizedString("ColumnHeadingGroupName", ns)</th>
+							<th>@Html.LocalizedString("ColumnHeadingAccessMaskName", ns)</th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody data-bind="foreach: ForumAccesses">
+						<tr>
+							<td data-bind="text: Group.Name"></td>
+							<td><select data-bind="options: $parent.AccessMasks, optionsCaption: 'Not set', optionsText: 'Name', optionsValue: 'Id', value: AccessMask"></select></td>
+							<td>
+								<a href="#" data-bind="click: Update, css: { 'disabled': Loading }, text: ButtonText" class="btn btn-primary"></a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	@Html.Partial("NewSubForumModal", new mvcForum.Web.Areas.ForumAPI.ViewModels.Forum { CategoryId = Model.CategoryId, Id = Model.Id })
+</section>
+<script type="text/javascript">
+	var readUrl = "@Url.Action("read", "forum", new { area = "forumapi", id = Model.Id, mode = "json" })";
+	var readAccessMasksUrl = "@Url.Action("accessmasklist", "board", new { area = "forumapi", id = Model.BoardId, mode = "json" })";
+	var readGroupsUrl = "@Url.Action("list", "group", new { area = "forumapi", mode = "json" })";
+	var readForumAccessUrl = "@Url.Action("list", "forumaccess", new { area = "forumapi", id = Model.Id, mode = "json" })";
+	var updateUrl = "@Url.Action("update", "forum", new { area = "forumapi", id = Model.Id, mode = "json" })";
+	var forumsUrl = "@Url.Action("list", "forum", new { area = "forumapi", id = Model.Id, mode = "json" })";
+	var createUrl = "@Url.Action("create", "forum", new { area = "forumapi", id = Model.Id, mode = "json" })";
+	var deleteUrl = "@Url.Action("delete", "forum", new { area = "forumapi", id = Model.Id, mode = "json" })";
+	var updateAccessUrl = "@Url.Action("update", "forumaccess", new { area = "forumapi", mode = "json" })";
+	var createAccessUrl = "@Url.Action("create", "forumaccess", new { area = "forumapi", mode = "json" })";
+	var deleteAccessUrl = "@Url.Action("delete", "forumaccess", new { area = "forumapi", mode = "json" })";
+	var forumId = @Model.Id;
+</script>
+
+@section scripts {
+	<script type="text/javascript" src="@Url.Content("~/scripts/knockout.validation.js")"></script>
+	<script type="text/javascript" src="@Url.Content("~/scripts/boostrap-collapse.js")"></script>
+	<script type="text/javascript" src="@Url.Content("~/scripts/common.js")"></script>
+	<script type="text/javascript" src="@Url.Content("~/scripts/viewmodels/forumupdate.js")"></script>
+}

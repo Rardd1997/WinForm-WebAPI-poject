@@ -1,0 +1,138 @@
+﻿@model mvcForum.Web.Areas.ForumAdmin.ViewModels.ForumUser
+@{
+	String ns = "MVCForum.ForumAdmin.User.Update";
+	ViewBag.Title = Html.LocalizedString("PageTitle", ns);
+	Layout = "~/Areas/ForumAdmin/Views/Shared/adminlayout.cshtml";
+}
+<section id="usersec">
+	<div class="row-fluid">
+		<div class="span12">
+			<div class="alert hide" data-bind="css: { hide: NoStatus, 'alert-success': Success, 'alert-error': Error }">
+				<a href="#" data-bind="click: HideStatus" class="close">×</a>
+				<h4 class="alert-heading" data-bind="text: StatusHeading"></h4>
+				<span data-bind="text: StatusBody"></span>
+			</div>
+			<!-- ko with: User -->
+			<div class="hide" id="forum" data-bind="css: { hide: !Loaded() }">
+				@Html.Partial("BreadcrumbNavigation", Model.Path)
+				@using (Html.BeginForm("update", "user", new { area = "forumadmin", id = Model.Id }, FormMethod.Post, new { @class = "form-horizontal" })) {
+					<fieldset>
+						<legend>@Html.LocalizedString("UpdateUserForm", ns)</legend>
+						<div class="control-group">
+							@Html.LabelFor(x => x.Name, new { @class = "control-label" })
+							<div class="controls">
+								<span class="input-xlarge uneditable-input" data-bind="text: Name"></span>
+							</div>
+						</div>
+						<div class="control-group" data-bind="css: { error: !EmailAddress.isValid() }">
+							@Html.LabelFor(x => x.EmailAddress, new { @class = "control-label" })
+							<div class="controls">
+								@Html.TextBoxFor(x => x.EmailAddress, new { data_bind = "value: EmailAddress", @class = "input-large" })
+							</div>
+						</div>
+						<div class="control-group">
+							@Html.LabelFor(x => x.FirstVisit, new { @class = "control-label" })
+							<div class="controls">
+								<span class="input-xlarge uneditable-input" data-bind="text: FirstVisitString"></span>
+							</div>
+						</div>
+						<div class="control-group">
+							@Html.LabelFor(x => x.LatestVisit, new { @class = "control-label" })
+							<div class="controls">
+								<span class="input-xlarge uneditable-input" data-bind="text: LatestVisitString"></span>
+							</div>
+						</div>
+						<div class="control-group">
+							@Html.LabelFor(x => x.LastIP, new { @class = "control-label" })
+							<div class="controls">
+								<div class="input-append">
+									<span class="input-xlarge uneditable-input" data-bind="text: LastIP"></span>
+									<a href="#" data-bind="click: $parent.BanIP, css: { btn: true, 'disabled': !$parent.BanStatusLoaded(), 'btn-warning': !$parent.BannedIP(), 'btn-primary': $parent.BannedIP }, text: $parent.ButtonText"></a>
+								</div>
+							</div>
+						</div>
+						<div class="control-group">
+							@Html.LabelFor(x => x.Active, new { @class = "control-label" })
+							<div class="controls">
+								@Html.CheckBoxFor(x => x.Active, new { data_bind = "checked: Active", @class = "input-large" })
+							</div>
+						</div>
+						<div class="control-group">
+							@Html.LabelFor(x => x.Deleted, new { @class = "control-label" })
+							<div class="controls">
+								@Html.CheckBoxFor(x => x.Deleted, new { data_bind = "checked: Deleted", @class = "input-large" })
+							</div>
+						</div>
+						<div class="form-actions">
+							<button type="submit" class="btn btn-primary" data-bind="click: Save">@Html.LocalizedString("SaveUser", ns)</button>
+							<a class="btn btn-primary" data-bind="css: { disabled: !Locked() }, click: Unlock" href="#">@Html.LocalizedString("LockButton", ns)</a>
+						</div>
+					</fieldset>
+				}
+				@using (Html.BeginForm("update", "user", new { area = "forumadmin", id = Model.Id }, FormMethod.Post, new { @class = "form-horizontal" })) {
+					<fieldset>
+						<legend>@Html.LocalizedString("UpdateRoleForm", ns)</legend>
+						<div class="control-group">
+							<div class="controls">
+								<!-- ko foreach: $parent.Roles -->
+								<label class="checkbox">
+									<input type="checkbox" data-bind="value: $data, checked: model.User.Roles" />
+									<span data-bind="text: $data"></span>
+								</label>
+								<!-- /ko -->
+							</div>
+						</div>
+						<div class="form-actions">
+							<button type="submit" class="btn btn-primary" data-bind="click: SaveRoles">@Html.LocalizedString("SaveRole", ns)</button>
+						</div>
+					</fieldset>
+				}
+			</div>
+			<!-- /ko -->
+			<div class="hide" data-bind="css: { hide: !GroupsLoaded() }">
+				<h2>@Html.LocalizedString("GroupsSubHeading", ns)</h2>
+				<table class="table table-bordered table-striped">
+					<thead>
+						<tr>
+							<th>@Html.LocalizedString("ColumnHeadingGroupName", ns)</th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody data-bind="foreach: Groups">
+						<tr>
+							<td data-bind="text: Name"></td>
+							<td>
+								<a href="#" class="btn btn-warning" data-bind="attr: { 'id': 'Delete' + Name }, click: Delete">@Html.LocalizedString("DeleteGroupMember", ns)</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<a href="#" class="btn btn-primary" data-bind="click: ShowAdd">@Html.LocalizedString("AddGroupMember", ns)</a>
+			</div>
+		</div>
+	</div>
+	@Html.Partial("NewMembershipModal")
+</section>
+<script type="text/javascript">
+	var readUrl = "@Url.Action("read", "user", new { area = "forumapi", id = Model.Id, mode = "json" })";
+	var readMembershipUrl = "@Url.Action("listgroups", "groupmember", new { area = "forumapi", id = Model.Id, mode = "json" })";
+	var deleteMembershipUrl = "@Url.Action("delete", "groupmember", new { area = "forumapi", mode = "json" })";
+	var updateUrl = "@Url.Action("update", "user", new { area = "forumapi", mode = "json" })";
+	var updateRolesUrl = "@Url.Action("updateroles", "user", new { area = "forumapi", mode = "json" })";
+	var listGroupsUrl = "@Url.Action("list", "group", new { area = "forumapi", mode = "json" })";
+	var createMembershipUrl = "@Url.Action("create", "groupmember", new { area = "forumapi", mode = "json" })";
+	var readRoles = "@Url.Action("rolelist", "user", new { area = "forumapi", id = Model.Id, mode = "json" })";
+	var listRoles = "@Url.Action("list", "role", new { area = "forumapi", mode = "json" })";
+	var banUrl = "@Url.Action("add", "banip", new { area = "forumapi", mode = "json" })";
+	var unbanUrl = "@Url.Action("remove", "banip", new { area = "forumapi", mode = "json" })";
+	var banStatusUrl = "@Url.Action("checkstatus", "banip", new { area = "forumapi", mode = "json" })";
+	var unlockUrl = "@Url.Action("unlock", "user", new { area = "forumapi", mode = "json" })";
+	var userId = @Model.Id;
+</script>
+
+@section scripts {
+	<script type="text/javascript" src="@Url.Content("~/scripts/knockout.validation.js")"></script>
+	<script type="text/javascript" src="@Url.Content("~/scripts/boostrap-collapse.js")"></script>
+	<script type="text/javascript" src="@Url.Content("~/scripts/common.js")"></script>
+	<script type="text/javascript" src="@Url.Content("~/scripts/viewmodels/userupdate.js")"></script>
+}
