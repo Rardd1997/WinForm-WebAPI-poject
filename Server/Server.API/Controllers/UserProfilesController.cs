@@ -17,7 +17,14 @@ namespace Server.API.Controllers
         [ActionName("GetProfileByID")]
         public IEnumerable<Profile> GetProfile(int? id = null)
         {
-            return DbRepository.Repository.Profiles.Where(p => id == null || p.ProfileID == id);
+            try
+            {
+                return DbRepository.Repository.Profiles.Where(p => id == null || p.ProfileID == id);
+            }
+            catch (Exception exc)
+            {
+                return null;
+            }
         }
    
     }
