@@ -1,9 +1,6 @@
-<<<<<<< HEAD
 using Server.Domain.Abstract;
 using Server.Domain.Concrete;
 
-=======
->>>>>>> 244fbc2b7c9b47699075edb698d78c45a2ec0bf2
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(Server.API.App_Start.NinjectWebCommon), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(Server.API.App_Start.NinjectWebCommon), "Stop")]
 
@@ -67,10 +64,7 @@ namespace Server.API.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-<<<<<<< HEAD
             kernel.Bind<IDbRepository>().To<AdoNetDbRepository>();
-=======
->>>>>>> 244fbc2b7c9b47699075edb698d78c45a2ec0bf2
         }        
     }
 }

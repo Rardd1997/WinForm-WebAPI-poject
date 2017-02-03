@@ -14,5 +14,12 @@ namespace Server.API.Controllers
 
             return View();
         }
+
+        public ActionResult Profiles()
+        {
+            ViewBag.Title = "Profiles";
+
+            return View();
+        }
     }
 }
