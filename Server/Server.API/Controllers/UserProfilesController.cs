@@ -23,41 +23,62 @@ namespace Server.API.Controllers
 
         [HttpGet]
         [ActionName("GetProfileByID")]
-        public IEnumerable<Profile> GetProfile(int? id = null)
+        public HttpResponseMessage GetProfile(int? id = null)
         {
             try
             {
-                return repository.Profiles.Where(p => id == null || p.ProfileID == id);
+                return Request.CreateResponse<IEnumerable<Profile>>(HttpStatusCode.OK, repository.Profiles.Where(p => id == null || p.ProfileID == id));
             }
-            catch (Exception)
+            catch (Exception exc)
             {
-                return null;
+                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, exc);
             }
         }
 
         [HttpPost]
         [ActionName("PostProfile")]
-        public void PostProfile([FromBody]Profile profile)
+        public HttpResponseMessage PostProfile([FromBody]Profile profile)
         {
-            repository.Profiles.ToList().Add(profile);
-            repository.SaveChanges();
-        }
+            try
+            {
+                repository.SaveProfile(profile);
+                return Request.CreateResponse(HttpStatusCode.OK);
+            }
+            catch (Exception exc)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, exc);
+            }}
 
         [HttpPut]
         [ActionName("PutProfile")]
-        public void PutProfile(int id, [FromBody] Profile profile)
+        public HttpResponseMessage PutProfile(int id, [FromBody] Profile profile)
         {
-            if (profile == null) return;
-
-            List<Profile> profiles = repository.Profiles.ToList();
-
-            if (id == profile.ProfileID)
+            try
             {
-                profiles.Remove(repository.Profiles.First(p => p.ProfileID == id));
-                profiles.Add(profile);
-                repository.SaveChanges();
+                if (profile == null) return Request.CreateResponse(HttpStatusCode.ExpectationFailed);
+                repository.SaveProfile(profile);
+                return Request.CreateResponse(HttpStatusCode.OK);
+            }
+            catch (Exception exc)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, exc);
             }
         }
-   
+
+        [HttpDelete]
+        [ActionName("DeleteProfile")]
+        public HttpResponseMessage DeleteProfile(int id)
+        {
+            try
+            {
+                repository.DeleteProfile(id);
+                return Request.CreateResponse(HttpStatusCode.OK);
+            }
+            catch (Exception exc)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, exc);
+            }
+        }
+
     }
 }

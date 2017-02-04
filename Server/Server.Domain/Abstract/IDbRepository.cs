@@ -10,6 +10,8 @@ namespace Server.Domain.Abstract
     public interface IDbRepository 
     {
         IQueryable<Profile> Profiles { get; }
+        void SaveProfile(Profile profile);
+        Profile DeleteProfile(int id);
         IQueryable<UserLevel> UserLevels { get; }
         IQueryable<Function> Functions { get; }
         IQueryable<LevelFunction> LevelFunctions { get; }
