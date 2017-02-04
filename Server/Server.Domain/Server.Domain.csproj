@@ -56,7 +56,10 @@
     <Compile Include="Concrete\AdoNetDbRepository.cs" />
     <Compile Include="Concrete\EFDBContext.cs" />
     <Compile Include="Concrete\EFDBRepository.cs" />
+    <Compile Include="Entities\Function.cs" />
+    <Compile Include="Entities\LevelFunction.cs" />
     <Compile Include="Entities\Profile.cs" />
+    <Compile Include="Entities\UserLevel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

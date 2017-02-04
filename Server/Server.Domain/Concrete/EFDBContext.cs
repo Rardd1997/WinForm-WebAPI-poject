@@ -11,5 +11,8 @@ namespace Server.Domain.Concrete
     class EFDBContext : DbContext
     {
         public DbSet<Profile> Profiles { get; set; }
+        public DbSet<UserLevel> UserLevels { get; set; }
+        public DbSet<Function> Functions { get; set; }
+        public DbSet<LevelFunction> LevelFunctions { get; set; }
     }
 }

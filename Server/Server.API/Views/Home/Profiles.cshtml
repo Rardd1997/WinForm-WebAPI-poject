@@ -4,35 +4,35 @@
 }
 
 <h2>Profiles</h2>
-<div id="TableBlock"></div>
-<div id="EditBlock">
+<div class="table-responsive" id="TableBlock"></div>
+<div class="form-group" id="EditBlock">
     <p>Edit user</p>
     <table>
-        <tr><td><input type="hidden" id="EditId" /></td><td></td></tr>
-        <tr><td><label>First name: </label></td><td><input type="text" name="EditFirstName" /></td></tr>
-        <tr><td><label>Last name: </label></td><td><input type="text" name="EditLastName" /></td></tr>
-        <tr><td><label>Password: </label></td><td><input type="text" name="EditPassword" /></td></tr>
-        <tr><td><label>Status: </label></td><td><input type="number" name="EditStatus" /></td></tr>
-        <tr><td><label>User level: </label></td><td><input type="number" name="EditLevel" /></td></tr>
-        <tr><td><label>Last login: </label></td><td><input type="datetime" name="EditLastLogin" /></td></tr>
-        <tr><td><label>Last update: </label></td><td><input type="datetime" name="EditLastUpdate" /></td></tr>
-        <tr><td><label>Email: </label></td><td><input type="text" name="EditEmail" /></td></tr>
+        <tr><td><input class="form-control-static" type="hidden" id="EditProfileID" /></td><td></td></tr>
+        <tr><td><label for="EditFirstName">First name: </label></td><td><input class="form-control" type="text" id="EditFirstName" /></td></tr>
+        <tr><td><label for="EditFirstName">Last name: </label></td><td><input class="form-control" type="text" id="EditLastName" /></td></tr>
+        <tr><td><label for="EditFirstName">Password: </label></td><td><input class="form-control" type="text" id="EditPassword" /></td></tr>
+        <tr><td><label for="EditFirstName">Status: </label></td><td><input class="form-control" type="number" id="EditStatus" /></td></tr>
+        <tr><td><label for="EditFirstName">User level: </label></td><td><input class="form-control" type="number" id="EditLevel" /></td></tr>
+        <tr><td><label for="EditFirstName">Last login: </label></td><td><input class="form-control" type="datetime" id="EditLastLogin" /></td></tr>
+        <tr><td><label for="EditFirstName">Last update: </label></td><td><input class="form-control" type="datetime" id="EditLastUpdate" /></td></tr>
+        <tr><td><label for="EditFirstName">Email: </label></td><td><input class="form-control" type="text" id="EditEmail" /></td></tr>
     </table>
-    <button id="EditProfile">Сохранить</button>
+    <button class='btn btn-primary' id="EditProfile">Сохранить</button>
 </div>
 <div id="AddBlock">
     <p>Add user</p>
     <table>
-        <tr><td><label>First name: </label></td><td><input type="text" name="AddFirstName" /></td></tr>
-        <tr><td><label>Last name: </label></td><td><input type="text" name="AddLastName" /></td></tr>
-        <tr><td><label>Password: </label></td><td><input type="text" name="AddPassword" /></td></tr>
-        <tr><td><label>Status: </label></td><td><input type="number" name="AddStatus" /></td></tr>
-        <tr><td><label>User level: </label></td><td><input type="number" name="AddLevel" /></td></tr>
-        <tr><td><label>Last login: </label></td><td><input type="datetime" name="AddLastLogin" /></td></tr>
-        <tr><td><label>Last update: </label></td><td><input type="datetime" name="AddLastUpdate" /></td></tr>
-        <tr><td><label>Email: </label></td><td><input type="text" name="AddEmail" /></td></tr>
+        <tr><td><label for="AddFirstName">First name: </label></td><td><input class="form-control" type="text" id="AddFirstName" /></td></tr>
+        <tr><td><label for="AddFirstName">Last name: </label></td><td><input class="form-control" type="text" id="AddLastName" /></td></tr>
+        <tr><td><label for="AddFirstName">Password: </label></td><td><input class="form-control" type="text" id="AddPassword" /></td></tr>
+        <tr><td><label for="AddFirstName">Status: </label></td><td><input class="form-control" type="number" id="AddStatus" /></td></tr>
+        <tr><td><label for="AddFirstName">User level: </label></td><td><input class="form-control" type="number" id="AddLevel" /></td></tr>
+        <tr><td><label for="AddFirstName">Last login: </label></td><td><input class="form-control" type="datetime" id="AddLastLogin" /></td></tr>
+        <tr><td><label for="AddFirstName">Last update: </label></td><td><input class="form-control" type="datetime" id="AddLastUpdate" /></td></tr>
+        <tr><td><label for="AddFirstName">Email: </label></td><td><input class="form-control" type="text" id="AddEmail" /></td></tr>
     </table>
-    <button id="EddProfile">Сохранить</button>
+    <button class="btn btn-primary" id="AddProfile">Сохранить</button>
 </div>
 
 @section scripts
@@ -114,10 +114,10 @@
     }
     // редактирование книги
     function EditProfile() {
-        var id = $('#EditId').val()
+        var id = $('#EditProfileID').val();
         // получаем новые значения для редактируемой книги
         var profile = {
-            Id: $('#EditId').val(),
+            ProfileID: $('#EditProfileID').val(),
             FirstName: $('#EditFirstName').val(),
             LastName: $('#EditLastName').val(),
             Password: $('#EditPassword').val(),
@@ -142,17 +142,17 @@
     }
  // вывод полученных данных на экран
     function WriteResponse(profiles) {
-        var strResult = "<table><th>ID</th><th>First name</th>" +
+        var strResult = "<table class='table table-hover' id='dbTable'><th>ID</th><th>First name</th>" +
             "<th>Last name</th><th>Password</th><th>Status</th>" +
             "<th>User level</th><th>Last login</th>" +
             "<th>Last update</th><th>Email</th>";
         $.each(profiles, function (index, profile) {
-            strResult += "<tr><td>" + profile.Id + "</td><td> " + profile.FirstName + "</td><td>" +
+            strResult += "<tr><td>" + profile.ProfileID + "</td><td> " + profile.FirstName + "</td><td>" +
             profile.LastName + "</td><td>" + profile.Password + "</td><td>" + profile.Status +
             "</td><td>" + profile.UserLevelID + "</td><td>" + profile.LastLogin +
             "</td><td>" + profile.LastUpdate + "</td><td>" + profile.Email +
-            "</td><td><a id='editItem' data-item='" + profile.Id + "' onclick='EditItem(this);' >Редактировать</a></td>" +
-            "<td><a id='delItem' data-item='" + profile.Id + "' onclick='DeleteItem(this);' >Удалить</a></td></tr>";
+            "</td><td><a id='editItem' data-item='" + profile.ProfileID + "' onclick='EditItem(this);' >Редактировать</a></td>" +
+            "<td><a id='delItem' data-item='" + profile.ProfileID + "' onclick='DeleteItem(this);' >Удалить</a></td></tr>";
         });
         strResult += "</table>";
         $("#TableBlock").html(strResult);
@@ -175,15 +175,15 @@
         if (profile != null) {
             $("#AddBlock").css('display', 'none');
             $("#EditBlock").css('display', 'block');
-            $("#EditId").val(profile.Id);
-            $("#EditFirstName").val(profile.FirstName);
-            $("#EditLastName").val(profile.LastName);
-            $("#EditPassword").val(profile.Password);
-            $("#EditStatus").val(profile.Status);
-            $("#EditLevel").val(profile.UserLevelID);
-            $("#EditLastLogin").val(profile.LastLogin);
-            $("#EditLastUpdate").val(profile.LastUpdate);
-            $("#EditEmail").val(profile.Email);
+            $("#EditProfileID").attr('value', profile.ProfileID);
+            $("#EditFirstName").attr('value', profile.FirstName);
+            $("#EditLastName").attr('value', profile.LastName);
+            $("#EditPassword").attr('value', profile.Password);
+            $("#EditStatus").attr('value', profile.Status);
+            $("#EditLevel").attr('value', profile.UserLevelID);
+            $("#EditLastLogin").attr('value', profile.LastLogin);
+            $("#EditLastUpdate").attr('value', profile.LastUpdate);
+            $("#EditEmail").attr('value', profile.Email);
         }
         else {
             alert("There is mo such profile");
@@ -196,7 +196,7 @@
             type: 'GET',
             dataType: 'json',
             success: function (data) {
-                ShowProfile(data);
+                ShowProfile(data[0]);
             },
             error: function (x, y, z) {
                 alert(x + '\n' + y + '\n' + z);

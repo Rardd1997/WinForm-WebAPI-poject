@@ -14,6 +14,9 @@ namespace Server.Domain.Concrete
         private DataContext context;
 
         public Table<Profile> Profiles => context.GetTable<Profile>();
+        public Table<UserLevel> UserLevels => context.GetTable<UserLevel>();
+        public Table<Function> Functions => context.GetTable<Function>();
+        public Table<LevelFunction> LevelFunctions => context.GetTable<LevelFunction>();
 
         public AdoNetDbContext()
         {

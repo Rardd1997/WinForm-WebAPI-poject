@@ -13,6 +13,9 @@ namespace Server.Domain.Concrete
         EFDBContext context = new EFDBContext();
 
         public IQueryable<Profile> Profiles => context.Profiles;
+        public IQueryable<UserLevel> UserLevels => context.UserLevels;
+        public IQueryable<Function> Functions => context.Functions;
+        public IQueryable<LevelFunction> LevelFunctions => context.LevelFunctions;
 
         public void SaveChanges()
         {

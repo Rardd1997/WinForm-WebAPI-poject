@@ -29,7 +29,7 @@ namespace Server.API.Controllers
             {
                 return repository.Profiles.Where(p => id == null || p.ProfileID == id);
             }
-            catch (Exception exc)
+            catch (Exception)
             {
                 return null;
             }
@@ -39,7 +39,7 @@ namespace Server.API.Controllers
         [ActionName("PostProfile")]
         public void PostProfile([FromBody]Profile profile)
         {
-            repository.Profiles.Concat(new [] {profile});
+            repository.Profiles.ToList().Add(profile);
             repository.SaveChanges();
         }
 
@@ -49,10 +49,12 @@ namespace Server.API.Controllers
         {
             if (profile == null) return;
 
+            List<Profile> profiles = repository.Profiles.ToList();
+
             if (id == profile.ProfileID)
             {
-                repository.Profiles.Where(p => p.ProfileID != id);
-                repository.Profiles.Concat(new[] {profile});
+                profiles.Remove(repository.Profiles.First(p => p.ProfileID == id));
+                profiles.Add(profile);
                 repository.SaveChanges();
             }
         }

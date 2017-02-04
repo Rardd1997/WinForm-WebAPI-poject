@@ -16,6 +16,9 @@ namespace Server.Domain.Concrete
         private AdoNetDbContext context = new AdoNetDbContext();
 
         public IQueryable<Profile> Profiles => context.Profiles;
+        public IQueryable<UserLevel> UserLevels => context.UserLevels;
+        public IQueryable<Function> Functions => context.Functions;
+        public IQueryable<LevelFunction> LevelFunctions => context.LevelFunctions;
 
         public void SaveChanges()
         {
