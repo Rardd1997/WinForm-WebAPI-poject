@@ -29,7 +29,52 @@ namespace Server.API.Controllers
             catch (Exception)
             {
                 return null;
-                throw;
+            }
+        }
+
+        [HttpPost]
+        [ActionName("PostFunction")]
+        public HttpResponseMessage PostFunction([FromBody]Function function)
+        {
+            try
+            {
+                repository.SaveFunction(function);
+                return Request.CreateResponse(HttpStatusCode.OK);
+            }
+            catch (Exception exc)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, exc);
+            }
+        }
+
+        [HttpPut]
+        [ActionName("PutFunction")]
+        public HttpResponseMessage PutFunction(int id, [FromBody] Function function)
+        {
+            try
+            {
+                if (function == null) return Request.CreateResponse(HttpStatusCode.ExpectationFailed);
+                repository.SaveFunction(function);
+                return Request.CreateResponse(HttpStatusCode.OK);
+            }
+            catch (Exception exc)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, exc);
+            }
+        }
+
+        [HttpDelete]
+        [ActionName("DeleteFunction")]
+        public HttpResponseMessage DeleteFunction(int id)
+        {
+            try
+            {
+                repository.DeleteFunction(id);
+                return Request.CreateResponse(HttpStatusCode.OK);
+            }
+            catch (Exception exc)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, exc);
             }
         }
     }

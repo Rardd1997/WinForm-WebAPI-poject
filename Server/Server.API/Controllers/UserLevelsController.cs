@@ -31,5 +31,52 @@ namespace Server.API.Controllers
                 return null;
             }
         }
+
+        [HttpPost]
+        [ActionName("PostUserLevel")]
+        public HttpResponseMessage PostUserLevel([FromBody]UserLevel level)
+        {
+            try
+            {
+                repository.SaveUserLevel(level);
+                return Request.CreateResponse(HttpStatusCode.OK);
+            }
+            catch (Exception exc)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, exc);
+            }
+        }
+
+        [HttpPut]
+        [ActionName("PutUserLevel")]
+        public HttpResponseMessage PutUserLevel(int id, [FromBody] UserLevel userLevel)
+        {
+            try
+            {
+                if (userLevel == null) return Request.CreateResponse(HttpStatusCode.ExpectationFailed);
+                repository.SaveUserLevel(userLevel);
+                return Request.CreateResponse(HttpStatusCode.OK);
+            }
+            catch (Exception exc)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, exc);
+            }
+        }
+
+        [HttpDelete]
+        [ActionName("DeleteUserLevel")]
+        public HttpResponseMessage DeleteUserLevel(int id)
+        {
+            try
+            {
+                repository.DeleteUserLevel(id);
+                return Request.CreateResponse(HttpStatusCode.OK);
+            }
+            catch (Exception exc)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, exc);
+            }
+        }
+
     }
 }

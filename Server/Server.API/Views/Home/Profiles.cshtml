@@ -1,207 +1,318 @@
-﻿
+﻿@model Server.Domain.Abstract.IDbRepository
 @{
     ViewBag.Title = "Profiles";
 }
 
 <h2>Profiles</h2>
 <div class="table-responsive" id="TableBlock"></div>
-<div class="form-group" id="EditBlock">
-    <p>Edit user</p>
-    <table>
-        <tr><td><input class="form-control-static" type="hidden" id="EditProfileID" /></td><td></td></tr>
-        <tr><td><label for="EditFirstName">First name: </label></td><td><input class="form-control" type="text" id="EditFirstName" /></td></tr>
-        <tr><td><label for="EditFirstName">Last name: </label></td><td><input class="form-control" type="text" id="EditLastName" /></td></tr>
-        <tr><td><label for="EditFirstName">Password: </label></td><td><input class="form-control" type="text" id="EditPassword" /></td></tr>
-        <tr><td><label for="EditFirstName">Status: </label></td><td><input class="form-control" type="number" id="EditStatus" /></td></tr>
-        <tr><td><label for="EditFirstName">User level: </label></td><td><input class="form-control" type="number" id="EditLevel" /></td></tr>
-        <tr><td><label for="EditFirstName">Last login: </label></td><td><input class="form-control" type="datetime" id="EditLastLogin" /></td></tr>
-        <tr><td><label for="EditFirstName">Last update: </label></td><td><input class="form-control" type="datetime" id="EditLastUpdate" /></td></tr>
-        <tr><td><label for="EditFirstName">Email: </label></td><td><input class="form-control" type="text" id="EditEmail" /></td></tr>
-    </table>
-    <button class='btn btn-primary' id="EditProfile">Сохранить</button>
+<div id="EditBlock">
+    <div class="container">
+        
+        <div class="form-group row">
+            <h4 class="col-sm-2">
+                <span class="label label-primary">Edit user</span>
+            </h4>
+        </div>
+        <input class="form-control-static" type="hidden" id="EditProfileID" />
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label" for="EditFirstName">First name: </label>
+            <div class="col-sm-10">
+                <input class="form-control" type="text" id="EditFirstName" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label" for="EditFirstName">Last name: </label>
+            <div class="col-sm-10">
+                <input class="form-control" type="text" id="EditLastName" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label" for="EditPassword">Password: </label>
+            <div class="col-sm-10">
+                <input class="form-control" type="text" id="EditPassword" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label" for="EditStatus">Status: </label>
+            <div class="col-sm-10">
+                <input class="form-control" type="number" id="EditStatus" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label" for="EditLevel">User level: </label>
+            <div class="col-sm-10">
+                <!-- <input class="form-control" type="number" id="EditLevel" /> -->
+                <select class="form-control" id="EditLevel">
+                </select>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label" for="EditLastLogin">Last login: </label>
+            <div class="col-sm-10">
+                <input class="form-control" type="datetime" id="EditLastLogin" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label" for="EditLastUpdate">Last update: </label>
+            <div class="col-sm-10">
+                <input class="form-control" type="datetime" id="EditLastUpdate" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label" for="EditEmail">Email: </label>
+            <div class="col-sm-10">
+                <input class="form-control" type="text" id="EditEmail" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button class='btn btn-primary' id="EditProfile">Save</button>
+            </div>
+        </div>
+    </div>
 </div>
 <div id="AddBlock">
-    <p>Add user</p>
-    <table>
-        <tr><td><label for="AddFirstName">First name: </label></td><td><input class="form-control" type="text" id="AddFirstName" /></td></tr>
-        <tr><td><label for="AddFirstName">Last name: </label></td><td><input class="form-control" type="text" id="AddLastName" /></td></tr>
-        <tr><td><label for="AddFirstName">Password: </label></td><td><input class="form-control" type="text" id="AddPassword" /></td></tr>
-        <tr><td><label for="AddFirstName">Status: </label></td><td><input class="form-control" type="number" id="AddStatus" /></td></tr>
-        <tr><td><label for="AddFirstName">User level: </label></td><td><input class="form-control" type="number" id="AddLevel" /></td></tr>
-        <tr><td><label for="AddFirstName">Last login: </label></td><td><input class="form-control" type="datetime" id="AddLastLogin" /></td></tr>
-        <tr><td><label for="AddFirstName">Last update: </label></td><td><input class="form-control" type="datetime" id="AddLastUpdate" /></td></tr>
-        <tr><td><label for="AddFirstName">Email: </label></td><td><input class="form-control" type="text" id="AddEmail" /></td></tr>
-    </table>
-    <button class="btn btn-primary" id="AddProfile">Сохранить</button>
+    <div class="container">
+        <div class="form-group row">
+            <h4 class="col-sm-2">
+                <span class="label label-primary">Add user</span>
+            </h4>
+        </div>
+        <input class="form-control-static" type="hidden" id="AddProfileID" />
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label" for="AddFirstName">First name: </label>
+            <div class="col-sm-10">
+                <input class="form-control" type="text" id="AddFirstName" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label" for="AddFirstName">Last name: </label>
+            <div class="col-sm-10">
+                <input class="form-control" type="text" id="AddLastName" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label" for="AddFirstName">Password: </label>
+            <div class="col-sm-10">
+                <input class="form-control" type="text" id="AddPassword" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label" for="AddFirstName">Status: </label>
+            <div class="col-sm-10">
+                <input class="form-control" type="number" id="AddStatus" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label" for="AddFirstName">User level: </label>
+            <div class="col-sm-10">
+                <input class="form-control" type="number" id="AddLevel" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label" for="AddFirstName">Last login: </label>
+            <div class="col-sm-10">
+                <input class="form-control" type="datetime" id="AddLastLogin" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label" for="AddFirstName">Last update: </label>
+            <div class="col-sm-10">
+                <input class="form-control" type="datetime" id="AddLastUpdate" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label" for="AddFirstName">Email: </label>
+            <div class="col-sm-10">
+                <input class="form-control" type="text" id="AddEmail" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button class='btn btn-primary' id="AddProfile">Add</button>
+            </div>
+        </div>
+    </div>
 </div>
+
+@section styles
+{
+    <style type="text/css">
+    #EditBlock {
+        display: none;
+    }
+    </style>
+}
 
 @section scripts
 {
     <script type="text/javascript">
-    $(document).ready(function () {
+        $(document).ready(function () {
 
-        GetAllProfiles();
+            GetAllProfiles();
 
-        $("#EditProfile").click(function (event) {
-            event.preventDefault();
-            EditProfile();
+            $("#EditProfile").click(function (event) {
+                event.preventDefault();
+                EditProfile();
+            });
+
+            $("#AddProfile").click(function (event) {
+                event.preventDefault();
+                AddProfile();
+            });
+
         });
+        // Получение всех книг по ajax-запросу
+        function GetAllProfiles() {
 
-        $("#AddProfile").click(function (event) {
-            event.preventDefault();
-            AddProfile();
-        });
-
-    });
-    // Получение всех книг по ajax-запросу
-    function GetAllProfiles() {
-
-        $("#AddBlock").css('display', 'block');
-        $("#EditBlock").css('display', 'none');
-        $.ajax({
-            url: '/api/UserProfiles/',
-            type: 'GET',
-            dataType: 'json',
-            success: function (data) {
-                WriteResponse(data);
-            },
-            error: function (x, y, z) {
-                alert(x + '\n' + y + '\n' + z);
-            }
-        });
-    }
- // Добавление новой книги
-    function AddProfile() {
-        // получаем значения для добавляемой книги
-        var profile = {
-            FirstName: $('#AddFirstName').val(),
-            LastName: $('#AddLastName').val(),
-            Password: $('#AddPassword').val(),
-            Status: $('#AddStatus').val(),
-            UserLevelID: $('#AddLevel').val(),
-            LastLogin: $('#AddLastLogin').val(),
-            LastUpdate: $('#AddLastUpdate').val(),
-            Email: $('#AddEmail').val()
-        };
-
-        $.ajax({
-            url: '/api/UserProfiles/',
-            type: 'POST',
-            data: JSON.stringify(profile),
-            contentType: "application/json;charset=utf-8",
-            success: function (data) {
-                GetAllProfiles();
-            },
-            error: function (x, y, z) {
-                alert(x + '\n' + y + '\n' + z);
-            }
-        });
-    }
- // Удаление книги
-    function DeleteProfile(id) {
-
-        $.ajax({
-            url: '/api/UserProfiles/' + id,
-            type: 'DELETE',
-            contentType: "application/json;charset=utf-8",
-            success: function (data) {
-                GetAllProfiles();
-            },
-            error: function (x, y, z) {
-                alert(x + '\n' + y + '\n' + z);
-            }
-        });
-    }
-    // редактирование книги
-    function EditProfile() {
-        var id = $('#EditProfileID').val();
-        // получаем новые значения для редактируемой книги
-        var profile = {
-            ProfileID: $('#EditProfileID').val(),
-            FirstName: $('#EditFirstName').val(),
-            LastName: $('#EditLastName').val(),
-            Password: $('#EditPassword').val(),
-            Status: $('#EditStatus').val(),
-            UserLevelID: $('#EditLevel').val(),
-            LastLogin: $('#EditLastLogin').val(),
-            LastUpdate: $('#EditLastUpdate').val(),
-            Email: $('#EditEmail').val()
-        };
-        $.ajax({
-            url: '/api/UserProfiles/' + id,
-            type: 'PUT',
-            data: JSON.stringify(profile),
-            contentType: "application/json;charset=utf-8",
-            success: function (data) {
-                GetAllProfiles();
-            },
-            error: function (x, y, z) {
-                alert(x + '\n' + y + '\n' + z);
-            }
-        });
-    }
- // вывод полученных данных на экран
-    function WriteResponse(profiles) {
-        var strResult = "<table class='table table-hover' id='dbTable'><th>ID</th><th>First name</th>" +
-            "<th>Last name</th><th>Password</th><th>Status</th>" +
-            "<th>User level</th><th>Last login</th>" +
-            "<th>Last update</th><th>Email</th>";
-        $.each(profiles, function (index, profile) {
-            strResult += "<tr><td>" + profile.ProfileID + "</td><td> " + profile.FirstName + "</td><td>" +
-            profile.LastName + "</td><td>" + profile.Password + "</td><td>" + profile.Status +
-            "</td><td>" + profile.UserLevelID + "</td><td>" + profile.LastLogin +
-            "</td><td>" + profile.LastUpdate + "</td><td>" + profile.Email +
-            "</td><td><a id='editItem' data-item='" + profile.ProfileID + "' onclick='EditItem(this);' >Редактировать</a></td>" +
-            "<td><a id='delItem' data-item='" + profile.ProfileID + "' onclick='DeleteItem(this);' >Удалить</a></td></tr>";
-        });
-        strResult += "</table>";
-        $("#TableBlock").html(strResult);
-
-    }
-    // обработчик удаления
-    function DeleteItem(el) {
-        // получаем id удаляемого объекта
-        var id = $(el).attr('data-item');
-        DeleteProfile(id);
-    }
-    // обработчик редактирования
-    function EditItem (el) {
-        // получаем id редактируемого объекта
-        var id = $(el).attr('data-item');
-        GetProfile(id);
-    }
-    // вывод данных редактируемой книги в поля для редактирования
-    function ShowProfile(profile) {
-        if (profile != null) {
-            $("#AddBlock").css('display', 'none');
-            $("#EditBlock").css('display', 'block');
-            $("#EditProfileID").attr('value', profile.ProfileID);
-            $("#EditFirstName").attr('value', profile.FirstName);
-            $("#EditLastName").attr('value', profile.LastName);
-            $("#EditPassword").attr('value', profile.Password);
-            $("#EditStatus").attr('value', profile.Status);
-            $("#EditLevel").attr('value', profile.UserLevelID);
-            $("#EditLastLogin").attr('value', profile.LastLogin);
-            $("#EditLastUpdate").attr('value', profile.LastUpdate);
-            $("#EditEmail").attr('value', profile.Email);
+            $("#AddBlock").css('display', 'block');
+            $("#EditBlock").css('display', 'none');
+            $.ajax({
+                url: '/api/UserProfiles/',
+                type: 'GET',
+                dataType: 'json',
+                success: function (data) {
+                    WriteResponse(data);
+                },
+                error: function (x, y, z) {
+                    alert(x + '\n' + y + '\n' + z);
+                }
+            });
         }
-        else {
-            alert("There is mo such profile");
+        // Добавление новой книги
+        function AddProfile() {
+            // получаем значения для добавляемой книги
+            var profile = {
+                FirstName: $('#AddFirstName').val(),
+                LastName: $('#AddLastName').val(),
+                Password: $('#AddPassword').val(),
+                Status: $('#AddStatus').val(),
+                UserLevelID: $('#AddLevel').val(),
+                LastLogin: $('#AddLastLogin').val(),
+                LastUpdate: $('#AddLastUpdate').val(),
+                Email: $('#AddEmail').val()
+            };
+
+            $.ajax({
+                url: '/api/UserProfiles/',
+                type: 'POST',
+                data: JSON.stringify(profile),
+                contentType: "application/json;charset=utf-8",
+                success: function (data) {
+                    GetAllProfiles();
+                },
+                error: function (x, y, z) {
+                    alert(x + '\n' + y + '\n' + z);
+                }
+            });
         }
-    }
-    // запрос книги на редактирование
-    function GetProfile(id) {
-        $.ajax({
-            url: '/api/UserProfiles/' + id,
-            type: 'GET',
-            dataType: 'json',
-            success: function (data) {
-                ShowProfile(data[0]);
-            },
-            error: function (x, y, z) {
-                alert(x + '\n' + y + '\n' + z);
+        // Удаление книги
+        function DeleteProfile(id) {
+
+            $.ajax({
+                url: '/api/UserProfiles/' + id,
+                type: 'DELETE',
+                contentType: "application/json;charset=utf-8",
+                success: function (data) {
+                    GetAllProfiles();
+                },
+                error: function (x, y, z) {
+                    alert(x + '\n' + y + '\n' + z);
+                }
+            });
+        }
+        // редактирование книги
+        function EditProfile() {
+            var id = $('#EditProfileID').val();
+            // получаем новые значения для редактируемой книги
+            var profile = {
+                ProfileID: $('#EditProfileID').val(),
+                FirstName: $('#EditFirstName').val(),
+                LastName: $('#EditLastName').val(),
+                Password: $('#EditPassword').val(),
+                Status: $('#EditStatus').val(),
+                UserLevelID: $('#EditLevel').val(),
+                LastLogin: $('#EditLastLogin').val(),
+                LastUpdate: $('#EditLastUpdate').val(),
+                Email: $('#EditEmail').val()
+            };
+            $.ajax({
+                url: '/api/UserProfiles/' + id,
+                type: 'PUT',
+                data: JSON.stringify(profile),
+                contentType: "application/json;charset=utf-8",
+                success: function (data) {
+                    GetAllProfiles();
+                },
+                error: function (x, y, z) {
+                    alert(x + '\n' + y + '\n' + z);
+                }
+            });
+        }
+        // вывод полученных данных на экран
+        function WriteResponse(profiles) {
+            var strResult = "<table class='table table-hover' id='dbTable'><th>ID</th><th>First name</th>" +
+                "<th>Last name</th><th>Password</th><th>Status</th>" +
+                "<th>User level</th><th>Last login</th>" +
+                "<th>Last update</th><th>Email</th>";
+            $.each(profiles, function (index, profile) {
+                strResult += "<tr><td>" + profile.ProfileID + "</td><td> " + profile.FirstName + "</td><td>" +
+                profile.LastName + "</td><td>" + profile.Password + "</td><td>" + profile.Status +
+                "</td><td>" + profile.UserLevelID + "</td><td>" + profile.LastLogin +
+                "</td><td>" + profile.LastUpdate + "</td><td>" + profile.Email +
+                "</td><td><a id='editItem' data-item='" + profile.ProfileID + "' onclick='EditItem(this);' >Edit</a></td>" +
+                "<td><a id='delItem' data-item='" + profile.ProfileID + "' onclick='DeleteItem(this);' >Delete</a></td></tr>";
+            });
+            strResult += "</table>";
+            $("#TableBlock").html(strResult);
+
+        }
+        // обработчик удаления
+        function DeleteItem(el) {
+            // получаем id удаляемого объекта
+            var id = $(el).attr('data-item');
+            DeleteProfile(id);
+        }
+
+        function EditItem(el) {
+            // получаем id редактируемого объекта
+            var id = $(el).attr('data-item');
+            GetProfile(id);
+        }
+
+        function ShowProfile(profile) {
+            if (profile != null) {
+                $("#AddBlock").css('display', 'none');
+                $("#EditBlock").css('display', 'block');
+                $("#EditProfileID").attr('value', profile.ProfileID);
+                $("#EditFirstName").attr('value', profile.FirstName);
+                $("#EditLastName").attr('value', profile.LastName);
+                $("#EditPassword").attr('value', profile.Password);
+                $("#EditStatus").attr('value', profile.Status);
+                //$("#EditLevel").attr('value', profile.UserLevelID);
+                $.each(@Model.Userlevels)
+                $("#EditLevel").append($("<option></option>").attr())
+                $("#EditLastLogin").attr('value', profile.LastLogin);
+                $("#EditLastUpdate").attr('value', profile.LastUpdate);
+                $("#EditEmail").attr('value', profile.Email);
             }
-        });
-    }
+            else {
+                alert("There is mo such profile");
+            }
+        }
+        // запрос книги на редактирование
+        function GetProfile(id) {
+            $.ajax({
+                url: '/api/UserProfiles/' + id,
+                type: 'GET',
+                dataType: 'json',
+                success: function (data) {
+                    ShowProfile(data[0]);
+                },
+                error: function (x, y, z) {
+                    alert(x + '\n' + y + '\n' + z);
+                }
+            });
+        }
     </script>
 }

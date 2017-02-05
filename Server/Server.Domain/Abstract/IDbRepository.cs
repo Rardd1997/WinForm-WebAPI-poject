@@ -12,9 +12,19 @@ namespace Server.Domain.Abstract
         IQueryable<Profile> Profiles { get; }
         void SaveProfile(Profile profile);
         Profile DeleteProfile(int id);
+
         IQueryable<UserLevel> UserLevels { get; }
+        void SaveUserLevel(UserLevel level);
+        UserLevel DeleteUserLevel(int id);
+
         IQueryable<Function> Functions { get; }
+        void SaveFunction(Function function);
+        Function DeleteFunction(int id);
+
         IQueryable<LevelFunction> LevelFunctions { get; }
+        void SaveLevelFunction(LevelFunction lFunction);
+        LevelFunction DeleteLevelFunction(int id);
+
         void SaveChanges();
     }
 }

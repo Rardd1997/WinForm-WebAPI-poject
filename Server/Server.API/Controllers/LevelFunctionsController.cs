@@ -31,5 +31,51 @@ namespace Server.API.Controllers
                 return null;
             }
         }
+
+        [HttpPost]
+        [ActionName("PostLevelFunction")]
+        public HttpResponseMessage PostLevelFunction([FromBody]LevelFunction levelFunction)
+        {
+            try
+            {
+                repository.SaveLevelFunction(levelFunction);
+                return Request.CreateResponse(HttpStatusCode.OK);
+            }
+            catch (Exception exc)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, exc);
+            }
+        }
+
+        [HttpPut]
+        [ActionName("PutLevelFunction")]
+        public HttpResponseMessage PutLevelFunction(int id, [FromBody] LevelFunction levelFunction)
+        {
+            try
+            {
+                if (levelFunction == null) return Request.CreateResponse(HttpStatusCode.ExpectationFailed);
+                repository.SaveLevelFunction(levelFunction);
+                return Request.CreateResponse(HttpStatusCode.OK);
+            }
+            catch (Exception exc)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, exc);
+            }
+        }
+
+        [HttpDelete]
+        [ActionName("DeleteLevelFunction")]
+        public HttpResponseMessage DeleteLevelFunction(int id)
+        {
+            try
+            {
+                repository.DeleteLevelFunction(id);
+                return Request.CreateResponse(HttpStatusCode.OK);
+            }
+            catch (Exception exc)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, exc);
+            }
+        }
     }
 }

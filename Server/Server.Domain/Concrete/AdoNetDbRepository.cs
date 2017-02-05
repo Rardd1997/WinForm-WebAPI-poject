@@ -47,9 +47,90 @@ namespace Server.Domain.Concrete
             }
             return dbProfile;
         }
+
         public IQueryable<UserLevel> UserLevels => context.UserLevels;
+
+        public void SaveUserLevel(UserLevel level)
+        {
+            if (level.LevelID == 0)
+            {
+                context.UserLevels.InsertOnSubmit(level);
+            }
+            else
+            {
+                UserLevel dbLevel = context.UserLevels.First(l => l.LevelID == level.LevelID);
+                dbLevel.LevelName = level.LevelName;
+                dbLevel.LevelDescription = level.LevelDescription;
+            }
+            context.SaveChanges();
+        }
+
+        public UserLevel DeleteUserLevel(int id)
+        {
+            UserLevel dbLevel = context.UserLevels.First(l => l.LevelID == id);
+            if (dbLevel != null)
+            {
+                context.UserLevels.DeleteOnSubmit(dbLevel);
+                context.SaveChanges();
+            }
+            return dbLevel;
+        }
+
         public IQueryable<Function> Functions => context.Functions;
+
+        public void SaveFunction(Function function)
+        {
+            if (function.FunctionID == 0)
+            {
+                context.Functions.InsertOnSubmit(function);
+            }
+            else
+            {
+                Function dbFunction = context.Functions.First(f => f.FunctionID == function.FunctionID);
+                dbFunction.FunctionName = function.FunctionName;
+                dbFunction.FunctionCode = function.FunctionCode;
+            }
+            context.SaveChanges();
+        }
+
+        public Function DeleteFunction(int id)
+        {
+            Function dbFunction = context.Functions.First(f => f.FunctionID == id);
+            if (dbFunction != null)
+            {
+                context.Functions.DeleteOnSubmit(dbFunction);
+                context.SaveChanges();
+            }
+            return dbFunction;
+        }
+
         public IQueryable<LevelFunction> LevelFunctions => context.LevelFunctions;
+
+        public void SaveLevelFunction(LevelFunction levelFunction)
+        {
+            if (levelFunction.RecordID == 0)
+            {
+                context.LevelFunctions.InsertOnSubmit(levelFunction);
+            }
+            else
+            {
+                LevelFunction dbLevelFunction = context.LevelFunctions.First(lf => lf.RecordID == levelFunction.RecordID);
+                dbLevelFunction.FunctionID = levelFunction.FunctionID;
+                dbLevelFunction.UserLevelID = levelFunction.UserLevelID;
+            }
+            context.SaveChanges();
+        }
+
+        public LevelFunction DeleteLevelFunction(int id)
+        {
+            LevelFunction dbLevelFunction = context.LevelFunctions.First(lf => lf.RecordID == id);
+            if (dbLevelFunction != null)
+            {
+                context.LevelFunctions.DeleteOnSubmit(dbLevelFunction);
+                context.SaveChanges();
+            }
+            return dbLevelFunction;
+        }
 
         public void SaveChanges()
         {
